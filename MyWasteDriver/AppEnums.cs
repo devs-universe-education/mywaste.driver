@@ -1,7 +1,9 @@
 namespace MyWasteDriver
 {
 	public enum AppPages {
-		Main
+		Main,
+		Login,
+		Orders
 	}
 
 	public enum NavigationMode {
