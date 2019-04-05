@@ -4,12 +4,12 @@ using System.Windows.Input;
 
 namespace MyWasteDriver.BL.ViewModels.Account
 {
-	class LoginViewModel : BaseViewModel
+	class LoginViewModel : BaseViewModel 
 	{
 
 
-		public ICommand GoToOrdersCommand => GetNavigateToCommand(AppPages.Orders, NavigationMode.Root, newNavigationStack: true, withAnimation: false);
-
+		public ICommand GoToOrdersCommand => GetNavigateToCommand(AppPages.Orders, NavigationMode.Normal);
+		
 
 
 		public override async Task OnPageAppearing() {

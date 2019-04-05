@@ -24,10 +24,10 @@
 				    <Image HorizontalOptions="Center" VerticalOptions="Center"
 				           WidthRequest="300" HeightRequest="300"
 				           Source="{Binding SampleObject.ImageUrl}"/>
-					 <Button Text="Show Alert"
-							 Command="{Binding SampleCommand}"
-					           VerticalOptions="CenterAndExpand" 
-					           HorizontalOptions="CenterAndExpand"/>
+					<Button Text="Show Alert"
+							Command="{Binding SampleCommand}"
+					        VerticalOptions="CenterAndExpand" 
+					        HorizontalOptions="CenterAndExpand"/>
 			    </StackLayout>
 		    </controls:StateCondition>
 
