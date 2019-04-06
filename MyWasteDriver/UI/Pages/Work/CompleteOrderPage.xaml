@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:BasePage
+			 xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages"
+			 xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyWasteDriver.UI.Pages.Work.CompleteOrderPage"
+			 Title="Заказы:">
+	<ContentPage.Content>
+      <StackLayout>
+          <Label Text="CompleteOrder" />
+      </StackLayout>
+  </ContentPage.Content>
+</pages:BasePage>

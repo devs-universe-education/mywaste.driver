@@ -3,7 +3,10 @@ namespace MyWasteDriver
 	public enum AppPages {
 		Main,
 		Login,
-		Orders
+		Orders,
+		OrderInfo,
+		CurrentOrder,
+		CompleteOrder
 	}
 
 	public enum NavigationMode {

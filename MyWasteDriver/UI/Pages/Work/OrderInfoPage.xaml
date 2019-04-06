@@ -2,20 +2,18 @@
 <pages:BasePage xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages"
 			 xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyWasteDriver.UI.Pages.Work.OrdersPage">
-	
+             x:Class="MyWasteDriver.UI.Pages.Work.OrderInfoPage">
   <ContentPage.Content>
       <StackLayout>
 		  
-          <Label Text="Orders page"
+          <Label Text="Order info page"
 		  VerticalOptions="CenterAndExpand"
 	      HorizontalOptions="CenterAndExpand"/>
+			<Button Text="GoToCurrentOrder"
+				  Command="{Binding GoToCurrentOrderCommand}"
+				  VerticalOptions="CenterAndExpand"
+				  HorizontalOptions="CenterAndExpand"/>
 
-			<Button
-			Text="GoToOrderInfo"
-			Command="{Binding GoToOrderInfoCommand}"
-			VerticalOptions="CenterAndExpand" 
-			HorizontalOptions="CenterAndExpand"/>
 
 
 

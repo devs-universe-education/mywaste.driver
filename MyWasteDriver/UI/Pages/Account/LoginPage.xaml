@@ -24,6 +24,7 @@
 
 					<Button Text="Login"
 				  Command="{Binding GoToOrdersCommand}"
+							
 				  VerticalOptions="CenterAndExpand"
 				  HorizontalOptions="CenterAndExpand"/>
 				</StackLayout>

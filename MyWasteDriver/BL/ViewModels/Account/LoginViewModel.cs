@@ -8,7 +8,7 @@ namespace MyWasteDriver.BL.ViewModels.Account
 	{
 
 
-		public ICommand GoToOrdersCommand => GetNavigateToCommand(AppPages.Orders, NavigationMode.Normal);
+		public ICommand GoToOrdersCommand => GetNavigateToCommand(AppPages.Orders, NavigationMode.Normal, null, false, true, false);
 		
 
 
