@@ -5,22 +5,207 @@
              x:Class="MyWasteDriver.UI.Pages.Work.OrdersPage">
 	
   <ContentPage.Content>
-      <StackLayout>
-		  
-          <Label Text="Orders page"
-		  VerticalOptions="CenterAndExpand"
-	      HorizontalOptions="CenterAndExpand"/>
-
-			<Button
-			Text="GoToOrderInfo"
-			Command="{Binding GoToOrderInfoCommand}"
-			VerticalOptions="CenterAndExpand" 
-			HorizontalOptions="CenterAndExpand"/>
+		<ScrollView  >
+			<StackLayout Padding="10,0,10,0">
+				<Label Text="Заказы:" FontSize="Medium" FontFamily="Calibry"
+		  VerticalOptions="Start"   HorizontalOptions="Start"/>
 
 
+				<Frame CornerRadius="5" HasShadow="True">
+					<AbsoluteLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,20,20">
+						<AbsoluteLayout.GestureRecognizers>
+							<SwipeGestureRecognizer Direction="Left" Command="{Binding GoToOrderInfoCommand}"></SwipeGestureRecognizer>
+						</AbsoluteLayout.GestureRecognizers>
+						<Label 
+						Text="20.01.2018" FontSize="Micro"
+						AbsoluteLayout.LayoutBounds="-10,-10,AutoSize,AutoSize"
+						Margin="0,0,0,10"
+						/>
+						<Label
+							Text="2:58"	FontSize="Micro"
+							AbsoluteLayout.LayoutFlags="XProportional"
+						AbsoluteLayout.LayoutBounds="1.025,-10,AutoSize,AutoSize" Margin="0,0,0,10"
+							/>
+						<Label
+							Text="Ватутина 15, Коминтерновский район" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,10,AutoSize,AutoSize"
+							Margin="0,0,0,10"
+							/>
+						<Label
+							Text="Картон , пластик " FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,30,AutoSize,AutoSize"
+						Margin="0,0,0,-10"
+							/>
+						<Label
+							Text="50*40*35" FontSize="Micro"
+							AbsoluteLayout.LayoutFlags="XProportional"
+							AbsoluteLayout.LayoutBounds="0.6,30,AutoSize,AutoSize"
+							Margin="0,0,0,-10"
+							/>
+						<Label AbsoluteLayout.LayoutFlags="XProportional"
+							Text="45 кг" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="1.025,30,AutoSize,AutoSize"
+							Margin="0,0,0,-10"
+							/>
+					</AbsoluteLayout>
+				
+				</Frame>
 
+				<Frame CornerRadius="5" HasShadow="True">
+					<AbsoluteLayout>
+						<AbsoluteLayout.GestureRecognizers>
+							<SwipeGestureRecognizer Direction="Left" Command="{Binding GoToOrderInfoCommand}"></SwipeGestureRecognizer>
+						</AbsoluteLayout.GestureRecognizers>
+						<Label 
+						Text="20.01.2018" FontSize="Micro"
+						AbsoluteLayout.LayoutBounds="-10,-15,AutoSize,AutoSize"
+						Margin="0,0,0,10"
+						/>
+						<Label
+							Text="2:58"	FontSize="Micro"
+						AbsoluteLayout.LayoutBounds="180,-15,AutoSize,AutoSize" Margin="0,0,0,10"
+							/>
+						<Label
+							Text="Ватутина 15, Коминтерновский район" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,5,AutoSize,AutoSize"
+							Margin="0,0,0,10"
+							/>
+						<Label
+							Text="Картон , пластик " FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,25,AutoSize,AutoSize"
+						Margin="0,0,0,-15"
+							/>
+						<Label
+							Text="50*40*35" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="100,25,AutoSize,AutoSize"
+							Margin="0,0,0,-15"
+							/>
+						<Label
+							Text="45 кг" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="180,25,AutoSize,AutoSize"
+							Margin="0,0,0,-15"
+							/>
+						
+					</AbsoluteLayout>
 
+				</Frame>
 
-		</StackLayout>
-  </ContentPage.Content>
+				<Frame CornerRadius="5" HasShadow="True">
+					<AbsoluteLayout>
+						<AbsoluteLayout.GestureRecognizers>
+							<SwipeGestureRecognizer Direction="Left" Command="{Binding GoToOrderInfoCommand}"></SwipeGestureRecognizer>
+						</AbsoluteLayout.GestureRecognizers>
+						<Label 
+						Text="20.01.2018" FontSize="Micro"
+						AbsoluteLayout.LayoutBounds="-10,-15,AutoSize,AutoSize"
+						Margin="0,0,0,10"
+						/>
+						<Label
+							Text="2:58"	FontSize="Micro"
+						AbsoluteLayout.LayoutBounds="180,-15,AutoSize,AutoSize" Margin="0,0,0,10"
+							/>
+						<Label
+							Text="Ватутина 15, Коминтерновский район" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,5,AutoSize,AutoSize"
+							Margin="0,0,0,10"
+							/>
+						<Label
+							Text="Картон , пластик " FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,25,AutoSize,AutoSize"
+						Margin="0,0,0,-15"
+							/>
+						<Label
+							Text="50*40*35" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="100,25,AutoSize,AutoSize"
+							Margin="0,0,0,-15"
+							/>
+						<Label
+							Text="45 кг" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="180,25,AutoSize,AutoSize"
+							Margin="0,0,0,-15"
+							/>
+
+					</AbsoluteLayout>
+
+				</Frame>
+				<Frame CornerRadius="5" HasShadow="True">
+					<AbsoluteLayout>
+						<AbsoluteLayout.GestureRecognizers>
+							<SwipeGestureRecognizer Direction="Left" Command="{Binding GoToOrderInfoCommand}"></SwipeGestureRecognizer>
+						</AbsoluteLayout.GestureRecognizers>
+						<Label 
+						Text="20.01.2018" FontSize="Micro"
+						AbsoluteLayout.LayoutBounds="-10,-15,AutoSize,AutoSize"
+						Margin="0,0,0,10"
+						/>
+						<Label
+							Text="2:58"	FontSize="Micro"
+						AbsoluteLayout.LayoutBounds="180,-15,AutoSize,AutoSize" Margin="0,0,0,10"
+							/>
+						<Label
+							Text="Ватутина 15, Коминтерновский район" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,5,AutoSize,AutoSize"
+							Margin="0,0,0,10"
+							/>
+						<Label
+							Text="Картон , пластик " FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,25,AutoSize,AutoSize"
+						Margin="0,0,0,-15"
+							/>
+						<Label
+							Text="50*40*35" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="100,25,AutoSize,AutoSize"
+							Margin="0,0,0,-15"
+							/>
+						<Label
+							Text="45 кг" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="180,25,AutoSize,AutoSize"
+							Margin="0,0,0,-15"
+							/>
+
+					</AbsoluteLayout>
+
+				</Frame>
+				<Frame CornerRadius="5" HasShadow="True">
+					<AbsoluteLayout>
+						<AbsoluteLayout.GestureRecognizers>
+							<SwipeGestureRecognizer Direction="Left" Command="{Binding GoToOrderInfoCommand}"></SwipeGestureRecognizer>
+						</AbsoluteLayout.GestureRecognizers>
+						<Label 
+						Text="20.01.2018" FontSize="Micro"
+						AbsoluteLayout.LayoutBounds="-10,-15,AutoSize,AutoSize"
+						Margin="0,0,0,10"
+						/>
+						<Label
+							Text="2:58"	FontSize="Micro"
+						AbsoluteLayout.LayoutBounds="180,-15,AutoSize,AutoSize" Margin="0,0,0,10"
+							/>
+						<Label
+							Text="Ватутина 15, Коминтерновский район" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,5,AutoSize,AutoSize"
+							Margin="0,0,0,10"
+							/>
+						<Label
+							Text="Картон , пластик " FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,25,AutoSize,AutoSize"
+						Margin="0,0,0,-15"
+							/>
+						<Label
+							Text="50*40*35" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="100,25,AutoSize,AutoSize"
+							Margin="0,0,0,-15"
+							/>
+						<Label
+							Text="45 кг" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="180,25,AutoSize,AutoSize"
+							Margin="0,0,0,-15"
+							/>
+
+					</AbsoluteLayout>
+
+				</Frame>
+
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
 </pages:BasePage>
