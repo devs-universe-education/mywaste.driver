@@ -2,25 +2,76 @@
 <pages:BasePage xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages"
 			 xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyWasteDriver.UI.Pages.Work.OrdersPage">
-	
-  <ContentPage.Content>
-      <StackLayout>
-		  
-          <Label Text="Orders page"
-		  VerticalOptions="CenterAndExpand"
-	      HorizontalOptions="CenterAndExpand"/>
+				xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
+				x:Class="MyWasteDriver.UI.Pages.Work.OrdersPage">
 
-			<Button
-			Text="GoToOrderInfo"
-			Command="{Binding GoToOrderInfoCommand}"
-			VerticalOptions="CenterAndExpand" 
-			HorizontalOptions="CenterAndExpand"/>
+	<ContentPage.Content>
 
+		<controls:StateContainer State="{Binding State}">
+
+			<controls:StateCondition State="Loading">
+				<ActivityIndicator IsRunning="True" WidthRequest="40"
+			                       HorizontalOptions="Center" VerticalOptions="Center"/>
+			</controls:StateCondition>
+
+			<controls:StateCondition State="Normal">
 
 
+				<ListView  HasUnevenRows="True" BackgroundColor="White" ItemsSource="{Binding OrdersObject.Orders}">
+					<ListView.Header>
+						<ContentView Padding="0,5" BackgroundColor="White">
 
+							<Label FontSize="Large" TextColor="#707070"
+                   Text="Заказы" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+						</ContentView>
+					</ListView.Header>
 
-		</StackLayout>
-  </ContentPage.Content>
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<Frame CornerRadius="5" HasShadow="True">
+									<AbsoluteLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,20,20">
+
+										<Label 
+						Text="{Binding OrderData}" FontSize="Micro"
+						AbsoluteLayout.LayoutBounds="-10,-10,AutoSize,AutoSize"
+						Margin="0,0,0,10"
+						/>
+										<Label
+							Text="{Binding OrderTime}"	FontSize="Micro"
+							AbsoluteLayout.LayoutFlags="XProportional"
+						AbsoluteLayout.LayoutBounds="1.025,-10,AutoSize,AutoSize" Margin="0,0,0,10"
+							/>
+										<Label
+							Text="{Binding OrderAdress}" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,10,AutoSize,AutoSize"
+							Margin="0,0,0,10"
+							/>
+										<Label
+							Text="{Binding Material}" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,30,AutoSize,AutoSize"
+						Margin="0,0,0,-10"
+							/>
+										<Label
+							Text="{Binding Size}" FontSize="Micro"
+							AbsoluteLayout.LayoutFlags="XProportional"
+							AbsoluteLayout.LayoutBounds="0.6,30,AutoSize,AutoSize"
+							Margin="0,0,0,-10"
+							/>
+										<Label AbsoluteLayout.LayoutFlags="XProportional"
+							Text="{Binding Height}" FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="1.025,30,AutoSize,AutoSize"
+							Margin="0,0,0,-10"
+							/>
+									</AbsoluteLayout>
+
+								</Frame>
+
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</controls:StateCondition>
+		</controls:StateContainer>
+	</ContentPage.Content>
 </pages:BasePage>

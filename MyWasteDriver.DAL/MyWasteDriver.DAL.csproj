@@ -5,20 +5,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataServices\Rest\DataServices.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\Mock\Main\SampleDataObject.json" />
+    <None Remove="Resources\Mock\OrdersDataObject.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Mock\Main\SampleDataObject.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DataServices\Rest\" />
+    <EmbeddedResource Include="Resources\Mock\Work\OrdersDataObject.json" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.0.4" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataServices\Rest\" />
   </ItemGroup>
 
 </Project>
