@@ -1,4 +1,6 @@
 
+using Xamarin.Forms;
+
 namespace MyWasteDriver.UI.Pages.Account
 {
 	
@@ -7,6 +9,8 @@ namespace MyWasteDriver.UI.Pages.Account
 		public LoginPage()
 		{
 			InitializeComponent();
+			NavigationPage.SetHasNavigationBar(this, false);
+
 		}
 	}
 }

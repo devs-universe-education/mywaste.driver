@@ -19,19 +19,22 @@
 
 				<ListView  HasUnevenRows="True" BackgroundColor="White" ItemsSource="{Binding OrdersObject.Orders}">
 					<ListView.Header>
-						<ContentView Padding="0,5" BackgroundColor="White">
+						<ContentView  BackgroundColor="White">
 
-							<Label FontSize="Large" TextColor="#707070"
-                   Text="Заказы" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+							<Label FontSize="Medium" TextColor="#707070"
+                   Text="Заказы : " HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
 						</ContentView>
 					</ListView.Header>
 
-					<ListView.ItemTemplate>
-						<DataTemplate>
-							<ViewCell>
-								<Frame CornerRadius="5" HasShadow="True">
-									<AbsoluteLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,20,20">
-
+					<ListView.ItemTemplate >
+						<DataTemplate  >
+							
+							<ViewCell >
+								<Frame CornerRadius="5" HasShadow="True" Margin="5,2.5,5,2.5" >
+									<AbsoluteLayout >
+										<!-- не робит шот <AbsoluteLayout.GestureRecognizers>
+											<SwipeGestureRecognizer Direction="Left" Command="{Binding GoToOrderInfoCommand}"></SwipeGestureRecognizer>
+										</AbsoluteLayout.GestureRecognizers>--> 
 										<Label 
 						Text="{Binding OrderData}" FontSize="Micro"
 						AbsoluteLayout.LayoutBounds="-10,-10,AutoSize,AutoSize"
