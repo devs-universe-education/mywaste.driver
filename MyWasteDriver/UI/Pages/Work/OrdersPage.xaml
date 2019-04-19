@@ -16,52 +16,64 @@
 
 			<controls:StateCondition State="Normal">
 
+				<StackLayout>
 
-				<ListView  HasUnevenRows="True" BackgroundColor="White" ItemsSource="{Binding OrdersObject.Orders}">
-					<ListView.Header>
-						<ContentView  BackgroundColor="White">
 
-							<Label FontSize="Medium" TextColor="#707070"
-                   Text="Заказы : " HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
-						</ContentView>
-					</ListView.Header>
+					<ListView   ItemsSource="{Binding OrdersObject.Orders}"
+								SelectedItem="{Binding NavigateObject}"
+								HasUnevenRows="True"
+								BackgroundColor="White"
+								IsPullToRefreshEnabled="True">
+						
+						<ListView.Header>
+							<ContentView  BackgroundColor="White">
+								<Label FontSize="Medium" TextColor="#707070" Text="Заказы : " HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+							</ContentView>
+						</ListView.Header>
 
 					<ListView.ItemTemplate >
-						<DataTemplate  >
+						
+						<DataTemplate >
+
 							
-							<ViewCell >
+								<ViewCell >
+							
+								
 								<Frame CornerRadius="5" HasShadow="True" Margin="5,2.5,5,2.5" >
 									<AbsoluteLayout >
-										<!-- не робит шот <AbsoluteLayout.GestureRecognizers>
-											<SwipeGestureRecognizer Direction="Left" Command="{Binding GoToOrderInfoCommand}"></SwipeGestureRecognizer>
-										</AbsoluteLayout.GestureRecognizers>--> 
-										<Label 
-						Text="{Binding OrderData}" FontSize="Micro"
-						AbsoluteLayout.LayoutBounds="-10,-10,AutoSize,AutoSize"
-						Margin="0,0,0,10"
-						/>
-										<Label
+
+
+							<Label 
+							Text="{Binding OrderData}"  FontSize="Micro"
+							AbsoluteLayout.LayoutBounds="-10,-10,AutoSize,AutoSize"
+							Margin="0,0,0,10 "
+							/>
+
+							<Label
 							Text="{Binding OrderTime}"	FontSize="Micro"
 							AbsoluteLayout.LayoutFlags="XProportional"
-						AbsoluteLayout.LayoutBounds="1.025,-10,AutoSize,AutoSize" Margin="0,0,0,10"
+							AbsoluteLayout.LayoutBounds="1.025,-10,AutoSize,AutoSize" Margin="0,0,0,10"
 							/>
-										<Label
+										
+							<Label
 							Text="{Binding OrderAdress}" FontSize="Micro"
 							AbsoluteLayout.LayoutBounds="-10,10,AutoSize,AutoSize"
 							Margin="0,0,0,10"
 							/>
-										<Label
+										
+							<Label
 							Text="{Binding Material}" FontSize="Micro"
 							AbsoluteLayout.LayoutBounds="-10,30,AutoSize,AutoSize"
-						Margin="0,0,0,-10"
+							Margin="0,0,0,-10"
 							/>
-										<Label
+
+							<Label
 							Text="{Binding Size}" FontSize="Micro"
 							AbsoluteLayout.LayoutFlags="XProportional"
 							AbsoluteLayout.LayoutBounds="0.6,30,AutoSize,AutoSize"
 							Margin="0,0,0,-10"
 							/>
-										<Label AbsoluteLayout.LayoutFlags="XProportional"
+									<Label AbsoluteLayout.LayoutFlags="XProportional"
 							Text="{Binding Height}" FontSize="Micro"
 							AbsoluteLayout.LayoutBounds="1.025,30,AutoSize,AutoSize"
 							Margin="0,0,0,-10"
@@ -74,6 +86,8 @@
 						</DataTemplate>
 					</ListView.ItemTemplate>
 				</ListView>
+
+				</StackLayout>
 			</controls:StateCondition>
 		</controls:StateContainer>
 	</ContentPage.Content>
