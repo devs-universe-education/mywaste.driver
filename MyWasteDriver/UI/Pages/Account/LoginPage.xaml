@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
 			 x:Class="MyWasteDriver.UI.Pages.Account.LoginPage">
-	<ContentPage.Content NavigationPage.HasBackButton="False" background ="White" >
+	<ContentPage.Content NavigationPage.HasBackButton="False" background ="#ffffff" >
 
 		<controls:StateContainer State="{Binding State}">
 
@@ -13,22 +13,19 @@
 			                       HorizontalOptions="Center" VerticalOptions="Center"/>
 			</controls:StateCondition>
 
-			<controls:StateCondition State="Normal">
-				<StackLayout>
-					
-					<Label Text="MyWasteDriver"
-				 VerticalOptions="CenterAndExpand"
-				 HorizontalOptions="CenterAndExpand"/>
+			<controls:StateCondition State="Normal" BackgroundColor="#ffffff">
+				<AbsoluteLayout Margin="30,0,30,0" Padding="0,10,0,10">
 
-					<Entry/>
-					<Entry/>
+					<Image Source="wasterecycling.png" AbsoluteLayout.LayoutBounds="0.5,0.1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"></Image>
 
-					<Button Text="Login"
-				  Command="{Binding GoToOrdersCommand}"
-							
-				  VerticalOptions="CenterAndExpand"
-				  HorizontalOptions="CenterAndExpand"/>
-				</StackLayout>
+
+					<Entry  AbsoluteLayout.LayoutBounds="0,0.5,1,AutoSize" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"  Placeholder="Login" FontSize="Small"/>
+					<Entry IsPassword="True" AbsoluteLayout.LayoutBounds="0,0.65,1,AutoSize" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional" Placeholder="Password" FontSize="Small" />
+					<Button Text="Вход" BackgroundColor="#707070" TextColor="White" FontSize="Micro" AbsoluteLayout.LayoutBounds="0.5,0.85,0.8,35" AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional" 
+				  Command="{Binding GoToOrdersCommand}" CornerRadius="5"/>
+					<!--<Button Text="оорр"   BackgroundColor="#707070" TextColor="White" FontSize="Micro" AbsoluteLayout.LayoutBounds="0.4,1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional" 
+				  Command="{Binding GoToOrdersCommand}" уличная магия с цветом букв/>-->
+				</AbsoluteLayout>
 			</controls:StateCondition>
 
 		</controls:StateContainer>
