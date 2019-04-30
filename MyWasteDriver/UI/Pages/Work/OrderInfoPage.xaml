@@ -4,22 +4,67 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyWasteDriver.UI.Pages.Work.OrderInfoPage">
 
-	<ContentPage.Content>
-		<StackLayout>
 
-			<Label Text="Order info page"
-		  VerticalOptions="CenterAndExpand"
-	      HorizontalOptions="CenterAndExpand"/>
-			<Button Text="GoToCurrentOrder"
-				  Command="{Binding GoToCurrentOrderCommand}"
-				  VerticalOptions="CenterAndExpand"
-				  HorizontalOptions="CenterAndExpand"/>
+	<ContentPage.Content >
+
+		<Frame CornerRadius="5" Margin="5" BackgroundColor="#fafafa" >
+			
+			<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" Orientation="Vertical" BackgroundColor="#707070">
+				<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Margin="-20,-20,-20,0">
+					<ImageButton BackgroundColor="#fafafa" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding GoToCurrentOrderCommand}" ></ImageButton>
+					<Label Text="Информация о заказе:" AbsoluteLayout.LayoutBounds="0.4,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"/>
+				</AbsoluteLayout>
+				<ScrollView Orientation="Horizontal" Margin="-10,0,-10,0" HorizontalOptions="Start" VerticalOptions="Start">
+					<StackLayout Orientation="Horizontal " >
+						<Image  WidthRequest="125" HeightRequest="125" Source="trash1.png"></Image>
+						<Image  WidthRequest="125" HeightRequest="125" Source="trash2.png"></Image>
+						<Image WidthRequest="125" HeightRequest="125" Source="trash3.png"></Image>
+					</StackLayout>
+				</ScrollView>
+				<AbsoluteLayout BackgroundColor="#aaaaaa">
+				<StackLayout   AbsoluteLayout.LayoutBounds="0,0.6,1,1" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional">
+					<Label Text="ФИО:Лупин Александр Сергеевич"
+					   FontSize="10"
+					TextColor="#707070"
+					   FontFamily="San Francisco"/>
+
+					<BoxView HeightRequest="1" Color="#a6a6a6"></BoxView>
+
+					<Label Text="Адрес: улица Кукояково 2а "
+					   FontSize="10"
+					   TextColor="#707070"
+					   FontFamily="San Francisco"/>
+
+					<BoxView HeightRequest="1" Color="#a6a6a6"></BoxView>
+
+						<Label Text="Информация о грузе:&#10;Картон,Пластик/ 50*45*120 / 45 кг  "
+						 TextColor="#707070"
+					    FontSize="10"></Label>
+
+					<BoxView HeightRequest="1" Color="#a6a6a6"></BoxView>
+
+					<Label Text="Коментарий: Домофон не работает "
+					   TextColor="#707070"
+					    FontSize="10"/>
+
+				</StackLayout>
+				
+				<Button CornerRadius="7"
+						Text="Принять"
+						TextColor="White"
+						FontFamily="San Francisco"
+						BackgroundColor="#4cd964"
+						FontSize="7" Command="{Binding GoToCurrentOrderCommand}"
+						AbsoluteLayout.LayoutBounds="0.5,1,0.8,0.15"
+						AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional" />
+
+				</AbsoluteLayout>
+			</StackLayout>
+		</Frame>
+		
 
 
 
 
-
-
-		</StackLayout>
 	</ContentPage.Content>
 </pages:BasePage>
