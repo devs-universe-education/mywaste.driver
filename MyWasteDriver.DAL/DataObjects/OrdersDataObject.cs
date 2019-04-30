@@ -19,7 +19,6 @@ namespace MyWasteDriver.DAL.DataObjects {
 		public string Size { get; set; }
 		public string Height { get; set; }
 
-		public ICommand GoToCommand { get; set; }
 	}
 }
 

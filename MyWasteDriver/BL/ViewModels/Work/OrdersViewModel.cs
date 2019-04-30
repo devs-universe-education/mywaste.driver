@@ -1,5 +1,7 @@
 
 
+using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MyWasteDriver.DAL.DataObjects;
@@ -18,8 +20,18 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 
 		public OrderDataObject NavigateObject {
 			set {
-				if (value != null)
+				if (value != null) {
+
+
+
+
+
+
+				
+
+
 					NavigateTo(AppPages.OrderInfo, NavigationMode.Normal);
+				}
 			}
 		}
 
