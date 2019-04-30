@@ -7,9 +7,11 @@ namespace MyWasteDriver.DAL.DataServices
 		
 		public static IMainDataService Main { get; private set; }
 
+		
 		public static void Init(bool isMock) {
 			if (isMock) {
 				Work = new Mock.MockOrdersDataService();
+			
 				Main = new Mock.MockMainDataService();
 			}
 			else {

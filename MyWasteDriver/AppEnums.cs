@@ -22,7 +22,9 @@ namespace MyWasteDriver
 		Normal,
 		NoData,
 		Error,
-		NoInternet
+		NoInternet,
+		Map
+		
 	}
 }
 

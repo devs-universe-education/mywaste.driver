@@ -9,11 +9,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Mock\Main\OrderDetailDataObject.json" />
     <None Remove="Resources\Mock\Main\SampleDataObject.json" />
     <None Remove="Resources\Mock\OrdersDataObject.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Mock\Work\OrderDetailInfoDataObject.json" />
     <EmbeddedResource Include="Resources\Mock\Main\SampleDataObject.json" />
     <EmbeddedResource Include="Resources\Mock\Work\OrdersDataObject.json" />
   </ItemGroup>
@@ -21,6 +23,7 @@
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.0.4" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="3.6.0.344457" />
   </ItemGroup>
 
   <ItemGroup>

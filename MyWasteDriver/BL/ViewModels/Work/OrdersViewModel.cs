@@ -10,6 +10,7 @@ using MyWasteDriver.DAL.DataServices;
 namespace MyWasteDriver.BL.ViewModels.Work {
 	public class OrdersViewModel : BaseViewModel {
 		public OrdersDataObject OrdersObject {
+
 			get => Get<OrdersDataObject>();
 			private set => Set(value);
 
@@ -21,16 +22,12 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 		public OrderDataObject NavigateObject {
 			set {
 				if (value != null) {
+					
+					var Data = new Dictionary<string, object> {
+						{"orderId", value.OrderId }
+					};
 
-
-
-
-
-
-				
-
-
-					NavigateTo(AppPages.OrderInfo, NavigationMode.Normal);
+					NavigateTo(AppPages.OrderInfo, NavigationMode.Normal, navParams: Data);
 				}
 			}
 		}
@@ -42,7 +39,7 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 			if (result.IsValid) {
 				OrdersObject = result.Data;
 				State = PageState.Normal;
-
+				
 			}
 			else
 				State = PageState.Error;

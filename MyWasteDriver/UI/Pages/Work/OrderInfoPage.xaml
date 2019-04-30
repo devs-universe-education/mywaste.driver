@@ -2,24 +2,48 @@
 <pages:BasePage xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages"
 			 xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyWasteDriver.UI.Pages.Work.OrderInfoPage">
+				xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
+				xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+				x:Class="MyWasteDriver.UI.Pages.Work.OrderInfoPage">
 
 	<ContentPage.Content>
-		<StackLayout>
 
-			<Label Text="Order info page"
-		  VerticalOptions="CenterAndExpand"
-	      HorizontalOptions="CenterAndExpand"/>
-			<Button Text="GoToCurrentOrder"
+
+		<controls:StateContainer State="{Binding State}">
+
+			<controls:StateCondition State="Loading">
+				<ActivityIndicator IsRunning="True" WidthRequest="40"
+			                       HorizontalOptions="Center" VerticalOptions="Center"/>
+			</controls:StateCondition>
+
+			<controls:StateCondition State="Map">
+				<StackLayout>
+				<maps:Map WidthRequest="320" HeightRequest="200"
+                  x:Name="MyMap"
+                  IsShowingUser="true"
+                  MapType="Hybrid" />
+				</StackLayout>
+			</controls:StateCondition>
+			
+
+			<controls:StateCondition State="Normal">
+
+			<StackLayout>
+
+				<Label Text="Order info page"
+				 VerticalOptions="CenterAndExpand"
+				HorizontalOptions="CenterAndExpand"/>
+					<Button Text="GoToCurrentOrder"
 				  Command="{Binding GoToCurrentOrderCommand}"
 				  VerticalOptions="CenterAndExpand"
 				  HorizontalOptions="CenterAndExpand"/>
+				</StackLayout>
+			</controls:StateCondition>
+
+		</controls:StateContainer>
+			
 
 
-
-
-
-
-		</StackLayout>
 	</ContentPage.Content>
+		
 </pages:BasePage>

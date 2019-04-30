@@ -3,7 +3,8 @@
 			 xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
-			 x:Class="MyWasteDriver.UI.Pages.Account.LoginPage">
+				xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+				x:Class="MyWasteDriver.UI.Pages.Account.LoginPage">
 	<ContentPage.Content NavigationPage.HasBackButton="False" background ="#ffffff" >
 
 		<controls:StateContainer State="{Binding State}">
@@ -16,7 +17,7 @@
 			<controls:StateCondition State="Normal" BackgroundColor="#ffffff">
 				<AbsoluteLayout Margin="30,0,30,0" Padding="0,10,0,10">
 
-					<Image Source="wasterecycling.png" AbsoluteLayout.LayoutBounds="0.5,0.1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"></Image>
+					
 
 
 					<Entry  AbsoluteLayout.LayoutBounds="0,0.5,1,AutoSize" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"  Placeholder="Login" FontSize="Small"/>
