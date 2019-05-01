@@ -23,7 +23,7 @@
 								SelectedItem="{Binding NavigateObject}"
 								HasUnevenRows="True"
 								BackgroundColor="White"
-								IsPullToRefreshEnabled="True">
+								IsPullToRefreshEnabled="True" SeparatorVisibility="None">
 						
 						<ListView.Header>
 							<ContentView  BackgroundColor="White">
@@ -31,17 +31,12 @@
 							</ContentView>
 						</ListView.Header>
 
-					<ListView.ItemTemplate >
-						
-						<DataTemplate >
+					<ListView.ItemTemplate  >
 
-							
-								<ViewCell >
-							
-								
-								<Frame CornerRadius="5" HasShadow="True" Margin="5,2.5,5,2.5" >
-									<AbsoluteLayout >
-
+							<DataTemplate >
+								<ViewCell  >
+							<Frame CornerRadius="5" HasShadow="True" Margin="5,2.5,5,2.5" >
+							<AbsoluteLayout >
 
 							<Label 
 							Text="{Binding OrderData}"  FontSize="Micro"
