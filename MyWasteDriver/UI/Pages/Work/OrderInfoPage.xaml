@@ -9,7 +9,7 @@
 
 		<Frame CornerRadius="5" Margin="5" BackgroundColor="#fafafa" >
 			
-			<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" Orientation="Vertical" BackgroundColor="#707070">
+			<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" Orientation="Vertical" >
 				<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Margin="-20,-20,-20,0">
 					<ImageButton BackgroundColor="#fafafa" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding GoToCurrentOrderCommand}" ></ImageButton>
 					<Label Text="Информация о заказе:" AbsoluteLayout.LayoutBounds="0.4,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"/>
@@ -21,33 +21,59 @@
 						<Image WidthRequest="125" HeightRequest="125" Source="trash3.png"></Image>
 					</StackLayout>
 				</ScrollView>
-				<AbsoluteLayout BackgroundColor="#aaaaaa">
-				<StackLayout   AbsoluteLayout.LayoutBounds="0,0.6,1,1" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional">
-					<Label Text="ФИО:Лупин Александр Сергеевич"
+				<!--<ListView>
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+							<Image WidthRequest="125" HeightRequest="125" Source="trash3.png"></Image>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+						
+					</ListView>-->
+
+					<AbsoluteLayout   AbsoluteLayout.LayoutBounds="0,0.6,1,1" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional" Padding="0">
+
+					<Label Text="ФИО:"
 					   FontSize="10"
 					TextColor="#707070"
-					   FontFamily="San Francisco"/>
+					   FontFamily="San Francisco"
+						   AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"/>
+					<Label FontSize="10"
+						Text="Лупин Александр Сергеевич"
+						   AbsoluteLayout.LayoutBounds="30,0,AutoSize,AutoSize"/>
 
-					<BoxView HeightRequest="1" Color="#a6a6a6"></BoxView>
+					<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.075,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
 
-					<Label Text="Адрес: улица Кукояково 2а "
+					<Label Text="Адрес:"
 					   FontSize="10"
 					   TextColor="#707070"
-					   FontFamily="San Francisco"/>
+					   FontFamily="San Francisco"
+						   AbsoluteLayout.LayoutBounds="0,0.15,AutoSize,AutoSize" 
+						   AbsoluteLayout.LayoutFlags="YProportional"/>
+					<Label FontSize="10"
+						Text="улица Кукояково 2а"
+						   AbsoluteLayout.LayoutBounds="40,0.15,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"/>
 
-					<BoxView HeightRequest="1" Color="#a6a6a6"></BoxView>
+					<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.225,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
 
-						<Label Text="Информация о грузе:&#10;Картон,Пластик/ 50*45*120 / 45 кг  "
-						 TextColor="#707070"
+					<Label Text="Информация о грузе: "
+				AbsoluteLayout.LayoutBounds="0,0.3,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"
+						   TextColor="#707070"
 					    FontSize="10"></Label>
+					<StackLayout AbsoluteLayout.LayoutBounds="0,.375,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional" Orientation="Horizontal" Spacing="10">
+						<Label Text ="Картон,Пластик" FontSize="10" HorizontalOptions="Start"/>
+						<Label Text="50*45*120" FontSize="10" HorizontalOptions="Center"/>
+						<Label Text="45 kg" FontSize="10" VerticalOptions="End"/>
+					</StackLayout>
 
-					<BoxView HeightRequest="1" Color="#a6a6a6"></BoxView>
+					<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.45,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
 
-					<Label Text="Коментарий: Домофон не работает "
+					<Label Text="Коментарий: Домофон не работает " 
+						   AbsoluteLayout.LayoutBounds="0,0.525,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"
 					   TextColor="#707070"
 					    FontSize="10"/>
 
-				</StackLayout>
 				
 				<Button CornerRadius="7"
 						Text="Принять"
