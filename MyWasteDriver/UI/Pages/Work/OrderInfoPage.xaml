@@ -18,21 +18,18 @@
 			                       HorizontalOptions="Center" VerticalOptions="Center"/>
 			</controls:StateCondition>
 
-			<controls:StateCondition State="Map"
-									 ItemsSource="{Binding Locations}>
-				<StackLayout>
-					<ImageButton BackgroundColor="#fafafa" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding PageStateNormalCommand}" ></ImageButton>
-				<maps:Map x:Name="Map">
+
+			<controls:StateCondition State="Map">
+				<maps:Map x:Name="map"
+                  ItemsSource="{Binding Locations}">
+					
 				</maps:Map>
-				
-				</StackLayout>
 			</controls:StateCondition>
-			
-			
+
+
 			<controls:StateCondition State="Normal">
 
-
-				<Frame CornerRadius="5" Margin="5" BackgroundColor="#fafafa" >
+					<Frame CornerRadius="5" Margin="5" BackgroundColor="#fafafa" >
 			
 			<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" Orientation="Vertical" >
 				<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Margin="-20,-20,-20,0">
