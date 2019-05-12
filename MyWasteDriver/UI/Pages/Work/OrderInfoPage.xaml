@@ -3,7 +3,7 @@
 			 xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 				xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
-				xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+				xmlns:local="clr-namespace:MyWasteMobile.UI.Controls"
 				x:Class="MyWasteDriver.UI.Pages.Work.OrderInfoPage">
 
 
@@ -20,10 +20,7 @@
 
 
 			<controls:StateCondition State="Map">
-				<maps:Map x:Name="map"
-                  ItemsSource="{Binding Locations}">
-					
-				</maps:Map>
+				<local:BindableMap MapType="Street" MapPosition="{Binding UserPosition}" MapPins="{Binding Locations}"/>
 			</controls:StateCondition>
 
 
