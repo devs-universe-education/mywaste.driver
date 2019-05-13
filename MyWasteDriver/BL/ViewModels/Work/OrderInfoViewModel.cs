@@ -12,7 +12,6 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 			set => Set(value);
 		}
 
-
 		public override async Task OnPageAppearing() {
 
 			State = PageState.Loading;
@@ -23,7 +22,7 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 					var result = await DataServices.Work.GetOrderDetailInfoById(orderID, CancellationToken);
 					if (result.IsValid) {
 						OrderInfoObject = result.Data;
-						State = PageState.Map;
+						State = PageState.Normal;
 					}
 					else State = PageState.Error;
 				}
@@ -34,5 +33,15 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 
 
 		public ICommand GoToCurrentOrderCommand => GetNavigateToCommand(AppPages.CurrentOrder, NavigationMode.Normal);
+		public ICommand GoToBackCommand => GoBackCommand;
+		public ICommand PageStateMapCommand => MakeCommand(ShowPageStateMap);
+		public ICommand PageStateNormalCommand => MakeCommand(ShowPageStateNormal);
+
+		void ShowPageStateMap() {
+			State = PageState.Map;
+		}
+		void ShowPageStateNormal() {
+			State = PageState.Normal;
+		}
 	}
 }

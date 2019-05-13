@@ -24,14 +24,16 @@
 							AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
 							PlaceholderColor="#a6a6a6"
 							Placeholder="Логин"
-							FontSize="Small"/>
+							FontSize="Small"
+							AutomationId="EntryLog"/>
 					
 					<Entry IsPassword="True"
 						   AbsoluteLayout.LayoutBounds="0,0.65,1,AutoSize"
 						   AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
 						   	PlaceholderColor="#a6a6a6"
 						   Placeholder="Пароль"
-						   FontSize="Small" />
+						   FontSize="Small"
+						   AutomationId="EntryPassword"/>
 					
 					<Button Text="Вход"
 							BackgroundColor="#707070"
@@ -39,7 +41,8 @@
 							FontSize="Micro"
 							AbsoluteLayout.LayoutBounds="0.5,0.9,0.8,35"
 							AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional" 
-							Command="{Binding GoToOrdersCommand}" CornerRadius="5"/>
+							Command="{Binding GoToOrdersCommand}" CornerRadius="5"
+							AutomationId="ButtonVhod"/>
 
 					<Button Text="Нужна помощь ?"
 							FontSize="6"
@@ -49,7 +52,8 @@
 							AbsoluteLayout.LayoutBounds="0.5,1,0.5,0.085" AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional" 
 							BackgroundColor= "#fafafa"
 							TextColor="#999999"
-							BorderWidth="0" />
+							BorderWidth="0"
+							AutomationId="ButtonHelp"/>
 				</AbsoluteLayout>
 			</controls:StateCondition>
 

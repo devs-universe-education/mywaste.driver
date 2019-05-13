@@ -2,16 +2,39 @@
 <pages:BasePage xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages"
 			 xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyWasteDriver.UI.Pages.Work.OrderInfoPage">
+				xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
+				xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+				x:Class="MyWasteDriver.UI.Pages.Work.OrderInfoPage">
 
 
 	<ContentPage.Content >
 
-		<Frame CornerRadius="5" Margin="5" BackgroundColor="#fafafa" >
+		<controls:StateContainer State="{Binding State}">
+
+
+
+			<controls:StateCondition State="Loading">
+				<ActivityIndicator IsRunning="True" WidthRequest="40"
+			                       HorizontalOptions="Center" VerticalOptions="Center"/>
+			</controls:StateCondition>
+
+			<controls:StateCondition State="Map">
+				<StackLayout>
+					<ImageButton BackgroundColor="#fafafa" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding PageStateNormalCommand}" ></ImageButton>
+					
+				
+				</StackLayout>
+			</controls:StateCondition>
+			
+			
+			<controls:StateCondition State="Normal">
+
+
+				<Frame CornerRadius="5" Margin="5" BackgroundColor="#fafafa" >
 			
 			<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" Orientation="Vertical" >
 				<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Margin="-20,-20,-20,0">
-					<ImageButton BackgroundColor="#fafafa" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding GoToCurrentOrderCommand}" ></ImageButton>
+					<ImageButton BackgroundColor="#fafafa" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding GoToBackCommand}" ></ImageButton>
 					<Label Text="Информация о заказе:" AbsoluteLayout.LayoutBounds="0.4,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"/>
 				</AbsoluteLayout>
 				<ScrollView Orientation="Horizontal" Margin="-10,0,-10,0" HorizontalOptions="Start" VerticalOptions="Start">
@@ -40,7 +63,7 @@
 					   FontFamily="San Francisco"
 						   AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"/>
 					<Label FontSize="10"
-						Text="Лупин Александр Сергеевич"
+						Text= "{Binding OrderInfoObject.FullName}"
 						   AbsoluteLayout.LayoutBounds="30,0,AutoSize,AutoSize"/>
 
 					<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.075,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
@@ -52,8 +75,8 @@
 						   AbsoluteLayout.LayoutBounds="0,0.15,AutoSize,AutoSize" 
 						   AbsoluteLayout.LayoutFlags="YProportional"/>
 					<Label FontSize="10"
-						Text="улица Кукояково 2а"
-						   AbsoluteLayout.LayoutBounds="40,0.15,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"/>
+						Text="{Binding OrderInfoObject.OrderAdress}"
+						AbsoluteLayout.LayoutBounds="40,0.15,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"/>
 
 					<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.225,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
 
@@ -62,9 +85,9 @@
 						   TextColor="#707070"
 					    FontSize="10"></Label>
 					<StackLayout AbsoluteLayout.LayoutBounds="0,.375,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional" Orientation="Horizontal" Spacing="10">
-						<Label Text ="Картон,Пластик" FontSize="10" HorizontalOptions="Start"/>
-						<Label Text="50*45*120" FontSize="10" HorizontalOptions="Center"/>
-						<Label Text="45 kg" FontSize="10" VerticalOptions="End"/>
+						<Label Text ="{Binding OrderInfoObject.Material}" FontSize="10" HorizontalOptions="Start"/>
+						<Label Text="{Binding OrderInfoObject.Size}" FontSize="10" HorizontalOptions="Center"/>
+						<Label Text="{Binding OrderInfoObject.Height}" FontSize="10" VerticalOptions="End"/>
 					</StackLayout>
 
 					<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.45,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
@@ -74,8 +97,10 @@
 					   TextColor="#707070"
 					    FontSize="10"/>
 
-				
-				<Button CornerRadius="7"
+							<Button Text="Показать на карте"
+									Command="{Binding PageStateMapCommand}"/>
+
+							<Button CornerRadius="7"
 						Text="Принять"
 						TextColor="White"
 						FontFamily="San Francisco"
@@ -86,11 +111,11 @@
 
 				</AbsoluteLayout>
 			</StackLayout>
-		</Frame>
-		
+			</Frame>
 
+			</controls:StateCondition>
 
-
+		</controls:StateContainer>
 
 	</ContentPage.Content>
 </pages:BasePage>
