@@ -16,9 +16,6 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 
 		}
 
-
-		
-
 		public OrderDataObject NavigateObject {
 			set {
 				if (value != null) {

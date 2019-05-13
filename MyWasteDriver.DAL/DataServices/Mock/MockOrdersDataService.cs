@@ -10,6 +10,10 @@ namespace MyWasteDriver.DAL.DataServices.Mock {
 
 		public Task<RequestResult<OrderDetailDataObject>> GetOrderDetailInfoById(int id, CancellationToken ctx) {
 			return GetMockData<OrderDetailDataObject>("MyWasteDriver.DAL.Resources.Mock.Work.OrderDetailInfoDataObject.json"); 
-		}	
+		}
+
+		public	Task<RequestResult<CurrentOrderDataObject>> GetCurrentOrderInfoById(int id, CancellationToken ctx) {
+			return GetMockData<CurrentOrderDataObject>("MyWasteDriver.DAL.Resources.Mock.Work.CurrentOrderInfoDataObject.json");
+		}
 	}
 }

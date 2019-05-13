@@ -9,12 +9,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Mock\Main\CurrentOrderInfoDataObject.json" />
     <None Remove="Resources\Mock\Main\OrderDetailDataObject.json" />
     <None Remove="Resources\Mock\Main\SampleDataObject.json" />
     <None Remove="Resources\Mock\OrdersDataObject.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Mock\Work\CurrentOrderInfoDataObject.json" />
     <EmbeddedResource Include="Resources\Mock\Work\OrderDetailInfoDataObject.json" />
     <EmbeddedResource Include="Resources\Mock\Main\SampleDataObject.json" />
     <EmbeddedResource Include="Resources\Mock\Work\OrdersDataObject.json" />
