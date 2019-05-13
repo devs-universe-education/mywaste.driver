@@ -1,4 +1,3 @@
-
 using Xamarin.Forms;
 
 namespace MyWasteDriver.UI.Pages.Work {
@@ -10,5 +9,5 @@ namespace MyWasteDriver.UI.Pages.Work {
 			
 			
 		}
-		}
 	}
+}

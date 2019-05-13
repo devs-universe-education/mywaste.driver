@@ -1,7 +1,8 @@
+using System.Collections.ObjectModel;
 using Xamarin.Forms.Maps;
 
-namespace MyWasteDriver.DAL.DataObjects { 
-	public class OrderDetailDataObject { 
+namespace MyWasteDriver.DAL.DataObjects {
+	public class OrderDetailDataObject {
 		public string OrderId { get; set; }
 		public string OrderData { get; set; }
 		public string OrderTime { get; set; }
@@ -14,4 +15,5 @@ namespace MyWasteDriver.DAL.DataObjects {
 		public Position  Coordinates { get; set; }
 		public string ImageURL { get; set; }
 	}
+
 }
