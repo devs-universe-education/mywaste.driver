@@ -1,5 +1,7 @@
 
 
+using Xamarin.Forms;
+
 namespace MyWasteDriver.UI.Pages.Work
 {
 
@@ -8,6 +10,7 @@ namespace MyWasteDriver.UI.Pages.Work
 		public CurrentOrderPage ()
 		{
 			InitializeComponent ();
+			NavigationPage.SetHasNavigationBar(this, false);
 		}
 	}
 }

@@ -14,35 +14,40 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Normal" BackgroundColor="#ffffff">
-				<AbsoluteLayout Margin="30,0,30,0" Padding="0,10,0,10">
+				<AbsoluteLayout  Padding="50,10,50,10">
 
 					<Image Source="wasterecycling.png"
 						   AbsoluteLayout.LayoutBounds="0.5,0.1,AutoSize,AutoSize"
 						   AbsoluteLayout.LayoutFlags="XProportional,YProportional"></Image>
+					<Label Text="MyWasteDriver"
+						   FontSize="24"
+						   AbsoluteLayout.LayoutBounds="0.5,0.35,AutoSize,AutoSize"
+						   AbsoluteLayout.LayoutFlags="XProportional,YProportional"/>
 
 					<Entry  AbsoluteLayout.LayoutBounds="0,0.55,1,AutoSize"
 							AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
 							PlaceholderColor="#a6a6a6"
 							Placeholder="Логин"
-							FontSize="Small"/>
+							FontSize="18"/>
 					
 					<Entry IsPassword="True"
 						   AbsoluteLayout.LayoutBounds="0,0.65,1,AutoSize"
 						   AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
 						   	PlaceholderColor="#a6a6a6"
 						   Placeholder="Пароль"
-						   FontSize="Small" />
+						   FontSize="18" />
 					
 					<Button Text="Вход"
 							BackgroundColor="#707070"
 							TextColor="White"
-							FontSize="Micro"
-							AbsoluteLayout.LayoutBounds="0.5,0.9,0.8,35"
-							AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional" 
-							Command="{Binding GoToOrdersCommand}" CornerRadius="5"/>
+							FontSize="17"
+							AbsoluteLayout.LayoutBounds="0.5,0.9,0.65,0.085"
+							AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional" 
+							Command="{Binding GoToOrdersCommand}"
+							CornerRadius="5"/>
 
 					<Button Text="Нужна помощь ?"
-							FontSize="6"
+							FontSize="12"
 							FontFamily="Arial"
 							StyleClass="Link"
 							Style="Link"

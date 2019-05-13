@@ -3,23 +3,69 @@
 			 xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages"
 			 xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyWasteDriver.UI.Pages.Work.CurrentOrderPage">
+	xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+	x:Class="MyWasteDriver.UI.Pages.Work.CurrentOrderPage">
+	
 
 	<ContentPage.Content>
+		<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" Padding="0" >
+			<AbsoluteLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Aqua">
+				<maps:Map  x:Name="map" ItemsSource="{Binding Locations}" AbsoluteLayout.LayoutBounds="0,0,1,0.5" AbsoluteLayout.LayoutFlags="HeightProportional,WidthProportional">
+						<maps:Map.ItemTemplate>
+							<DataTemplate>
+								<maps:Pin Position="{Binding Coordinates}"/>
+							</DataTemplate>
+						</maps:Map.ItemTemplate>
+					</maps:Map>
 		
-			<StackLayout Orientation="Vertical">
-				
-		<Label Text="Current Order"
-				 VerticalOptions="CenterAndExpand"
-				 HorizontalOptions="CenterAndExpand"/>
-		<Button Text="GoToCompleteOrder"
-				Command="{Binding GoToCompleteOrderCommand}"
-				VerticalOptions="CenterAndExpand"
-				HorizontalOptions="CenterAndExpand"/>
+		<AbsoluteLayout   AbsoluteLayout.LayoutBounds="0,1,1,0.5" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional" Padding="10" BackgroundColor="#fafafa" >
+					<ImageButton AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding GoToBackCommand}" ></ImageButton>
+					<Button TextColor="White" BackgroundColor="#707070" Text="Навигация" CornerRadius="12" AbsoluteLayout.LayoutBounds="0,0,0.6,0.175" AbsoluteLayout.LayoutFlags="SizeProportional"></Button>
+					<Button TextColor="White" Text="тел" BackgroundColor="#4cd964" CornerRadius="12" AbsoluteLayout.LayoutBounds="1,0,0.3,0.175" AbsoluteLayout.LayoutFlags="SizeProportional,XProportional"/>
+					<Label Text="ФИО:"
+					   FontSize="17"
+					TextColor="#707070"
+					   FontFamily="San Francisco"
+						   AbsoluteLayout.LayoutBounds="0,0.25,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"/>
+					<Label FontSize="17"
+						Text= "Николя"
+						   AbsoluteLayout.LayoutBounds="50,0.25,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"/>
+
+					<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.325,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
+					<Label Text="Адрес:"
+					   FontSize="17"
+					   TextColor="#707070"
+					   FontFamily="San Francisco"
+						AbsoluteLayout.LayoutBounds="0,0.4,AutoSize,AutoSize" 
+						AbsoluteLayout.LayoutFlags="YProportional"/>
+					<Label FontSize="17"
+						Text="оооооооо"
+						AbsoluteLayout.LayoutBounds="65,0.4,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"/>
+
+					<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.475,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
+
+					<Label Text="Коментарий:" 
+						   AbsoluteLayout.LayoutBounds="0,0.525,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"
+					   TextColor="#707070"
+					    FontSize="17"/>
+					<Label Text="hhhhhhh " 
+						   AbsoluteLayout.LayoutBounds="110,0.525,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"
+					   TextColor="#707070"
+					    FontSize="17"/>
+
+					<Button CornerRadius="7"
+						Text="На месте"
+						TextColor="White"
+						FontFamily="San Francisco"
+						BackgroundColor="#707070"
+						FontSize="17" Command="{Binding GoToCompleteOrderCommandd}"
+						AbsoluteLayout.LayoutBounds="0.5,1,0.9,0.15"
+						AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional" />
+				</AbsoluteLayout>
 
 
-		  
-		</StackLayout>
-		
+
+			</AbsoluteLayout>
+		</Frame>
 	</ContentPage.Content>
 </pages:BasePage>

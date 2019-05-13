@@ -23,11 +23,12 @@
 								SelectedItem="{Binding NavigateObject}"
 								HasUnevenRows="True"
 								BackgroundColor="White"
-								IsPullToRefreshEnabled="True" SeparatorVisibility="None">
+								IsPullToRefreshEnabled="True"
+								SeparatorVisibility="None">
 						
 						<ListView.Header>
 							<ContentView  BackgroundColor="White">
-								<Label FontSize="Medium" TextColor="#707070" Text="Заказы : " HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+								<Label FontSize="29" TextColor="#707070" Text="Заказы : " HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
 							</ContentView>
 						</ListView.Header>
 
@@ -35,42 +36,66 @@
 
 							<DataTemplate >
 								<ViewCell  >
-							<Frame CornerRadius="5" HasShadow="True" Margin="5,2.5,5,2.5" >
+							<Frame CornerRadius="10" HasShadow="True" Margin="10,5,10,5" >
 							<AbsoluteLayout >
 
 							<Label 
-							Text="{Binding OrderData}"  FontSize="Micro"
+							Text="{Binding OrderData}"
+							FontSize="16"
 							AbsoluteLayout.LayoutBounds="-10,-10,AutoSize,AutoSize"
 							Margin="0,0,0,10 "
 							/>
 
 							<Label
-							Text="{Binding OrderTime}"	FontSize="Micro"
+							Text="{Binding OrderTime}"
+							FontSize="16"
 							AbsoluteLayout.LayoutFlags="XProportional"
-							AbsoluteLayout.LayoutBounds="1.025,-10,AutoSize,AutoSize" Margin="0,0,0,10"
+							AbsoluteLayout.LayoutBounds="1,-10,AutoSize,AutoSize" Margin="0,0,0,10"
 							/>
 										
 							<Label
-							Text="{Binding OrderAdress}" FontSize="Micro"
+							Text="{Binding OrderAdress}"
+							FontSize="16"
 							AbsoluteLayout.LayoutBounds="-10,10,AutoSize,AutoSize"
 							Margin="0,0,0,10"
 							/>
 										
 							<Label
-							Text="{Binding Material}" FontSize="Micro"
-							AbsoluteLayout.LayoutBounds="-10,30,AutoSize,AutoSize"
+							Text="{Binding Material}"
+							FontSize="14"
+							AbsoluteLayout.LayoutBounds="-10,35,AutoSize,AutoSize"
+							Margin="0,0,0,-10"
+							/>
+							<BoxView
+								CornerRadius="100"
+								Color="Gray"
+							WidthRequest="5"
+							 HeightRequest="5"
+							 AbsoluteLayout.LayoutBounds="0.33,42.5,AutoSize,AutoSize"
+							AbsoluteLayout.LayoutFlags="XProportional"
+							 />
+
+							<Label
+							Text="{Binding Size}"
+							FontSize="14"
+							AbsoluteLayout.LayoutFlags="XProportional"
+							AbsoluteLayout.LayoutBounds="0.5,35,AutoSize,AutoSize"
 							Margin="0,0,0,-10"
 							/>
 
-							<Label
-							Text="{Binding Size}" FontSize="Micro"
+								<BoxView
+								CornerRadius="100"
+								Color="Gray"
+							WidthRequest="5"
+							 HeightRequest="5"
+							 AbsoluteLayout.LayoutBounds="0.66,42.5,AutoSize,AutoSize"
 							AbsoluteLayout.LayoutFlags="XProportional"
-							AbsoluteLayout.LayoutBounds="0.6,30,AutoSize,AutoSize"
-							Margin="0,0,0,-10"
-							/>
-									<Label AbsoluteLayout.LayoutFlags="XProportional"
-							Text="{Binding Height}" FontSize="Micro"
-							AbsoluteLayout.LayoutBounds="1.025,30,AutoSize,AutoSize"
+							 />
+
+											<Label AbsoluteLayout.LayoutFlags="XProportional"
+							Text="{Binding Height}"
+							FontSize="14"
+							AbsoluteLayout.LayoutBounds="1,35,AutoSize,AutoSize"
 							Margin="0,0,0,-10"
 							/>
 									</AbsoluteLayout>
