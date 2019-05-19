@@ -58,7 +58,7 @@
 						TextColor="White"
 						FontFamily="San Francisco"
 						BackgroundColor="#707070"
-						FontSize="17" Command="{Binding GoToCompleteOrderCommandd}"
+						FontSize="17" Command="{Binding GoToCompleteOrderCommand}"
 						AbsoluteLayout.LayoutBounds="0.5,1,0.9,0.15"
 						AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional" />
 				</AbsoluteLayout>

@@ -1,6 +1,6 @@
 {
 	"OrderId": 1,
-	"ImageURL":"",
+	"ImageURL":[{"Url":"" },{"Url":""}],
 	"OrderData": "01.11.2019",
 	"OrderTime": "20:43",
 	"OrderAdress": "Воронеж, Ватутина 15",

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Xamarin.Forms.Maps;
 
@@ -12,8 +13,11 @@ namespace MyWasteDriver.DAL.DataObjects {
 		public string Height { get; set; }
 		public string Сomment { get; set; }
 		public string FullName { get; set; }
-		public Position  Coordinates { get; set; }
-		public string ImageURL { get; set; }
+		public Position Coordinates { get; set; }
+
+		public List<ImageUrl> AllImageUrl { get; set; }
 	}
+
+	public class ImageUrl { string url { get; set; } };
 
 }
