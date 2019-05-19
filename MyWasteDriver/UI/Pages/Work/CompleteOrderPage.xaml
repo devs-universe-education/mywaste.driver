@@ -3,12 +3,27 @@
 			 xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages"
 			 xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyWasteDriver.UI.Pages.Work.CompleteOrderPage"
+	xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
+	x:Class="MyWasteDriver.UI.Pages.Work.CompleteOrderPage"
 			 Title="Заказы:">
 	<ContentPage.Content>
-		<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" Padding="0" >
+		
+		
+		<controls:StateContainer State="{Binding State}">
+
+			<controls:StateCondition State="Loading">
+				<ActivityIndicator IsRunning="True" WidthRequest="40"
+			                       HorizontalOptions="Center" VerticalOptions="Center"/>
+			</controls:StateCondition>
+
+			<controls:StateCondition State="AddField">
+				<Label Text="AddField"></Label>
+			</controls:StateCondition>
+
+			<controls:StateCondition State="Normal">
+			<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" Padding="0" >
 			<AbsoluteLayout>
-				<Button Text="Добавить поле" CornerRadius="12" TextColor="White" FontSize="17" BackgroundColor="#707070" AbsoluteLayout.LayoutBounds="0.5,20,0.75,0.075"
+				<Button Text="Добавить поле" Command="{Binding GoToAddFieldStateCommand}" CornerRadius="12" TextColor="White" FontSize="17" BackgroundColor="#707070" AbsoluteLayout.LayoutBounds="0.5,20,0.75,0.075"
 						AbsoluteLayout.LayoutFlags="XProportional,SizeProportional" />
 				<ListView AbsoluteLayout.LayoutBounds="0,80,AutoSize,0.75" AbsoluteLayout.LayoutFlags="YProportional,HeightProportional"
 						  ItemsSource="{Binding OrdersObject.Orders}"
@@ -46,5 +61,9 @@
 						AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional" />
 			</AbsoluteLayout>
 		</Frame>
+			</controls:StateCondition>
+
+
+		</controls:StateContainer>
 	</ContentPage.Content>
 </pages:BasePage>

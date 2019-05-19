@@ -23,8 +23,9 @@ namespace MyWasteDriver
 		NoData,
 		Error,
 		NoInternet,
-		Map
-		
+		Map,
+		AddField
+
 	}
 }
 
