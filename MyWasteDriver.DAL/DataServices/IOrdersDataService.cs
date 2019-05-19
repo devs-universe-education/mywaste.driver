@@ -6,5 +6,6 @@ namespace MyWasteDriver.DAL.DataServices {
 	public interface IOrdersDataService {
 		Task<RequestResult<OrdersDataObject>> GetOrdersInfo(CancellationToken ctx);
 		Task<RequestResult<OrderDetailDataObject>> GetOrderDetailInfoById(int id, CancellationToken ctx);
+		Task<RequestResult<CurrentOrderDataObject>> GetCurrentOrderInfoById(int id, CancellationToken ctx);
 	}
 }
