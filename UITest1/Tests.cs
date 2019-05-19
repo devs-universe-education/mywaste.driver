@@ -7,7 +7,7 @@ using Xamarin.UITest;
 namespace UITest1
 {
     [TestFixture(Platform.Android)]
-    [TestFixture(Platform.iOS)]
+    //[TestFixture(Platform.iOS)]
     public class Tests
     {
         IApp app;
@@ -29,7 +29,7 @@ namespace UITest1
         [Test]
         public void WelcomeTextIsDisplayed()
         {
-			App.EnterText("EntryLog", "xui");
+			App.EnterText("EntryLog", "111");
 			App.Repl();
         }
     }
