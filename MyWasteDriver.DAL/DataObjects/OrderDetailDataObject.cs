@@ -18,6 +18,6 @@ namespace MyWasteDriver.DAL.DataObjects {
 		public List<ImageUrl> AllImageUrl { get; set; }
 	}
 
-	public class ImageUrl { string url { get; set; } };
+	public class ImageUrl { public string Url { get; set; } };
 
 }
