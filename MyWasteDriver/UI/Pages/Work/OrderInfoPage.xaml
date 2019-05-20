@@ -39,12 +39,12 @@
 					</StackLayout>
 				</ScrollView>-->
 							<ListView  AbsoluteLayout.LayoutBounds="0,0,Autosize,AutoSize"
-								ItemsSource="{Binding OrderInfoObject}">
+								ItemsSource="{Binding OrderInfoObject.AllImageUrl}">
 					<ListView.ItemTemplate  >
 						<DataTemplate>
 							<ViewCell >
 											<Frame BackgroundColor="White">
-												<Image Source="{Binding FirstFoto}"/>
+												<Image Source="{Binding Url}"/>
 											</Frame>
 										</ViewCell>
 						</DataTemplate>

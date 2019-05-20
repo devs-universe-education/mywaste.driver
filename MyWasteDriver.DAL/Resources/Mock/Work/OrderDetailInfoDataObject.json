@@ -1,6 +1,10 @@
 {
 	"OrderId": 1,
-	"ImageURL":[{"Url":"" },{"Url":""}],
+	"AllImageUrl": [
+		{ "Url": "https://cs4.pikabu.ru/post_img/2016/05/21/11/1463858804155042309.png" },
+		{ "Url": "https://static.tildacdn.com/tild3030-6238-4638-b865-366338353562/53i56a4e300a4635.jpg" },
+		{ "Url": "https://pp.userapi.com/c854128/v854128911/47883/5nTd9AuKpf8.jpg" }
+	],
 	"OrderData": "01.11.2019",
 	"OrderTime": "20:43",
 	"OrderAdress": "Воронеж, Ватутина 15",
@@ -13,5 +17,5 @@
 		"Latitude": 51.758988,
 		"Longitude": 39.184335
 	}
-	
+
 }
