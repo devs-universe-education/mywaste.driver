@@ -2,7 +2,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Acr.UserDialogs;
-using Xamarin.Forms;
+using TK.CustomMap.Droid;
 
 namespace MyWasteDriver.Android
 {
@@ -19,8 +19,8 @@ namespace MyWasteDriver.Android
 			UserDialogs.Init(() => this);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-			Xamarin.FormsMaps.Init(this, bundle);
-            LoadApplication(new App());
+			TKGoogleMaps.Init(this, bundle); 
+			LoadApplication(new App());
         }
     }
 }

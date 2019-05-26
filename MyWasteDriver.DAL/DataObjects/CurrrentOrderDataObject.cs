@@ -1,5 +1,5 @@
-using System.Collections.ObjectModel;
-using Xamarin.Forms.Maps;
+
+using TK.CustomMap;
 
 namespace MyWasteDriver.DAL.DataObjects {
 	public class CurrentOrderDataObject {

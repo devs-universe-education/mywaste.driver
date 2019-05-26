@@ -3,7 +3,8 @@
 			 xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 				xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
-				xmlns:local="clr-namespace:MyWasteMobile.UI.Controls"
+				
+				xmlns:tk="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
 				x:Class="MyWasteDriver.UI.Pages.Work.OrderInfoPage">
 
 
@@ -18,7 +19,7 @@
 
 
 			<controls:StateCondition State="Map">
-				<local:BindableMap MapType="Street" MapPosition="{Binding UserPosition}" MapPins="{Binding Locations}"/>
+				<tk:TKCustomMap x:Name="Map" MapType="Street" Pins="{Binding Locations}" MapRegion="{Binding OrderPosition}" />
 			</controls:StateCondition>
 
 

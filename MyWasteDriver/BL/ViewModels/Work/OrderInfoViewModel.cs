@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using MyWasteDriver.DAL.DataObjects;
 using MyWasteDriver.DAL.DataServices;
+using TK.CustomMap;
 
-using Xamarin.Forms.Maps;
+
 
 namespace MyWasteDriver.BL.ViewModels.Work {
 	class OrderInfoViewModel : BaseViewModel {
@@ -18,12 +19,12 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 
 		}
 
-		public ObservableCollection<Pin> _locations;
-		public Position _userPosition;
+		public ObservableCollection<TKCustomMapPin> _locations;
+		public MapSpan _orderPosition;
 		public Dictionary<string, object> _dataToLoad;
 
-		public ObservableCollection<Pin> Locations { get { return _locations; } set { _locations = value; } }
-		public Position UserPosition { get { return _userPosition; } set { _userPosition = value; } }
+		public ObservableCollection<TKCustomMapPin> Locations { get { return _locations; } set { _locations = value; } }
+		public MapSpan OrderPosition { get { return _orderPosition; } set { _orderPosition = value; } }
 
 
 		public override async Task OnPageAppearing() {
@@ -59,10 +60,11 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 
 		void ShowPageStateMap() {
 
-			_userPosition = OrderInfoObject.Coordinates;
-			_locations = new ObservableCollection<Pin> {
 
-				new Pin{Position = OrderInfoObject.Coordinates, Type = PinType.Generic, Label = OrderInfoObject.Material, Address = OrderInfoObject.OrderAdress}
+			_orderPosition = new MapSpan(center: OrderInfoObject.Coordinates,longitudeDegrees: OrderInfoObject.Coordinates.Longitude,latitudeDegrees: OrderInfoObject.Coordinates.Latitude);
+			_locations = new ObservableCollection<TKCustomMapPin> {
+
+				new TKCustomMapPin{Position = OrderInfoObject.Coordinates, Title = OrderInfoObject.OrderAdress}
 			};
 
 			State = PageState.Map;

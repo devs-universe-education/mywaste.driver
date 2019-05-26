@@ -7,7 +7,6 @@ namespace MyWasteDriver.UI.Pages.Work {
 			InitializeComponent();
 			NavigationPage.SetHasNavigationBar(this, false);
 			
-			
 		}
 	}
 }
