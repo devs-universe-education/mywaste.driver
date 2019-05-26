@@ -16,48 +16,44 @@
 			                       HorizontalOptions="Center" VerticalOptions="Center"/>
 			</controls:StateCondition>
 
-			<controls:StateCondition State="AddField">
-				<Label Text="AddField"></Label>
+			<controls:StateCondition State="AddField" >
+				<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+					<Label Text="Выберите материал " FontSize="17" AbsoluteLayout.LayoutBounds="0.3,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"></Label>
+					<ScrollView HeightRequest="50">
+						<StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" HeightRequest="50" WidthRequest="100" BackgroundColor="Aqua">
+						<Label Text="Метка 1" FontSize="Large" />
+						<Label Text="Метка 2" FontSize="Large" />
+						<Label Text="Метка 20" FontSize="Large" />
+					</StackLayout>
+				</ScrollView>
+				</StackLayout>
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Normal">
 			<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" Padding="0" >
-			<AbsoluteLayout>
-				<Button Text="Добавить поле" Command="{Binding GoToAddFieldStateCommand}" CornerRadius="12" TextColor="White" FontSize="17" BackgroundColor="#707070" AbsoluteLayout.LayoutBounds="0.5,20,0.75,0.075"
+					<AbsoluteLayout>
+						<Button Text="Добавить поле" Command="{Binding GoToAddFieldStateCommand}" CornerRadius="12" TextColor="White" FontSize="17" BackgroundColor="#707070" AbsoluteLayout.LayoutBounds="0.5,20,0.75,0.075"
 						AbsoluteLayout.LayoutFlags="XProportional,SizeProportional" />
-				<ListView AbsoluteLayout.LayoutBounds="0,80,AutoSize,0.75" AbsoluteLayout.LayoutFlags="YProportional,HeightProportional"
-						  ItemsSource="{Binding OrdersObject.Orders}"
-								SelectedItem="{Binding NavigateObject}"
+
+
+						<ListView AbsoluteLayout.LayoutBounds="0,80,AutoSize,AutoSize"
 								HasUnevenRows="True"
-								BackgroundColor="Black"
-								IsPullToRefreshEnabled="True"
-								SeparatorVisibility="None">
+								BackgroundColor="Beige"
+								IsPullToRefreshEnabled="True">
 
-			<ListView.Header>
-			<ContentView  BackgroundColor="White">
-			
-			</ContentView>
-		</ListView.Header>
-				
-			
-
-		<ListView.ItemTemplate  >
-
-			<DataTemplate >
-				<ViewCell  >
-					<Frame CornerRadius="10" HasShadow="True" Margin="10,5,10,5"  BackgroundColor="Beige">
-									<AbsoluteLayout >
-
-									</AbsoluteLayout>
-
-					</Frame>
-
-				</ViewCell>
-			</DataTemplate>
-		</ListView.ItemTemplate>
-		</ListView>
-
-				<Button  Text="Завершить заказ" CornerRadius="12" TextColor="White" FontSize="17" BackgroundColor="#4cd964" AbsoluteLayout.LayoutBounds="0.5,0.9,0.75,0.075"
+							<ListView.ItemTemplate >
+								<DataTemplate  >
+									<ViewCell >
+										<AbsoluteLayout BackgroundColor="Azure">
+											<Label FontSize="17" TextColor="Black" Text="Пластик" AbsoluteLayout.LayoutBounds="10,10,AutoSize,AutoSize"></Label>
+											<Label FontSize="17" TextColor="Black" Text="12кг" AbsoluteLayout.LayoutBounds="10,1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional"></Label>
+										</AbsoluteLayout>
+									</ViewCell>
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</ListView>
+						
+						<Button  Text="Завершить заказ" CornerRadius="12" TextColor="White" FontSize="17" BackgroundColor="#4cd964" AbsoluteLayout.LayoutBounds="0.5,0.95,0.75,0.075"
 						AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional" />
 			</AbsoluteLayout>
 		</Frame>

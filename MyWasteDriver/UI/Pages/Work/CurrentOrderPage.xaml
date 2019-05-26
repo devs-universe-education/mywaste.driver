@@ -53,7 +53,7 @@
 					   TextColor="#707070"
 					    FontSize="17"/>
 					<Label Text="{Binding OrderInfoObject.Сomment}" 
-						   AbsoluteLayout.LayoutBounds="110,0.525,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"
+						   AbsoluteLayout.LayoutBounds="110,0.6,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"
 					   TextColor="#707070"
 					    FontSize="17"/>
 

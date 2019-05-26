@@ -25,7 +25,7 @@
 
 			<controls:StateCondition State="Normal">
 
-					<Frame CornerRadius="5" Margin="5" BackgroundColor="#fafafa" >
+				<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" >
 					<AbsoluteLayout>
 						<StackLayout AbsoluteLayout.LayoutBounds="0,0,AutoSize,0.5" AbsoluteLayout.LayoutFlags="HeightProportional" Orientation="Vertical" >
 				<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Margin="-20,-20,-20,0">
@@ -80,24 +80,52 @@
 				AbsoluteLayout.LayoutBounds="0,0.3,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"
 						   TextColor="#707070"
 					    FontSize="17"></Label>
-							<StackLayout AbsoluteLayout.LayoutBounds="0,.375,1,AutoSize" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional" Orientation="Horizontal" Spacing="10" BackgroundColor="AliceBlue">
-								<Label Text ="{Binding OrderInfoObject.Material}" FontSize="15" HorizontalOptions="Start"/>
-								<Label Text="{Binding OrderInfoObject.Size}" FontSize="15" VerticalOptions="Center"/>
-								<Label Text="{Binding OrderInfoObject.Height}" FontSize="15" VerticalOptions="End"/>
-							</StackLayout>
+							<AbsoluteLayout Margin="0,5,0,0" AbsoluteLayout.LayoutBounds="0,.375,1,AutoSize" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"   >
+								<Label Text ="{Binding OrderInfoObject.Material}"
+									   FontSize="15"
+									   AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize" />
+
+								<BoxView AbsoluteLayout.LayoutBounds="0.3,0.5,AutoSize,AutoSize"
+										 AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
+										 CornerRadius="100"
+										 Color="Gray"
+										 WidthRequest="5"
+										 HeightRequest="5"
+							 />
+
+								<Label Text="{Binding OrderInfoObject.Size}"
+									   FontSize="15"
+									   AbsoluteLayout.LayoutBounds="0.5,0,AutoSize,AutoSize"
+									   AbsoluteLayout.LayoutFlags="XProportional" />
+
+								<BoxView AbsoluteLayout.LayoutBounds="0.7,0.5,AutoSize,AutoSize"
+										AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
+										CornerRadius="100"
+										Color="Gray"
+										WidthRequest="5"
+										HeightRequest="5"
+							 />
+								<Label Text="{Binding OrderInfoObject.Height}"
+									   FontSize="15"
+									   AbsoluteLayout.LayoutBounds="1,0,AutoSize,AutoSize"
+									   AbsoluteLayout.LayoutFlags="XProportional" />
+							</AbsoluteLayout>
 
 							<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.45,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
-							<Label Text="Коментарий:" 
-						   AbsoluteLayout.LayoutBounds="0,0.525,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"
-					   TextColor="#707070"
-					    FontSize="17"/>
-							<Label Text="{Binding OrderInfoObject.Сomment}" 
-						   AbsoluteLayout.LayoutBounds="0,0.6,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"
-					   TextColor="#707070"
-					    FontSize="17"/>
 
-							<Button Text="Показать &#10; на карте"
-									FontSize="8"
+							<Label Text="Коментарий:" 
+									AbsoluteLayout.LayoutBounds="0,0.525,AutoSize,AutoSize"
+									AbsoluteLayout.LayoutFlags="YProportional"
+									TextColor="#707070"
+									FontSize="17"/>
+							<Label Text="{Binding OrderInfoObject.Сomment}" 
+									AbsoluteLayout.LayoutBounds="0,0.6,AutoSize,AutoSize"
+								   AbsoluteLayout.LayoutFlags="YProportional"
+									TextColor="#707070"
+								  FontSize="17"/>
+
+							<Button Margin="0,0,0,2.5" Text="Показать &#10; на карте"
+									FontSize="7"
 									Command="{Binding PageStateMapCommand}"
 									 AbsoluteLayout.LayoutBounds="1,0.125,0.2,0.125" 
 						   AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional"/>
