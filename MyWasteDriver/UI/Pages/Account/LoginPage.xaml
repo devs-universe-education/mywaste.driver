@@ -47,6 +47,7 @@
 							CornerRadius="5"/>
 
 					<Button Text="Нужна помощь ?"
+							Command="{Binding CallPhoneCommand}"
 							FontSize="12"
 							FontFamily="Arial"
 							StyleClass="Link"
