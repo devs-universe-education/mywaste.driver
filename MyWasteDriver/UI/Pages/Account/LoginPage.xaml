@@ -13,6 +13,16 @@
 			                       HorizontalOptions="Center" VerticalOptions="Center"/>
 			</controls:StateCondition>
 
+			<controls:StateCondition State="NoInternet">
+				<AbsoluteLayout  Padding="50,10,50,10" >
+					<Label Text="NoInternet"
+							   FontSize="24"></Label>
+							   
+				</AbsoluteLayout>
+					
+				
+			</controls:StateCondition>
+			
 			<controls:StateCondition State="Normal" BackgroundColor="#ffffff">
 				<AbsoluteLayout  Padding="50,10,50,10">
 
@@ -51,7 +61,6 @@
 							FontSize="12"
 							FontFamily="Arial"
 							StyleClass="Link"
-							Style="Link"
 							AbsoluteLayout.LayoutBounds="0.5,1,0.5,0.085" AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional" 
 							BackgroundColor= "#fafafa"
 							TextColor="#999999"

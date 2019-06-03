@@ -3,15 +3,14 @@
 			 xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages"
 			 xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-		
-	xmlns:local="clr-namespace:MyWasteMobile.UI.Controls"
-	xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
-	x:Class="MyWasteDriver.UI.Pages.Work.CurrentOrderPage">
+	       	 xmlns:tk="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
+		     xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
+			 x:Class="MyWasteDriver.UI.Pages.Work.CurrentOrderPage">
 	
 
 	<ContentPage.Content>
 		<controls:StateContainer State="{Binding State}">
-
+ 
 			<controls:StateCondition State="Loading">
 				<ActivityIndicator IsRunning="True" WidthRequest="40"
 			                       HorizontalOptions="Center" VerticalOptions="Center"/>
@@ -20,7 +19,7 @@
 
 				<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" Padding="0" >
 			<AbsoluteLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Aqua">
-				<local:BindableMap MapType="Street" MapPosition="{Binding UserPosition}" MapPins="{Binding Locations}" AbsoluteLayout.LayoutBounds="0,0,1,0.5" AbsoluteLayout.LayoutFlags="HeightProportional,WidthProportional"/>
+						<tk:TKCustomMap MapType="Street" IsShowingUser="True" Pins="{Binding Locations}" MapRegion="{Binding OrderPosition}"  AbsoluteLayout.LayoutBounds="0,0,1,0.5" AbsoluteLayout.LayoutFlags="HeightProportional,WidthProportional"/>
 
 					
 						<AbsoluteLayout   AbsoluteLayout.LayoutBounds="0,1,1,0.5" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional" Padding="10" BackgroundColor="#fafafa" >

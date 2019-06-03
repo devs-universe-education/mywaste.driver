@@ -2,14 +2,22 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Acr.UserDialogs;
-using Xamarin.Forms;
+using TK.CustomMap.Droid;
+using Plugin.Permissions;
+using Android.Runtime;
+using TK.CustomMap.Api.Google;
 
 namespace MyWasteDriver.Android
 {
+
     [Activity(Label = "MyWasteDriver", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        protected override void OnCreate(Bundle bundle)
+		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults) {
+			PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+			base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+		}
+		protected override void OnCreate(Bundle bundle)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
@@ -17,12 +25,16 @@ namespace MyWasteDriver.Android
             base.OnCreate(bundle);
 
 			UserDialogs.Init(() => this);
-
-            global::Xamarin.Forms.Forms.Init(this, bundle);
-			Xamarin.FormsMaps.Init(this, bundle);
-            LoadApplication(new App());
+			GmsDirection.Init("AIzaSyDJ5OvKyLiF59CsnfI229J8l9mAGr13w8w");
+			global::Xamarin.Forms.Forms.Init(this, bundle);
+			TKGoogleMaps.Init(this, bundle);
+			Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, bundle);
+			LoadApplication(new App());
         }
-    }
+		
+
+
+	}
 }
 
 
