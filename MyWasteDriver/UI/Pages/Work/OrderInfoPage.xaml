@@ -19,7 +19,7 @@
 
 
 			<controls:StateCondition State="Map">
-				<tk:TKCustomMap x:Name="Map" MapType="Street" Pins="{Binding Locations}" MapRegion="{Binding OrderPosition}" />
+				<tk:TKCustomMap x:Name="Map" MapType="Street" Pins="{Binding Locations}" MapRegion="{Binding OrderPosition}" IsShowingUser="True" Routes="{Binding R}" />
 			</controls:StateCondition>
 
 

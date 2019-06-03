@@ -19,13 +19,8 @@
 			<controls:StateCondition State="AddField" >
 				<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
 					<Label Text="Выберите материал " FontSize="17" AbsoluteLayout.LayoutBounds="0.3,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"></Label>
-					<ScrollView HeightRequest="50">
-						<StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" HeightRequest="50" WidthRequest="100" BackgroundColor="Aqua">
-						<Label Text="Метка 1" FontSize="Large" />
-						<Label Text="Метка 2" FontSize="Large" />
-						<Label Text="Метка 20" FontSize="Large" />
-					</StackLayout>
-				</ScrollView>
+					<Picker Title="Выберите материал" FontSize="17" AbsoluteLayout.LayoutBounds="0.3,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" ItemsSource="{Binding MaterialList}" ItemDisplayBinding="{Binding Value}"/>
+					
 				</StackLayout>
 			</controls:StateCondition>
 

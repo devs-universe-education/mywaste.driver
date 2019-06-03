@@ -19,7 +19,7 @@
 
 				<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" Padding="0" >
 			<AbsoluteLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Aqua">
-						<tk:TKCustomMap MapType="Street" Pins="{Binding Locations}" MapRegion="{Binding OrderPosition}"  AbsoluteLayout.LayoutBounds="0,0,1,0.5" AbsoluteLayout.LayoutFlags="HeightProportional,WidthProportional"/>
+						<tk:TKCustomMap MapType="Street" IsShowingUser="True" Pins="{Binding Locations}" MapRegion="{Binding OrderPosition}"  AbsoluteLayout.LayoutBounds="0,0,1,0.5" AbsoluteLayout.LayoutFlags="HeightProportional,WidthProportional"/>
 
 					
 						<AbsoluteLayout   AbsoluteLayout.LayoutBounds="0,1,1,0.5" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional" Padding="10" BackgroundColor="#fafafa" >

@@ -5,8 +5,7 @@ using System.Windows.Input;
 using MyWasteDriver.DAL.DataObjects;
 using MyWasteDriver.DAL.DataServices;
 using TK.CustomMap;
-
-
+using TK.CustomMap.Overlays;
 
 namespace MyWasteDriver.BL.ViewModels.Work {
 	class OrderInfoViewModel : BaseViewModel {
@@ -22,12 +21,19 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 		public ObservableCollection<TKCustomMapPin> _locations;
 		public MapSpan _orderPosition;
 		public Dictionary<string, object> _dataToLoad;
+		public ObservableCollection<TKRoute> _routes = new ObservableCollection<TKRoute> { new TKRoute { Destination = new Position(51.737417, 39.180424), Source = new Position(51.723048, 39.179640), TravelMode = TKRouteTravelMode.Driving } } ;
+	
 
+
+	public ObservableCollection<TKRoute> R { get { return _routes; } set { _routes = value; } }
+		
 		public ObservableCollection<TKCustomMapPin> Locations { get { return _locations; } set { _locations = value; } }
 		public MapSpan OrderPosition { get { return _orderPosition; } set { _orderPosition = value; } }
 
 
 		public override async Task OnPageAppearing() {
+
+
 			State = PageState.Loading;
 			if (NavigationParams.TryGetValue("orderId", out var x)) {
 
@@ -51,16 +57,14 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 			else State = PageState.Error;
 		}
 
+		
 		public ICommand GoToCurrentOrderCommand => GetNavigateToCommand(AppPages.CurrentOrder, NavigationMode.Normal, navParams: _dataToLoad);
-
-
 		public ICommand GoToBackCommand => GoBackCommand;
 		public ICommand PageStateMapCommand => MakeCommand(ShowPageStateMap);
 		public ICommand PageStateNormalCommand => MakeCommand(ShowPageStateNormal);
-
+	
 		void ShowPageStateMap() {
-
-
+			
 			_orderPosition = new MapSpan(center: OrderInfoObject.Coordinates,longitudeDegrees: OrderInfoObject.Coordinates.Longitude,latitudeDegrees: OrderInfoObject.Coordinates.Latitude);
 			_locations = new ObservableCollection<TKCustomMapPin> {
 

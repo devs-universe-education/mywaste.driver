@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MyWasteDriver.DAL.DataObjects;
@@ -15,6 +17,9 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 			set => Set(value);
 		}
 
+		public List<MaterialС> MaterialList { get {return _materialList; } set { _materialList = value; } }
+
+		List<MaterialС> _materialList = PickerService.GetMaterials().OrderBy(c => c.Value).ToList();
 
 		public ObservableCollection<TKCustomMapPin> _locations;
 		public MapSpan _orderPosition;
@@ -25,9 +30,8 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 
 		public ICommand OpenNavigatorCommand => MakeCommand(OpenNavigator);
 		public ICommand GoToCompleteOrderCommand => GetNavigateToCommand(AppPages.CompleteOrder, NavigationMode.Normal);
-
 		public ICommand CallPhoneCommand => MakeCommand(MakePhoneCommand);
-
+		
 		void MakePhoneCommand() {
 			Device.OpenUri(new Uri("tel:999999999999999"));
 
@@ -65,4 +69,6 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 			else State = PageState.Error;
 		}
 	}
+
+	
 }
