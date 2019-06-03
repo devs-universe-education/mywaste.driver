@@ -26,32 +26,37 @@
 
 				<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" >
 					<AbsoluteLayout>
-						<StackLayout AbsoluteLayout.LayoutBounds="0,0,AutoSize,0.5" AbsoluteLayout.LayoutFlags="HeightProportional" Orientation="Vertical" >
+						<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.3" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Orientation="Vertical" >
 				<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Margin="-20,-20,-20,0">
 					<ImageButton BackgroundColor="#fafafa" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding GoToBackCommand}" ></ImageButton>
 					<Label FontSize="17" Text="Информация о заказе:" AbsoluteLayout.LayoutBounds="0.15,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"/>
 				</AbsoluteLayout>
-				<!--<ScrollView Orientation="Horizontal" Margin="-10,0,-10,0" HorizontalOptions="Start" VerticalOptions="Start">
-					<StackLayout Orientation="Horizontal " >
-									<Image x:Name="Image"  WidthRequest="250" HeightRequest="250"  Source="{Binding OrderInfoObject.ImageURL}"о></Image>
-									<Image  WidthRequest="250" HeightRequest="250" Source="{Binding OrderInfoObject.ImageURL}"></Image>
-						<Image WidthRequest="250" HeightRequest="250" Source="trash3.png"></Image>
-					</StackLayout>
-				</ScrollView>-->
-							<ListView  AbsoluteLayout.LayoutBounds="0,0,Autosize,AutoSize"
-								ItemsSource="{Binding OrderInfoObject.AllImageUrl}">
+				
+							
+									
+									<ListView VerticalOptions="End" HorizontalOptions="Start" Rotation="270"
+											   RowHeight="250"
+											   HeightRequest="500"
+												ItemsSource="{Binding OrderInfoObject.AllImageUrl}">
 					<ListView.ItemTemplate  >
 						<DataTemplate>
-							<ViewCell >
-											<Frame BackgroundColor="White">
-												<Image Source="{Binding Url}"/>
-											</Frame>
+												<ViewCell >
+											<ScrollView Orientation="Horizontal" > 
+												<StackLayout Orientation="Horizontal">
+													<ContentView Rotation="90" HeightRequest="250" WidthRequest="250">
+														<Image WidthRequest="250"
+													   HeightRequest="250"
+													   Source="{Binding Url}"/>
+													</ContentView>
+												</StackLayout>
+											</ScrollView>
 										</ViewCell>
-						</DataTemplate>
+											</DataTemplate>
 					</ListView.ItemTemplate>
 						
 					</ListView>
-					</StackLayout>
+								
+						</StackLayout>
 						<AbsoluteLayout   AbsoluteLayout.LayoutBounds="0,1,1,0.5" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional" Padding="0" >
 						<Label Text="ФИО:"
 					   FontSize="17"
@@ -123,11 +128,14 @@
 									TextColor="#707070"
 								  FontSize="17"/>
 
-							<Button Margin="0,0,0,2.5" Text="Показать &#10; на карте"
+							<Button Margin="0,0,0,2.5"
+									IsVisible="False"
+									Text="KostlL"
+									AbsoluteLayout.LayoutBounds="0,0.125,1,0.125" 
+									AbsoluteLayout.LayoutFlags="YProportional,SizeProportional"
 									FontSize="7"
 									Command="{Binding PageStateMapCommand}"
-									 AbsoluteLayout.LayoutBounds="1,0.125,0.2,0.125" 
-						   AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional"/>
+									 />
 
 						<Button CornerRadius="7"
 						Text="Принять"
