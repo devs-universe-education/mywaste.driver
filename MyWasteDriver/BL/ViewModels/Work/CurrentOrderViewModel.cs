@@ -17,9 +17,8 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 			set => Set(value);
 		}
 
-		public List<MaterialС> MaterialList { get {return _materialList; } set { _materialList = value; } }
 
-		List<MaterialС> _materialList = PickerService.GetMaterials().OrderBy(c => c.Value).ToList();
+		
 
 		public ObservableCollection<TKCustomMapPin> _locations;
 		public MapSpan _orderPosition;

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pages:BasePage
- 
 			 xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages"
 			 xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
 	x:Class="MyWasteDriver.UI.Pages.Work.CompleteOrderPage"
 			 Title="Заказы:">
-	
 	<ContentPage.Content>
 		
 		
@@ -19,74 +17,43 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="AddField" >
-				<StackLayout Margin=" 10">
-					<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-					<StackLayout Orientation="Horizontal">
-						<Switch  x:Name="Glass" Toggled="FocusGlass"/>
-						<Label Text="Стекло" FontSize="27" ></Label>
-						<Entry x:Name="GlassEntr" IsVisible="False"/>
-						</StackLayout>
-					<StackLayout Orientation="Horizontal">
-							<Switch  x:Name="Plastik" Toggled="FocusPlastik"/>
-						<Label Text="Пластик" FontSize="27" ></Label>
-							<Entry x:Name="PlastikEntr" IsVisible="False"/>
-						</StackLayout>
-					<StackLayout Orientation="Horizontal">
-							<Switch  x:Name="Paper" Focused="FocusPaper"  />
-						<Label Text="Бумага" FontSize="27" ></Label>
-							<Entry x:Name="PaperEntr" IsVisible="False"/>
-						</StackLayout>
-				</StackLayout>
-					<Button
-						Clicked="Ckliked"
-						CornerRadius="12"
-						WidthRequest="250"
-						HeightRequest="70"
-						HorizontalOptions="CenterAndExpand"
-						VerticalOptions="EndAndExpand"
-						Text="Добавить"
-						Command="{Binding GoToCompleteOrderPage}"/>
+				<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+					<Label Text="Выберите материал " FontSize="17" AbsoluteLayout.LayoutBounds="0.3,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"></Label>
+					<Picker Title="Выберите материал" FontSize="17" AbsoluteLayout.LayoutBounds="0.3,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" ItemsSource="{Binding MaterialList}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding SelectedMaterial}"/>
+					<Entry Keyboard="Numeric"  Text="{Binding Weight}" />
+					<Button Command="{Binding GoToCompleteOrderPage}" ></Button>
 				</StackLayout>
 			</controls:StateCondition>
 
-			<controls:StateCondition State="Normal">
+			<controls:StateCondition State="Normal" >
 			<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" Padding="0" >
 					<AbsoluteLayout>
-						<Label Text="biba" FontSize="20" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"/>
-						<Button Text="Добавить поле"
-								Command="{Binding GoToAddFieldStateCommand}"
-								CornerRadius="12"
-								TextColor="White"
-								FontSize="17"
-								BackgroundColor="#707070"
-								AbsoluteLayout.LayoutBounds="0.825,0.975,0.5,AutoSize"
-								AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional" />
-						<Button  Text="Завершить"
-								 CornerRadius="12"
-								 TextColor="White"
-								 FontSize="17"
-								 BackgroundColor="#4cd964"
-								 AbsoluteLayout.LayoutBounds="0.1,0.975,0.35,0.075"
-								AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional" />
+						<Button Text="Добавить поле" Command="{Binding GoToAddFieldStateCommand}" CornerRadius="12" TextColor="White" FontSize="17" BackgroundColor="#707070" AbsoluteLayout.LayoutBounds="0.5,20,0.75,0.075"
+						AbsoluteLayout.LayoutFlags="XProportional,SizeProportional" />
 
 
-						<ListView x:Name="list"
-							AbsoluteLayout.LayoutBounds="0,0,AutoSize,0.875" AbsoluteLayout.LayoutFlags="HeightProportional"
+						<ListView AbsoluteLayout.LayoutBounds="0,80,AutoSize,AutoSize"
 								HasUnevenRows="True"
 								BackgroundColor="Beige"
-								IsPullToRefreshEnabled="True">
+								IsPullToRefreshEnabled="True"
+								  ItemsSource="{Binding OrdersMaterials}">
 
-							<ListView.ItemTemplate >
+							<ListView.ItemTemplate>
 								<DataTemplate  >
 									<ViewCell >
 										<AbsoluteLayout BackgroundColor="Azure">
-											
+											<Label Text =" Вес:"/>
+											<Label Text="{Binding Weight}"/>
+											<Label Text="Материалы:"/>
+											<Label Text="{Binding Material.Value}"/>
 										</AbsoluteLayout>
 									</ViewCell>
 								</DataTemplate>
 							</ListView.ItemTemplate>
 						</ListView>
 						
+						<Button  Text="Завершить заказ" CornerRadius="12" TextColor="White" FontSize="17" BackgroundColor="#4cd964" AbsoluteLayout.LayoutBounds="0.5,0.95,0.75,0.075"
+						AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional" />
 			</AbsoluteLayout>
 		</Frame>
 			</controls:StateCondition>
