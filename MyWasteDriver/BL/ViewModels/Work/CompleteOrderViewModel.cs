@@ -9,8 +9,9 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 	class CompleteOrderViewModel : BaseViewModel {
 		public ICommand GoToAddFieldStateCommand => MakeCommand(ShowPageStateAddField);
 		public ICommand GoToCompleteOrderPage => MakeCommand(ShowCompleteOrderPage);
-		public List<OrderMaterial> OrdersMaterials { get; set; }
+		public List<OrderMaterial> OrdersMaterials { get; set; } = new List<OrderMaterial>();
 		
+
 
 		public object _selectedMateial;
 		public object SelectedMaterial { get { return _selectedMateial; } set { _selectedMateial = value; } }
@@ -22,9 +23,8 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 		public List<MaterialС> _materialList = PickerService.GetMaterials().OrderBy(c => c.Value).ToList();
 
 		void ShowCompleteOrderPage() {
-
-			OrdersMaterials = new List<OrderMaterial> {
-				new OrderMaterial { Weight = Weight, Material = SelectedMaterial }
+			OrdersMaterials = new List<OrderMaterial>(OrdersMaterials) {
+				new OrderMaterial {Material = SelectedMaterial, Weight = Weight}
 			};
 
 			State = PageState.Normal;
@@ -36,6 +36,7 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 		}
 
 		public override async Task OnPageAppearing() {
+
 			State = PageState.Normal;
 		}
 	}
