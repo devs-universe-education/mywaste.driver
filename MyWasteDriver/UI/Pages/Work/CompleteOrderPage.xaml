@@ -19,33 +19,15 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="AddField" >
-				<StackLayout Margin=" 10">
-					<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-					<StackLayout Orientation="Horizontal">
-						<Switch  x:Name="Glass" Toggled="FocusGlass"/>
-						<Label Text="Стекло" FontSize="27" ></Label>
-						<Entry x:Name="GlassEntr" IsVisible="False"/>
-						</StackLayout>
-					<StackLayout Orientation="Horizontal">
-							<Switch  x:Name="Plastik" Toggled="FocusPlastik"/>
-						<Label Text="Пластик" FontSize="27" ></Label>
-							<Entry x:Name="PlastikEntr" IsVisible="False"/>
-						</StackLayout>
-					<StackLayout Orientation="Horizontal">
-							<Switch  x:Name="Paper" Focused="FocusPaper"  />
-						<Label Text="Бумага" FontSize="27" ></Label>
-							<Entry x:Name="PaperEntr" IsVisible="False"/>
-						</StackLayout>
-				</StackLayout>
-					<Button
-						Clicked="Ckliked"
-						CornerRadius="12"
-						WidthRequest="250"
-						HeightRequest="70"
-						HorizontalOptions="CenterAndExpand"
-						VerticalOptions="EndAndExpand"
-						Text="Добавить"
-						Command="{Binding GoToCompleteOrderPage}"/>
+				<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+					<Label Text="Выберите материал " FontSize="17" AbsoluteLayout.LayoutBounds="0.3,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"></Label>
+					<ScrollView HeightRequest="50">
+						<StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" HeightRequest="50" WidthRequest="100" BackgroundColor="Aqua">
+						<Label Text="Метка 1" FontSize="Large" />
+						<Label Text="Метка 2" FontSize="Large" />
+						<Label Text="Метка 20" FontSize="Large" />
+					</StackLayout>
+				</ScrollView>
 				</StackLayout>
 			</controls:StateCondition>
 
