@@ -147,7 +147,7 @@
 								  FontSize="17"/>
 
 							<Button Margin="0,0,0,2.5"
-									IsVisible="False"
+									IsVisible="True"
 									Text="KostlL"
 									AbsoluteLayout.LayoutBounds="0,0.125,1,0.125" 
 									AbsoluteLayout.LayoutFlags="YProportional,SizeProportional"

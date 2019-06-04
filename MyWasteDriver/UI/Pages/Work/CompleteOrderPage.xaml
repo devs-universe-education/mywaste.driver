@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pages:BasePage
- 
 			 xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages"
 			 xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
 	x:Class="MyWasteDriver.UI.Pages.Work.CompleteOrderPage"
 			 Title="Заказы:">
-	
 	<ContentPage.Content>
 		
 		
@@ -19,16 +17,14 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="AddField" >
-				<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
-					<Label Text="Выберите материал " FontSize="17" AbsoluteLayout.LayoutBounds="0.3,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"></Label>
-					<ScrollView HeightRequest="50">
-						<StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" HeightRequest="50" WidthRequest="100" BackgroundColor="Aqua">
-						<Label Text="Метка 1" FontSize="Large" />
-						<Label Text="Метка 2" FontSize="Large" />
-						<Label Text="Метка 20" FontSize="Large" />
-					</StackLayout>
-				</ScrollView>
-				</StackLayout>
+				<Frame CornerRadius="12" Margin="10">
+					<AbsoluteLayout Margin="20,10,20,10">
+					<Label Text="Выберите материал:" FontSize="27" AbsoluteLayout.LayoutBounds="0.5,0.4,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"></Label>
+					<Picker Title="Выберите материал" FontSize="17" AbsoluteLayout.LayoutBounds="0,0.7,1,AutoSize" AbsoluteLayout.LayoutFlags="WidthProportional,YProportional" ItemsSource="{Binding MaterialList}" ItemDisplayBinding="{Binding Value}" SelectedItem="{Binding SelectedMaterial}"/>
+						<Entry Placeholder="Введите количество" Keyboard="Numeric" Text="{Binding Weight}" AbsoluteLayout.LayoutBounds="0,0.8,1,AutoSize" AbsoluteLayout.LayoutFlags="WidthProportional,YProportional" />
+						<Button CornerRadius="12" BorderColor="#a6a6a6" TextColor="#707070" Text="Добавить" Command="{Binding GoToCompleteOrderPage}" AbsoluteLayout.LayoutBounds="0.5,1,0.9,0.075" AbsoluteLayout.LayoutFlags="All" ></Button >
+				</AbsoluteLayout>
+				</Frame>
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Normal">
@@ -52,17 +48,18 @@
 								AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional" />
 
 
-						<ListView x:Name="list"
-							AbsoluteLayout.LayoutBounds="0,0,AutoSize,0.875" AbsoluteLayout.LayoutFlags="HeightProportional"
+						<ListView AbsoluteLayout.LayoutBounds="0,80,AutoSize,AutoSize"
 								HasUnevenRows="True"
-								BackgroundColor="Beige"
-								IsPullToRefreshEnabled="True">
+								IsPullToRefreshEnabled="True"
+								SeparatorColor=" #a6a6a6"
+								 ItemsSource="{Binding OrdersMaterials}">
 
-							<ListView.ItemTemplate >
+							<ListView.ItemTemplate>
 								<DataTemplate  >
-									<ViewCell >
-										<AbsoluteLayout BackgroundColor="Azure">
-											
+									<ViewCell IsEnabled="False" >
+										<AbsoluteLayout Margin="10" >
+											<Label Text="{Binding Weight}" AbsoluteLayout.LayoutBounds="0.95,0,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional" FontSize="17"/>
+											<Label Text="{Binding Material.Value}"  AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize" FontSize="17"/>
 										</AbsoluteLayout>
 									</ViewCell>
 								</DataTemplate>
