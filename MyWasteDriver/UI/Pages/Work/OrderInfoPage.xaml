@@ -27,37 +27,54 @@
 
 				<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" >
 					<AbsoluteLayout>
-						<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.3" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Orientation="Vertical" >
-				<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Margin="-20,-20,-20,0">
-					<ImageButton BackgroundColor="#fafafa" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding GoToBackCommand}" ></ImageButton>
-					<Label FontSize="17" Text="Информация о заказе:" AbsoluteLayout.LayoutBounds="0.15,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"/>
-				</AbsoluteLayout>
-				
-							
-									
-									<ListView VerticalOptions="End" HorizontalOptions="Start" Rotation="270"
-											   RowHeight="250"
-											   HeightRequest="500"
-												ItemsSource="{Binding OrderInfoObject.AllImageUrl}">
-					<ListView.ItemTemplate  >
-						<DataTemplate>
-												<ViewCell >
-											<ScrollView Orientation="Horizontal" > 
-												<StackLayout Orientation="Horizontal">
-													<ContentView Rotation="90" HeightRequest="250" WidthRequest="250">
-														<Image WidthRequest="250"
-													   HeightRequest="250"
-													   Source="{Binding Url}"/>
-													</ContentView>
-												</StackLayout>
-											</ScrollView>
-										</ViewCell>
-											</DataTemplate>
-					</ListView.ItemTemplate>
-						
-					</ListView>
-								
+						<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Orientation="Vertical" >
+							<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Margin="-20,-20,-20,0">
+								<ImageButton BackgroundColor="#fafafa" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding GoToBackCommand}" ></ImageButton>
+								<Label FontSize="17" Text="Информация о заказе:" AbsoluteLayout.LayoutBounds="0.15,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"/>
+							</AbsoluteLayout>
 						</StackLayout>
+
+						<RelativeLayout AbsoluteLayout.LayoutBounds="0,0.1,1,0.45" AbsoluteLayout.LayoutFlags="All">
+									<ListView
+			ItemsSource="{Binding OrderInfoObject.AllImageUrl}"
+			SeparatorVisibility="None"
+			AnchorX="0"
+			AnchorY="0"
+			RowHeight="350"
+			RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0}"
+			RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=1}"
+			RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=1}"
+			RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
+			Rotation="270"
+			HorizontalOptions="Center"
+			VerticalOptions="StartAndExpand">
+										<ListView.ItemTemplate>
+											<DataTemplate>
+												<ViewCell IsEnabled="False">
+													<ContentView
+													Padding="5,15,5,5"
+													Rotation="90"
+													HorizontalOptions="CenterAndExpand"
+													VerticalOptions="CenterAndExpand">
+														<!--<Image
+														HorizontalOptions="CenterAndExpand"
+														VerticalOptions="CenterAndExpand"
+														Source="{Binding Url}"
+														Aspect="AspectFill" />-->
+
+												<Image
+														HorizontalOptions="CenterAndExpand"
+														VerticalOptions="CenterAndExpand"
+														Aspect="AspectFill" 
+													   Source="{Binding Url}"/>
+											</ContentView>
+												</ViewCell>
+											</DataTemplate>
+										</ListView.ItemTemplate>
+									</ListView>
+								</RelativeLayout>
+							
+
 						<AbsoluteLayout   AbsoluteLayout.LayoutBounds="0,1,1,0.5" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional" Padding="0" >
 						<Label Text="ФИО:"
 					   FontSize="17"
