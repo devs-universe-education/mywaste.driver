@@ -26,7 +26,7 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 			OrdersMaterials = new List<OrderMaterial>(OrdersMaterials) {
 				new OrderMaterial {Material = SelectedMaterial, Weight = Weight}
 			};
-
+			_weight = "";
 			State = PageState.Normal;
 
 		}
