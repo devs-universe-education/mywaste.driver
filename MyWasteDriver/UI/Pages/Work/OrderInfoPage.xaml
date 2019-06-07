@@ -28,7 +28,7 @@
 
 			<controls:StateCondition State="Normal">
 
-				<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" >
+				<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" HasShadow="True">
 					<AbsoluteLayout>
 						<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Orientation="Vertical" >
 							<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Margin="-20,-20,-20,0">
