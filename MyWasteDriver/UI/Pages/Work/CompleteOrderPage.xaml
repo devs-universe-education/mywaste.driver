@@ -49,8 +49,8 @@
 								 TextColor="White"
 								 FontSize="17"
 								 BackgroundColor="#4cd964"
-								 AbsoluteLayout.LayoutBounds="0,0.975,0.35,0.075"
-								AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional" />
+								 AbsoluteLayout.LayoutBounds="0,0.975,0.35,AutoSize"
+								AbsoluteLayout.LayoutFlags="YProportional,XProportional,WidthProportional" />
 
 
 						<ListView AbsoluteLayout.LayoutBounds="0,50,AutoSize,0.8"
