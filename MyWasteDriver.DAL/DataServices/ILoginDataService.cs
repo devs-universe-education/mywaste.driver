@@ -6,7 +6,7 @@ namespace MyWasteDriver.DAL.DataServices
 {
 	public interface ILoginDataService
 	{
-		Task<RequestResult<LoginDataObject>> PerformValidation(CancellationToken ctx);
+		Task<RequestResult<LoginDataObject>> PerformValidation(CancellationToken ctx, string login, string password);
 	}
 	
 }

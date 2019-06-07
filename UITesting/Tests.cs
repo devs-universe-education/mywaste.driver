@@ -32,5 +32,35 @@ namespace UITesting
 			app.Tap("ButtonVhod");
 			app.Repl();
 		}
+		[Test]
+		public void ExtendedPattern() {
+
+			//app.EnterText("EntryLog", "admin"); 
+			app.EnterText("EntryLog", "admin");
+			app.EnterText("EntryPassword", "admin");
+			app.Tap("ButtonVhod");
+
+			app.WaitForElement("ButtonToInfo");
+
+			app.Tap("ButtonToInfo");
+
+			app.WaitForElement("ButtonTocurrent");
+			//app.ScrollDown(); 
+			//app.ScrollUp(); 
+			app.Tap("ButtonTocurrent");
+
+			//app.Tap("Navigate"); 
+			//app. 
+
+			app.WaitForElement("ButtonToComplete");
+
+			app.Tap("ButtonToComplete");
+
+			app.WaitForElement("ButtonComplete");
+
+			app.Tap("ButtonComplete");
+
+			app.Repl();
+		}
 	}
 }
