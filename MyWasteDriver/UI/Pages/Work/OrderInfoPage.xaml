@@ -19,7 +19,10 @@
 
 
 			<controls:StateCondition State="Map">
-				<tk:TKCustomMap x:Name="Map" MapType="Street" Pins="{Binding Locations}" ShowTraffic="True" MapRegion="{Binding OrderPosition}" IsShowingUser="True" Routes="{Binding R}" />
+				<AbsoluteLayout>
+					<ImageButton Source="IconButton.png" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize" Command="{Binding GoToOrderInfoPage}}"> </ImageButton>
+				<tk:TKCustomMap AbsoluteLayout.LayoutBounds="0,0.1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional" x:Name="Map" MapType="Street" Pins="{Binding Locations}" MapRegion="{Binding OrderPosition}" IsShowingUser="True" Routes="{Binding R}" />
+				</AbsoluteLayout>
 			</controls:StateCondition>
 
 
@@ -30,11 +33,11 @@
 						<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Orientation="Vertical" >
 							<AbsoluteLayout AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Margin="-20,-20,-20,0">
 								<ImageButton BackgroundColor="#fafafa" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding GoToBackCommand}" ></ImageButton>
-								<Label FontSize="17" Text="Информация о заказе:" AbsoluteLayout.LayoutBounds="0.15,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"/>
+								<Label FontSize="17" Text="Информация о заказе:" AbsoluteLayout.LayoutBounds="40,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"/>
 							</AbsoluteLayout>
 						</StackLayout>
 
-						<RelativeLayout AbsoluteLayout.LayoutBounds="0,0.1,1,0.45" AbsoluteLayout.LayoutFlags="All">
+						<RelativeLayout AbsoluteLayout.LayoutBounds="0,0.1,1,0.42" AbsoluteLayout.LayoutFlags="All">
 									<ListView
 			ItemsSource="{Binding OrderInfoObject.AllImageUrl}"
 			SeparatorVisibility="None"
@@ -51,16 +54,11 @@
 										<ListView.ItemTemplate>
 											<DataTemplate>
 												<ViewCell IsEnabled="False">
-													<ContentView
+											<ContentView
 													Padding="5,15,5,5"
 													Rotation="90"
 													HorizontalOptions="CenterAndExpand"
 													VerticalOptions="CenterAndExpand">
-														<!--<Image
-														HorizontalOptions="CenterAndExpand"
-														VerticalOptions="CenterAndExpand"
-														Source="{Binding Url}"
-														Aspect="AspectFill" />-->
 
 												<Image
 														HorizontalOptions="CenterAndExpand"
@@ -82,26 +80,38 @@
 					   FontFamily="San Francisco"
 						   AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"/>
 							<Label FontSize="17"
-						Text= "{Binding OrderInfoObject.FullName}"
+							Text= "{Binding OrderInfoObject.FullName}"
 						   AbsoluteLayout.LayoutBounds="50,0,AutoSize,AutoSize"/>
 
-							<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.075,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
+							<BoxView Color="#a6a6a6"
+									 AbsoluteLayout.LayoutBounds="0,0.075,1,1"
+									 AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
+
 							<Label Text="Адрес:"
-					   FontSize="17"
-					   TextColor="#707070"
-					   FontFamily="San Francisco"
+						   FontSize="17"
+						   TextColor="#707070"
+						   FontFamily="San Francisco"
 						   AbsoluteLayout.LayoutBounds="0,0.15,AutoSize,AutoSize" 
 						   AbsoluteLayout.LayoutFlags="YProportional"/>
+
 							<Label FontSize="17"
 						Text="{Binding OrderInfoObject.OrderAdress}"
-						AbsoluteLayout.LayoutBounds="65,0.15,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"/>
-							
+						AbsoluteLayout.LayoutBounds="65,0.15,AutoSize,AutoSize"
+						AbsoluteLayout.LayoutFlags="YProportional">
+								<Label.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding PageStateMapCommand}"/>
+								</Label.GestureRecognizers>
+							</Label>
+
 							<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.225,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
 
 							<Label Text="Информация о грузе: "
-				AbsoluteLayout.LayoutBounds="0,0.3,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional"
-						   TextColor="#707070"
-					    FontSize="17"></Label>
+							AbsoluteLayout.LayoutBounds="0,0.3,AutoSize,AutoSize"
+							AbsoluteLayout.LayoutFlags="YProportional"
+							TextColor="#707070"
+							FontSize="17">
+							</Label>
+							
 							<AbsoluteLayout Margin="0,5,0,0" AbsoluteLayout.LayoutBounds="0,.375,1,AutoSize" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"   >
 								<Label Text ="{Binding OrderInfoObject.Material}"
 									   FontSize="15"
@@ -133,7 +143,11 @@
 									   AbsoluteLayout.LayoutFlags="XProportional" />
 							</AbsoluteLayout>
 
-							<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.45,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
+							<BoxView Color="#a6a6a6"
+									 AbsoluteLayout.LayoutBounds="0,0.45,1,1"
+									 AbsoluteLayout.LayoutFlags="YProportional,WidthProportional">
+								
+							</BoxView>
 
 							<Label Text="Коментарий:" 
 									AbsoluteLayout.LayoutBounds="0,0.525,AutoSize,AutoSize"
@@ -145,15 +159,6 @@
 								   AbsoluteLayout.LayoutFlags="YProportional"
 									TextColor="#707070"
 								  FontSize="17"/>
-
-							<Button Margin="0,0,0,2.5"
-									IsVisible="True"
-									Text="KostlL"
-									AbsoluteLayout.LayoutBounds="0,0.125,1,0.125" 
-									AbsoluteLayout.LayoutFlags="YProportional,SizeProportional"
-									FontSize="7"
-									Command="{Binding PageStateMapCommand}"
-									 />
 
 						<Button CornerRadius="7"
 						Text="Принять"

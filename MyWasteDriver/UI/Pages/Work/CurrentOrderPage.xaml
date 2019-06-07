@@ -25,8 +25,8 @@
 						<AbsoluteLayout   AbsoluteLayout.LayoutBounds="0,1,1,0.5" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional" Padding="10" BackgroundColor="#fafafa" >
 							<ImageButton AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding CallPhoneCommand}" ></ImageButton>
 							<Button Command="{Binding OpenNavigatorCommand}" TextColor="White" BackgroundColor="#707070" Text="Навигация" CornerRadius="12" AbsoluteLayout.LayoutBounds="0,0,0.6,0.175" AbsoluteLayout.LayoutFlags="SizeProportional"></Button>
-		
-							<ImageButton CornerRadius="12" BackgroundColor="#4cd964" Source="phoneicon.png" AbsoluteLayout.LayoutBounds="1,0,0.3,0.175" AbsoluteLayout.LayoutFlags="SizeProportional,XProportional"/>
+
+							<ImageButton CornerRadius="11" BackgroundColor="#4cd964" Source="phoneicon.png" AbsoluteLayout.LayoutBounds="1,0,0.3,0.175" AbsoluteLayout.LayoutFlags="SizeProportional,XProportional"/>
 							<Label Text="ФИО:"
 					   FontSize="17"
 					TextColor="#707070"
