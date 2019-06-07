@@ -24,7 +24,7 @@
 					
 						<AbsoluteLayout   AbsoluteLayout.LayoutBounds="0,1,1,0.5" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional" Padding="10" BackgroundColor="#fafafa" >
 							<ImageButton AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"  Source="IconButton.png" Command="{Binding CallPhoneCommand}" ></ImageButton>
-							<Button Command="{Binding OpenNavigatorCommand}" TextColor="White" BackgroundColor="#707070" Text="Навигация" CornerRadius="12" AbsoluteLayout.LayoutBounds="0,0,0.6,0.175" AbsoluteLayout.LayoutFlags="SizeProportional"></Button>
+							<Button Command="{Binding OpenNavigatorCommand}" TextColor="White" BackgroundColor="#707070" Text="Навигация" CornerRadius="12" AbsoluteLayout.LayoutBounds="0,0,0.6,0.175" AbsoluteLayout.LayoutFlags="SizeProportional" AutomationId="Navigate"></Button>
 
 							<ImageButton CornerRadius="11" BackgroundColor="#4cd964" Source="phoneicon.png" AbsoluteLayout.LayoutBounds="1,0,0.3,0.175" AbsoluteLayout.LayoutFlags="SizeProportional,XProportional"/>
 							<Label Text="ФИО:"
@@ -65,7 +65,8 @@
 						BackgroundColor="#707070"
 						FontSize="17" Command="{Binding GoToCompleteOrderCommand}"
 						AbsoluteLayout.LayoutBounds="0.5,1,0.9,0.15"
-						AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional" />
+						AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional"
+							AutomationId="ButtonToComplete"/>
 				</AbsoluteLayout>
 
 

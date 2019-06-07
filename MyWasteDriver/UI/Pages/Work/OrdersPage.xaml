@@ -25,7 +25,8 @@
 								BackgroundColor="White"
 								IsPullToRefreshEnabled="True"
 								SeparatorVisibility="None"
-								IsGroupingEnabled="True">
+								IsGroupingEnabled="True"
+								AutomationId="ButtonToInfo">
 						<ListView.GroupHeaderTemplate>
 							<DataTemplate>
 								<ViewCell>
