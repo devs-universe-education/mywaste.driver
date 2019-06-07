@@ -24,13 +24,22 @@
 								HasUnevenRows="True"
 								BackgroundColor="White"
 								IsPullToRefreshEnabled="True"
-								SeparatorVisibility="None">
+								SeparatorVisibility="None"
+								IsGroupingEnabled="True">
+						<ListView.GroupHeaderTemplate>
+							<DataTemplate>
+								<ViewCell>
+									<Label Text="{Binding OrderHeader}"></Label>
+								</ViewCell>
+							</DataTemplate>
+							
+						</ListView.GroupHeaderTemplate>
 						
-						<ListView.Header>
+						<!--<ListView.Header>
 							<ContentView  BackgroundColor="White">
 								<Label FontSize="29" TextColor="#707070" Text="Заказы : " HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
 							</ContentView>
-						</ListView.Header>
+						</ListView.Header>-->
 
 					<ListView.ItemTemplate  >
 

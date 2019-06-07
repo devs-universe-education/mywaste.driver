@@ -28,7 +28,7 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Normal">
-			<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" Padding="0" >
+				<Frame CornerRadius="12" Margin="10" BackgroundColor="#fafafa" Padding="0" HasShadow="True" >
 					<AbsoluteLayout  Margin="10,0,10,0">
 						<Label Text="Список материалов: "  FontFamily="Arial" FontSize="20" AbsoluteLayout.LayoutBounds="10,10,AutoSize,AutoSize"/>
 						<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.81,1,0.75" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
