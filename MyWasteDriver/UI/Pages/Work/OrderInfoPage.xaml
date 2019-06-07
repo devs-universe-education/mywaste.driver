@@ -20,7 +20,7 @@
 
 			<controls:StateCondition State="Map">
 				<AbsoluteLayout>
-					<ImageButton Source="IconButton.png" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize" Command="{Binding GoToOrderInfoPage}}"> </ImageButton>
+					<ImageButton Source="IconButton.png" AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize" Command="{Binding GoToOrderInfoPage}"> </ImageButton>
 				<tk:TKCustomMap AbsoluteLayout.LayoutBounds="0,0.1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="YProportional" x:Name="Map" MapType="Street" Pins="{Binding Locations}" MapRegion="{Binding OrderPosition}" IsShowingUser="True" Routes="{Binding R}" />
 				</AbsoluteLayout>
 			</controls:StateCondition>
