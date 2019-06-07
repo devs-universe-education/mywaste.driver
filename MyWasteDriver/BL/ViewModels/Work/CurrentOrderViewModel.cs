@@ -34,7 +34,8 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 		public ICommand CallPhoneCommand => MakeCommand(MakePhoneCommand);
 		
 		void MakePhoneCommand() {
-			Device.OpenUri(new Uri("tel:999999999999999"));
+
+			Device.OpenUri(new Uri("tel:88005553535"));
 		}
 
 		void OpenNavigator() {
