@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using MyWasteDriver.DAL.DataObjects;
 using MyWasteDriver.DAL.DataServices;
+using Plugin.Geolocator;
 using TK.CustomMap;
+using TK.CustomMap.Overlays;
 using Xamarin.Forms;
 
 namespace MyWasteDriver.BL.ViewModels.Work {
@@ -17,12 +19,12 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 			set => Set(value);
 		}
 
+		public ObservableCollection<TKRoute> _routes;
+		public ObservableCollection<TKRoute> Routes { get { return _routes; } set { _routes = value; } }
 
-		
 
 		public ObservableCollection<TKCustomMapPin> _locations;
 		public MapSpan _orderPosition;
-		
 		
 		public ObservableCollection<TKCustomMapPin> Locations { get { return _locations; } set { _locations = value; } }
 		public MapSpan OrderPosition { get { return _orderPosition; } set { _orderPosition = value; } }
@@ -33,7 +35,6 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 		
 		void MakePhoneCommand() {
 			Device.OpenUri(new Uri("tel:999999999999999"));
-
 		}
 
 		void OpenNavigator() {
@@ -44,6 +45,10 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 
 			State = PageState.Loading;
 
+			var locator = CrossGeolocator.Current;
+			locator.DesiredAccuracy = 50;
+			var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(1));
+			
 			if (NavigationParams.TryGetValue("orderId", out var x)) {
 
 				if (int.TryParse(x.ToString(), out var orderID)) {
@@ -58,8 +63,8 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 						new TKCustomMapPin{Position = OrderInfoObject.Coordinates, Title = OrderInfoObject.OrderAdress}
 						};
 
+						_routes = new ObservableCollection<TKRoute> { new TKRoute { Destination = OrderInfoObject.Coordinates,Source =  new Position(position.Latitude, position.Longitude), TravelMode = TKRouteTravelMode.Driving, Color = Xamarin.Forms.Color.Black, Selectable = false, LineWidth = 10 } };
 						State = PageState.Normal;
-
 					}
 					else State = PageState.Error;
 				}
@@ -67,7 +72,5 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 			}
 			else State = PageState.Error;
 		}
-	}
-
-	
+	}	
 }

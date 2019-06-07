@@ -21,12 +21,11 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 		public ObservableCollection<TKCustomMapPin> _locations;
 		public MapSpan _orderPosition;
 		public Dictionary<string, object> _dataToLoad;
-		public ObservableCollection<TKRoute> _routes = new ObservableCollection<TKRoute> { new TKRoute { Destination = new Position(51.737417, 39.180424), Source = new Position(51.723048, 39.179640), TravelMode = TKRouteTravelMode.Driving } } ;
+		public ObservableCollection<TKRoute> _routes = new ObservableCollection<TKRoute> { new TKRoute { Destination = new Position(51.737417, 39.180424), Source = new Position(51.723048, 39.179640), TravelMode = TKRouteTravelMode.Driving, Color = Xamarin.Forms.Color.Black, Selectable = false, LineWidth = 10 } } ;
 	
 
 
-	public ObservableCollection<TKRoute> R { get { return _routes; } set { _routes = value; } }
-		
+		public ObservableCollection<TKRoute> R { get { return _routes; } set { _routes = value; } }
 		public ObservableCollection<TKCustomMapPin> Locations { get { return _locations; } set { _locations = value; } }
 		public MapSpan OrderPosition { get { return _orderPosition; } set { _orderPosition = value; } }
 
