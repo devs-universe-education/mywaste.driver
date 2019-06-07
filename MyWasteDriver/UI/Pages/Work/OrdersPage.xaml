@@ -29,7 +29,7 @@
 						<!--<ListView.GroupHeaderTemplate>
 							<DataTemplate>
 								<ViewCell>
-									<Label Text="{Binding OrderHeader}"></Label>
+									<Label FontSize="20" Text="{Binding OrderHeader}"></Label>
 								</ViewCell>
 							</DataTemplate>
 							

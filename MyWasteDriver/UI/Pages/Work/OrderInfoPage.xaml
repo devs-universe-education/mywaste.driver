@@ -84,7 +84,7 @@
 						   AbsoluteLayout.LayoutBounds="50,0,AutoSize,AutoSize"/>
 
 							<BoxView Color="#a6a6a6"
-									 AbsoluteLayout.LayoutBounds="0,0.075,1,1"
+									 AbsoluteLayout.LayoutBounds="0,0.09,1,1"
 									 AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"></BoxView>
 
 							<Label Text="Адрес:"
