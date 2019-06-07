@@ -35,6 +35,7 @@
 						   AbsoluteLayout.LayoutFlags="XProportional,YProportional"/>
 
 					<Entry  AbsoluteLayout.LayoutBounds="0,0.55,1,AutoSize"
+							Text="{Binding UserLogin}"
 							AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
 							PlaceholderColor="#a6a6a6"
 							Placeholder="Логин"
@@ -42,6 +43,7 @@
 				  AutomationId="EntryLog"/>
 					
 					<Entry IsPassword="True"
+						   Text="{Binding UserPassword}"
 						   AbsoluteLayout.LayoutBounds="0,0.65,1,AutoSize"
 						   AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
 						   	PlaceholderColor="#a6a6a6"

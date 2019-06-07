@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using MyWasteDriver.DAL.DataObjects;
 using Plugin.Connectivity;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
@@ -8,12 +9,38 @@ using Xamarin.Forms;
 
 namespace MyWasteDriver.BL.ViewModels.Account
 {
-	class LoginViewModel : BaseViewModel 
+	class LoginViewModel : BaseViewModel
 	{
+		public LoginDataObject DataObject
+		{
+			get => Get<LoginDataObject>();
+			private set => Set(value);
+
+		}
 
 		PermissionStatus status = PermissionStatus.Unknown;
 
-		public ICommand GoToOrdersCommand => GetNavigateToCommand(AppPages.Orders, NavigationMode.Normal, null, false, true, false);
+		
+
+
+
+
+		public ICommand GoToOrdersCommand => MakeCommand(GoToOrders);
+
+		public  string UserLogin { get; set; }
+		public  string UserPassword { get; set; }
+
+		void GoToOrders()
+		{
+			if (UserLogin != null && UserPassword !=null)
+			{
+				NavigateTo(AppPages.Orders, NavigationMode.Normal);
+			}
+			else
+			{
+				ShowAlert("Ошибка", "Неверный логин или пароль!", "Ok");
+			}
+		}
 
 		public ICommand CallPhoneCommand => MakeCommand(MakePhoneCommand);
 
@@ -22,8 +49,9 @@ namespace MyWasteDriver.BL.ViewModels.Account
 			
 		}
 
-		public override async Task OnPageAppearing() {
-
+		public override async Task OnPageAppearing()
+		{
+			
 			if (CrossConnectivity.Current.IsConnected) {
 
 				status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
@@ -39,6 +67,8 @@ namespace MyWasteDriver.BL.ViewModels.Account
 						status = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location))[Permission.Location];
 					}
 				}
+
+
 			}
 			else {
 				State = PageState.NoInternet;
