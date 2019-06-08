@@ -25,6 +25,7 @@
 								BackgroundColor="White"
 								IsPullToRefreshEnabled="True"
 								SeparatorVisibility="None"
+								AutomationId="ButtonToInfo"
 								>
 						<!--<ListView.GroupHeaderTemplate>
 							<DataTemplate>

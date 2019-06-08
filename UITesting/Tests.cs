@@ -27,26 +27,75 @@ namespace UITesting
 
         [Test]
 		public void WelcomeTextIsDisplayed() {
+
 			app.EnterText("EntryLog", "admin");
 			app.EnterText("EntryPassword", "admin");
-			app.Tap("ButtonVhod");
-			app.Repl();
+	        app.TapCoordinates(540,1572);
+			
 		}
 		[Test]
-		public void ExtendedPattern() {
+		public void OrdersTest()
+		{
+			WelcomeTextIsDisplayed();
+			app.Tap("ButtonTocurrent");
 
-			//app.EnterText("EntryLog", "admin"); 
-			app.EnterText("EntryLog", "admin");
-			app.EnterText("EntryPassword", "admin");
-			app.Tap("ButtonVhod");
+		}
+
+		[Test]
+		public void OrderInfoTest() {
 
 			app.WaitForElement("ButtonToInfo");
 
-			app.Tap("ButtonToInfo");
+			app.TapCoordinates(540, 350);
+
+		}
+
+		[Test]
+		public void CurrentOrderTest()
+		{
+			OrderInfoTest();
+			app.WaitForElement("ButtonTocurrent");
+
+			app.Tap("ButtonTocurrent");
+
+		}
+
+		[Test]
+		public void CompleteOrderTest()
+		{
+
+			CurrentOrderTest();
+
+			app.Tap("ButtonComplete");
+
+		}
+
+		//[Test]
+		//public void MainPattern() {
+
+		//	app.Tap("ButtonToInfo");
+
+		//	app.ScrollDown();
+		//	app.ScrollUp();
+		//	app.Tap("ButtonTocurrent");
+
+		//	app.Tap("ButtonToComplete");
+
+		//	app.Repl();
+		//}
+
+		[Test]
+		public void ExtendedPattern() {
+
+			WelcomeTextIsDisplayed();
+			
+
+			app.WaitForElement("ButtonToInfo");
+
+			app.TapCoordinates(540, 350);
 
 			app.WaitForElement("ButtonTocurrent");
-			//app.ScrollDown(); 
-			//app.ScrollUp(); 
+			 
 			app.Tap("ButtonTocurrent");
 
 			//app.Tap("Navigate"); 
@@ -54,13 +103,13 @@ namespace UITesting
 
 			app.WaitForElement("ButtonToComplete");
 
-			app.Tap("ButtonToComplete");
+			app.TapCoordinates(540, 1688);
 
 			app.WaitForElement("ButtonComplete");
 
-			app.Tap("ButtonComplete");
+			app.TapCoordinates(270, 1688);
 
-			app.Repl();
+			
 		}
 	}
 }

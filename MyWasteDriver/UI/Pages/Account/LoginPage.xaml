@@ -59,7 +59,8 @@
 							AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional" 
 							Command="{Binding GoToOrdersCommand}"
 							CornerRadius="5"
-				  AutomationId="ButtonVhod"/>
+				  AutomationId="ButtonV"
+							/>
 
 					<Button Text="Нужна помощь ?"
 							Command="{Binding CallPhoneCommand}"

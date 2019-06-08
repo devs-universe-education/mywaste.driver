@@ -167,7 +167,8 @@
 						BackgroundColor="#4cd964"
 						FontSize="17" Command="{Binding GoToCurrentOrderCommand}"
 						AbsoluteLayout.LayoutBounds="0.5,1,0.8,0.15"
-						AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional" />
+						AbsoluteLayout.LayoutFlags="YProportional,XProportional,SizeProportional"
+						AutomationId="ButtonTocurrent"/>
 					</AbsoluteLayout>
 					</AbsoluteLayout>
 			</Frame>
