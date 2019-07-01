@@ -8,10 +8,14 @@
              x:Class="MyWasteDriver.UI.Pages.Common.MenuPage"
              Title="Binwell University">
 	<ContentPage.Content>
-
-		<StackLayout>
-			<Label Text="MenuPage"/>
-			<Button Text="Выход" Command="{Binding ExitCommand}"/>
-		</StackLayout>
-  </ContentPage.Content>
+		<AbsoluteLayout>
+			<StackLayout AbsoluteLayout.LayoutBounds="" Orientation="Horizontal">
+				<Image Source="account.png"/>
+			</StackLayout>
+			<StackLayout>
+				<Label Text="MenuPage"/>
+				<Button Text="Выход" Command="{Binding ExitCommand}"/>
+			</StackLayout>
+		</AbsoluteLayout>
+	</ContentPage.Content>
 </pages:BasePage>
