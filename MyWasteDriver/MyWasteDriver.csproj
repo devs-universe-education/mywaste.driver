@@ -6,20 +6,27 @@
 
   <ItemGroup>
     <Compile Remove="BL\BusinessServices\**" />
+    <Compile Remove="BL\ViewModels\Main\**" />
+    <Compile Remove="UI\Pages\Main\**" />
+    <Compile Remove="UI\Pages\TTTT\**" />
     <EmbeddedResource Remove="BL\BusinessServices\**" />
+    <EmbeddedResource Remove="BL\ViewModels\Main\**" />
+    <EmbeddedResource Remove="UI\Pages\Main\**" />
+    <EmbeddedResource Remove="UI\Pages\TTTT\**" />
     <None Remove="BL\BusinessServices\**" />
+    <None Remove="BL\ViewModels\Main\**" />
+    <None Remove="UI\Pages\Main\**" />
+    <None Remove="UI\Pages\TTTT\**" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.0.4" />
-    <PackageReference Include="Microsoft.AppCenter" Version="2.0.0" />
-    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.0.0" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.0.0" />
     <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
     <PackageReference Include="TK.CustomMap" Version="2.0.1" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.482894" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.540366" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,29 +34,26 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="UI\Pages\Account\LoginPage.xaml">
+    <EmbeddedResource Update="UI\Pages\Common\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="UI\Pages\Main\MainPage.xaml">
+    <EmbeddedResource Update="UI\Pages\Common\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="UI\Pages\Work\CompleteOrderPage.xaml">
+    <EmbeddedResource Update="UI\Pages\Common\MenuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="UI\Pages\Work\CurrentOrderPage.xaml">
+    <EmbeddedResource Update="UI\Pages\Complain\ReportComplainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="UI\Pages\Work\OrderInfoPage.xaml">
+    <EmbeddedResource Update="UI\Pages\Complain\SelectComplainTypePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="UI\Pages\Work\OrdersPage.xaml">
+    <EmbeddedResource Update="UI\Pages\Work\PointInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="UI\Pages\Main\MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
+    <EmbeddedResource Update="UI\Pages\Work\PointsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

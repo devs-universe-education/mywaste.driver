@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls;assembly=MyWasteDriver"
+             xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages;assembly=MyWasteDriver"
+             mc:Ignorable="d"
+             x:Class="MyWasteDriver.UI.Pages.Complain.SelectComplainTypePage">
+	<ContentPage.Content>
+		<controls:StateContainer State="{Binding State}">
+
+			<controls:StateCondition State="Loading">
+				<ActivityIndicator IsRunning="True" WidthRequest="40"
+				                   HorizontalOptions="Center" VerticalOptions="Center"/>
+			</controls:StateCondition>
+
+			<controls:StateCondition State="Normal">
+				<StackLayout>
+					<Label Text="SelectComplainTypePage"/>
+					<Button Text="GoToReportComplainPage" Command="{Binding GoToReportComplainCommand}"/>
+				</StackLayout>
+			</controls:StateCondition>
+
+			<controls:StateCondition State="NoData">
+				<StackLayout>
+					<Label Text="LoginPage"/>
+				</StackLayout>
+			</controls:StateCondition>
+
+			<controls:StateCondition State="Error">
+				<StackLayout>
+					<Label Text="Ошибка загрузки данных" />
+				</StackLayout>
+
+			</controls:StateCondition>
+		</controls:StateContainer>
+	</ContentPage.Content>
+	</pages:BasePage>

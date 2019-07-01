@@ -1,12 +1,13 @@
 namespace MyWasteDriver
 {
 	public enum AppPages {
-		Main,
 		Login,
-		Orders,
-		OrderInfo,
-		CurrentOrder,
-		CompleteOrder
+		Main,
+		Menu,
+		Points,
+		PointInfo,
+		SelectComplainType,
+		ReportComplain
 	}
 
 	public enum NavigationMode {
@@ -23,8 +24,8 @@ namespace MyWasteDriver
 		NoData,
 		Error,
 		NoInternet,
-		Map,
-		AddField
+		EnterPhone,
+		EnterPassword
 
 	}
 }

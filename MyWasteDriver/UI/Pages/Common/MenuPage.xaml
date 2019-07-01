@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages;assembly=MyWasteDriver"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MyWasteDriver.UI.Pages.Common.MenuPage"
+             Title="Binwell University">
+	<ContentPage.Content>
+
+		<StackLayout>
+			<Label Text="MenuPage"/>
+			<Button Text="Выход" Command="{Binding ExitCommand}"/>
+		</StackLayout>
+  </ContentPage.Content>
+</pages:BasePage>
