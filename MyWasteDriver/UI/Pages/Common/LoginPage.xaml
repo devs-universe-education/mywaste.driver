@@ -5,6 +5,7 @@
                 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
                 xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls" 
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+				xmlns:behavior="clr-namespace:MyWasteDriver.BL.ViewModels.Common"
                 mc:Ignorable="d"
                 x:Class="MyWasteDriver.UI.Pages.Common.LoginPage">
 	<ContentPage.Content>
@@ -16,10 +17,44 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="EnterPhone">
-				<StackLayout>
-					<Label Text="LoginPage PageStateEnterPhone"/>
-					<Button Text="GoToMainPage" Command="{Binding GoToPointsPageCommand}"/>
-				</StackLayout>
+				<AbsoluteLayout  Padding="50,10,50,10">
+					<StackLayout Spacing="0" AbsoluteLayout.LayoutBounds="0.5,0,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional">
+						<Image HorizontalOptions="Center" Source="wasterecycling.png"/>
+						<Label HorizontalOptions="Center" Text="Я разделяю.&#10; Таксометр"
+						   FontSize="24"/>
+					</StackLayout>
+					<Entry Keyboard="Numeric" AbsoluteLayout.LayoutBounds="0,0.55,1,AutoSize"
+							Text="{Binding UserLogin}"
+							AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
+							PlaceholderColor="#a6a6a6"
+							Placeholder="Телефон"
+							FontSize="18"
+				  AutomationId="EntryLog">
+						<Entry.Behaviors>
+							<behavior:MaskedBehavior Mask="+7 (XXX) XXX-XX-XX"/>
+						</Entry.Behaviors>
+
+					</Entry>
+
+
+					<Button Text="Получить пароль по SMS"
+							BackgroundColor="#707070"
+							TextColor="White"
+							FontSize="17"
+							AbsoluteLayout.LayoutBounds="0.5,0.75,0.85,0.085"
+							AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional" 
+							Command="{Binding GoToOrdersCommand}"
+							CornerRadius="8"
+				  AutomationId="ButtonVhod"/>
+
+					<Label Text="			Возникли &#10;		проблемы ? &#10;	Позвоните на &#10;8(800)012-22-33"
+							FontSize="14"
+							FontFamily="Arial"
+							StyleClass="Link"
+							AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
+							TextColor="#999999"
+							 />
+				</AbsoluteLayout>
 			</controls:StateCondition>
 
 			<controls:StateCondition State="EnterPassword">
