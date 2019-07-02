@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -79,6 +80,5 @@ namespace MyWasteDriver.BL.ViewModels.Common {
 				entry.Text = text;
 		}
 	}
-
 
 }
