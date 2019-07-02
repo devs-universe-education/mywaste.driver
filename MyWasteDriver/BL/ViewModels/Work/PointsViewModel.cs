@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -25,15 +26,27 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 
 		public ICommand CalloutClickedCommand => MakeCommand(GoToPointInfo);
 
+		public ICommand OpenNavigatorToUnloadingPlaceCommand => MakeCommand(OpenNavigatorToUnloadingPlace);
+
+		private void OpenNavigatorToUnloadingPlace()
+		{
+			try {
+				Device.OpenUri(_navigatorUri);
+			}
+			catch {
+				Device.OpenUri(new Uri("market://details?id=ru.yandex.yandexnavi"));
+			}
+		}
+
+		private Uri _navigatorUri;
+
 		private void GoToPointInfo()
 		{
 			var _dataToLoad = new AllOrders();
-
 			foreach (var t in PointsObject.Orders)
 			{
 				if (_selectedPin.ID == t.OrderId) _dataToLoad = t;
 			}
-
 			var Data = new Dictionary<string, object>()
 			{
 				{"orderObject", _dataToLoad}
@@ -46,17 +59,35 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 			get { return _ordersPins; }
 			set { _ordersPins = value; }
 		}
-
 		private ObservableCollection<TKCustomMapPin> _ordersPins;
-
-		private TKCustomMapPin _selectedPin;
 
 		public TKCustomMapPin SelectedPin
 		{
 			get { return _selectedPin; }
 			set { _selectedPin = value; }
-
 		}
+		private TKCustomMapPin _selectedPin;
+
+		public string UnloadingAddress
+		{
+			get { return _unloadingAddress; }
+			set { _unloadingAddress = value; }
+		}
+		private string _unloadingAddress;
+
+		public string CompanyName {
+			get { return _companyName; }
+			set { _companyName = value; }
+		}
+		private string _companyName;
+
+		
+		public MapSpan OrderPosition
+		{
+			get { return _orderPosition; }
+			set { _orderPosition = value; }
+		}
+		private MapSpan _orderPosition;
 
 		public override async Task OnPageAppearing()
 		{
@@ -97,6 +128,12 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 				};
 				_ordersPins.Add(unlPlaceObj);
 
+				_navigatorUri = new Uri("yandexnavi://build_route_on_map?lat_to=" + PointsObject.UnloadingPlace.Coordinates.Latitude.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US"))
+				                                                                  + "&lon_to=" + PointsObject.UnloadingPlace.Coordinates.Longitude.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
+
+				_orderPosition = new MapSpan(new Position(51.712468, 39.181733), 1, 1);
+				_companyName = PointsObject.UnloadingPlace.CompanyName;
+				_unloadingAddress = PointsObject.UnloadingPlace.UnloadingAddress;
 				State = PageState.Normal;
 			}
 		}

@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace MyWasteDriver.UI.Pages.Work {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PointsPage: BasePage {
-		[Obsolete]
+		//[Obsolete]
 		public PointsPage() {
 			InitializeComponent();
 			
