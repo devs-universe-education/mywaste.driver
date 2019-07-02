@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -89,6 +90,9 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 		}
 		private MapSpan _orderPosition;
 
+		public DateTime CurrentDate => DateTime.Now; // исправить
+
+
 		public override async Task OnPageAppearing()
 		{
 			State = PageState.Loading;
@@ -124,14 +128,14 @@ namespace MyWasteDriver.BL.ViewModels.Work {
                     Subtitle = PointsObject.UnloadingPlace.UnloadingAddress,
                     //IsCalloutClickable = true,
                     //ID
-                    Image = "flag.png"
+                    Image = "flag.png" // не работает 
 				};
 				_ordersPins.Add(unlPlaceObj);
 
 				_navigatorUri = new Uri("yandexnavi://build_route_on_map?lat_to=" + PointsObject.UnloadingPlace.Coordinates.Latitude.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US"))
 				                                                                  + "&lon_to=" + PointsObject.UnloadingPlace.Coordinates.Longitude.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
 
-				_orderPosition = new MapSpan(new Position(51.712468, 39.181733), 1, 1);
+				_orderPosition = new MapSpan(new Position(51.712468, 39.181733), 1, 1); // исправить
 				_companyName = PointsObject.UnloadingPlace.CompanyName;
 				_unloadingAddress = PointsObject.UnloadingPlace.UnloadingAddress;
 				State = PageState.Normal;

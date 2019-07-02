@@ -13,7 +13,9 @@
 
 
 	<ContentPage.ToolbarItems>
-		<ToolbarItem Text="{Binding CurrentDate}" Order="Primary" Priority="0"/>
+
+		<ToolbarItem Text="Заказы на " Order="Primary" Priority="0"/>
+		<ToolbarItem Text="{Binding CurrentDate}" Order="Primary" Priority="1"/>
 		<ToolbarItem Order="Primary" Priority="2" IconImageSource="replay.png"/>
 	</ContentPage.ToolbarItems>
 
