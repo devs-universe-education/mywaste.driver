@@ -4583,26 +4583,26 @@ namespace MyWasteDriver.Android
 			// aapt resource value: 0x7f020056
 			public const int avd_hide_password = 2130837590;
 			
+			// aapt resource value: 0x7f020153
+			public const int avd_hide_password_1 = 2130837843;
+			
 			// aapt resource value: 0x7f020154
-			public const int avd_hide_password_1 = 2130837844;
+			public const int avd_hide_password_2 = 2130837844;
 			
 			// aapt resource value: 0x7f020155
-			public const int avd_hide_password_2 = 2130837845;
-			
-			// aapt resource value: 0x7f020156
-			public const int avd_hide_password_3 = 2130837846;
+			public const int avd_hide_password_3 = 2130837845;
 			
 			// aapt resource value: 0x7f020057
 			public const int avd_show_password = 2130837591;
 			
+			// aapt resource value: 0x7f020156
+			public const int avd_show_password_1 = 2130837846;
+			
 			// aapt resource value: 0x7f020157
-			public const int avd_show_password_1 = 2130837847;
+			public const int avd_show_password_2 = 2130837847;
 			
 			// aapt resource value: 0x7f020158
-			public const int avd_show_password_2 = 2130837848;
-			
-			// aapt resource value: 0x7f020159
-			public const int avd_show_password_3 = 2130837849;
+			public const int avd_show_password_3 = 2130837848;
 			
 			// aapt resource value: 0x7f020058
 			public const int common_full_open_on_phone = 2130837592;
@@ -5315,11 +5315,11 @@ namespace MyWasteDriver.Android
 			// aapt resource value: 0x7f020144
 			public const int notification_icon_background = 2130837828;
 			
-			// aapt resource value: 0x7f020152
-			public const int notification_template_icon_bg = 2130837842;
+			// aapt resource value: 0x7f020151
+			public const int notification_template_icon_bg = 2130837841;
 			
-			// aapt resource value: 0x7f020153
-			public const int notification_template_icon_low_bg = 2130837843;
+			// aapt resource value: 0x7f020152
+			public const int notification_template_icon_low_bg = 2130837842;
 			
 			// aapt resource value: 0x7f020145
 			public const int notification_tile_bg = 2130837829;
@@ -5355,10 +5355,7 @@ namespace MyWasteDriver.Android
 			public const int truck = 2130837839;
 			
 			// aapt resource value: 0x7f020150
-			public const int unvisitedOrders = 2130837840;
-			
-			// aapt resource value: 0x7f020151
-			public const int wasterecycling = 2130837841;
+			public const int wasterecycling = 2130837840;
 			
 			static Drawable()
 			{

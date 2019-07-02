@@ -8,14 +8,58 @@
              x:Class="MyWasteDriver.UI.Pages.Common.MenuPage"
              Title="Binwell University">
 	<ContentPage.Content>
-		<AbsoluteLayout>
-			<StackLayout  Orientation="Horizontal">
+		<AbsoluteLayout Margin="10" >
+			<StackLayout Spacing="20"  AbsoluteLayout.LayoutBounds="0,0,1,AutoSize" AbsoluteLayout.LayoutFlags="WidthProportional" Orientation="Horizontal">
 				<Image Source="account.png"/>
+				<StackLayout>
+					<Label 
+					FontSize="17"
+					Text="Иванов Иван Иванович "/>
+				<Label
+					FontSize="17"
+					Text="+7 (920) 800-22-32" />
+					</StackLayout>
+				</StackLayout>
+
+			<StackLayout Spacing="20"   AbsoluteLayout.LayoutBounds="0,0.12,1,AutoSize"  AbsoluteLayout.LayoutFlags="YProportional,WidthProportional" Orientation="Horizontal">
+				<Image Source="truck.png"/>
+				<Label
+					FontSize="17"
+					Text="ГАЗ-3302, А777АА 36 RUS ">
+				</Label>
 			</StackLayout>
-			<StackLayout>
-				<Label Text="MenuPage"/>
-				<Button Text="Выход" Command="{Binding ExitCommand}"/>
+			<StackLayout Spacing="20"  AbsoluteLayout.LayoutBounds="0,0.2,1,AutoSize" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional" Orientation="Horizontal">
+				<Image Source="home.png"/>
+				<StackLayout Orientation="Vertical">
+					<Label FontSize="17" Text="ООО Грузоперевозки,г. Воронеж, ул. Димитрова, д. 107, оф. 41, +7 (473) 234-89-09 "/>
+
+				</StackLayout>
 			</StackLayout>
+			
+			<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.3,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"/>
+
+			<Button TextColor="White"
+					CornerRadius="8"
+					AbsoluteLayout.LayoutBounds="0.5,.4,0.6,0.085"
+					AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional"
+					BackgroundColor="#1b9af7"
+					FontSize="18"
+					Text="Выйти" Command="{Binding ExitCommand}"/>
+			<StackLayout  Spacing="20" Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0.8,1,0.15" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional,HeightProportional">
+				<Image Source="wasterecycling.png">
+				</Image>
+				<StackLayout>
+					<Label FontSize="18" Text="Я разделяю. Таксометр"/>
+					<Label FontSize="18" Text="Версия 1.022"/>
+				</StackLayout>
+			</StackLayout>
+			<Label Text="			Возникли &#10;		проблемы ? &#10;	Позвоните на &#10;8(800)012-22-33"
+							FontSize="14"
+							FontFamily="Arial"
+							StyleClass="Link"
+							AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
+							TextColor="#999999"
+							 />
 		</AbsoluteLayout>
 	</ContentPage.Content>
 </pages:BasePage>
