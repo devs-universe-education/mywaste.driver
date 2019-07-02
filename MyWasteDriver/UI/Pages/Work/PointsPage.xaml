@@ -42,10 +42,10 @@
 
 							<ImageButton Command="{Binding OpenNavigatorToUnloadingPlaceCommand}" HorizontalOptions="End" Source="truck.png"/>
 						</StackLayout>
-					
 
-					<customMap:TKCustomMap AbsoluteLayout.LayoutBounds="0,50,1,1"
-					        AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional"  MapType="Street"
+						<customMap:TKCustomMap
+							AbsoluteLayout.LayoutBounds="0,75,AutoSize,0.9" AbsoluteLayout.LayoutFlags="HeightProportional"
+											MapType="Street"
 											IsShowingUser="True" Pins="{Binding OrdersPins}"
 					                        CalloutClickedCommand ="{Binding CalloutClickedCommand}" SelectedPin="{Binding SelectedPin}"
 											MapRegion="{Binding OrderPosition}"/>
