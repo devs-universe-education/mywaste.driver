@@ -18,14 +18,21 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Normal">
-				<StackLayout>
-					<Label Text="PointsPage"/>
-					<customMap:TKCustomMap  AbsoluteLayout.LayoutBounds="0,0.1,AutoSize,AutoSize"
-					                        AbsoluteLayout.LayoutFlags="YProportional" MapType="Street"
-					                        HeightRequest ="500" IsShowingUser="True" Pins="{Binding OrdersPins}"
+				<AbsoluteLayout>
+					
+						<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Orientation="Horizontal">
+							<Image Source="replay.png"/>
+							<Label Text="Компания по компаниям других компаний "></Label>
+							<ImageButton HorizontalOptions="End" Source="truck.png"/>
+						</StackLayout>
+					
+
+					<customMap:TKCustomMap AbsoluteLayout.LayoutBounds="0,50,1,1"
+					        AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional"  MapType="Street"
+											IsShowingUser="True" Pins="{Binding OrdersPins}"
 					                        CalloutClickedCommand ="{Binding CalloutClickedCommand}" SelectedPin="{Binding SelectedPin}" x:Name="Map"/>
-					<!--Pins="{Binding OrdersPins}" MapRegion="{Binding OrderPosition}"     Height="500" -->
-				</StackLayout>
+						<!--Pins="{Binding OrdersPins}" MapRegion="{Binding OrderPosition}"     Height="500" -->
+				</AbsoluteLayout>
 			</controls:StateCondition>
 
 			<controls:StateCondition State="NoData">
