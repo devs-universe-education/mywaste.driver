@@ -16,24 +16,40 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Normal">
-				<ScrollView>
-					<StackLayout Spacing="10">
-						<AbsoluteLayout>
-							<Image AbsoluteLayout.LayoutBounds="0,.1,AutoSize,0.5"
-								   AbsoluteLayout.LayoutFlags="YProportional,HeightProportional"
+				<AbsoluteLayout>
+					<ScrollView AbsoluteLayout.LayoutBounds="0,0,1,0.9" AbsoluteLayout.LayoutFlags="SizeProportional">
+						<StackLayout Margin="10" Spacing="10">
+						<AbsoluteLayout BackgroundColor="Accent">
+							<Image AbsoluteLayout.LayoutBounds="1,1,1,1"
+								   AbsoluteLayout.LayoutFlags="All"
 								   Source="https://s00.yaplakal.com/pics/pics_original/0/3/8/537830.jpg"/>
 						</AbsoluteLayout>
-						<Label FontSize="24" Text="БЦ Московский г. Воронеж, Московский пр-кт,д. 4"/>
+						<Label HorizontalOptions="Center" FontSize="24" Text="БЦ Московский г. Воронеж, Московский пр-кт,д. 4"/>
 						<StackLayout Spacing="20" Orientation="Horizontal">
 							<Image Source="check.png"/>
-							<Label Text="Ожидает выполения " FontSize="22"></Label>
+							<Label VerticalOptions="Center" Text="Ожидает выполения " FontSize="22"></Label>
 						</StackLayout>
 						<AbsoluteLayout>
-							<Button AbsoluteLayout.LayoutBounds="0,0.5,0.6,0.075"/>
+							<Button CornerRadius="8"
+									Text="Завершить заказ"
+									FontSize="18"
+									TextColor="White"
+									BackgroundColor="#1b9af7"
+									AbsoluteLayout.LayoutBounds="0.5,0,0.8,AutoSize"
+									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"/>
 						</AbsoluteLayout>
+						<Label FontSize="17" FontAttributes="Bold" Text="Рекомендуемый режим посещения "/>
+						<Label Margin="0,0,30,0" FontSize="17" Text="Вторник, с 7 до 10 часов утра &#10;Четверг,с 8 до 11 часов утра"/>
+						<Label FontSize="17" FontAttributes="Bold" Text="Рекомендуемый режим посещения "/>
+						<Label  Margin="0,0,30,0" FontSize="17" Text="Заезда на территорию за шлагбаум. Далее проехать вокруг здания. Контейнер со вторсырьем стоит отдельно и закрыт замком. Необходимо позволить заранее по одному из телефонов для получения того, чтобы контейнеры открыли к вашему приезду. Стоянка на территории БЦ платная, но служба охраны не должна с вас взять денег. В случае проблем звоните в службу охраны или управление бизнес-центра"/>
+						<Label FontAttributes="Bold" FontSize ="17" Text="Телефоны для связи"/>
+						
 						
 					</StackLayout>
 				</ScrollView>
+					<Button Text="Rysy" AbsoluteLayout.LayoutBounds="0,1,0.4,AutoSize" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"/>
+					<Button Text="Boba" AbsoluteLayout.LayoutBounds="0.5,1,0.4,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional"/>
+				</AbsoluteLayout>
 			</controls:StateCondition>
 
 			
