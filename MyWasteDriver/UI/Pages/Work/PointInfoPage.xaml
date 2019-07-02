@@ -16,10 +16,24 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Normal">
-				<StackLayout>
-					<Label Text="PointInfoPage"/>
-					<Button Text="GoToSelectComplainTypePage" Command="{Binding GoToSelectComplainTypeCommand}"/>
-				</StackLayout>
+				<ScrollView>
+					<StackLayout Spacing="10">
+						<AbsoluteLayout>
+							<Image AbsoluteLayout.LayoutBounds="0,.1,AutoSize,0.5"
+								   AbsoluteLayout.LayoutFlags="YProportional,HeightProportional"
+								   Source="https://s00.yaplakal.com/pics/pics_original/0/3/8/537830.jpg"/>
+						</AbsoluteLayout>
+						<Label FontSize="24" Text="БЦ Московский г. Воронеж, Московский пр-кт,д. 4"/>
+						<StackLayout Spacing="20" Orientation="Horizontal">
+							<Image Source="check.png"/>
+							<Label Text="Ожидает выполения " FontSize="22"></Label>
+						</StackLayout>
+						<AbsoluteLayout>
+							<Button AbsoluteLayout.LayoutBounds="0,0.5,0.6,0.075"/>
+						</AbsoluteLayout>
+						
+					</StackLayout>
+				</ScrollView>
 			</controls:StateCondition>
 
 			
