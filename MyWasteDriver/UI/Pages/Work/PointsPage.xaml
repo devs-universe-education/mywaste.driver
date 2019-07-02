@@ -9,7 +9,18 @@
                 mc:Ignorable="d"
                 x:Class="MyWasteDriver.UI.Pages.Work.PointsPage">
 
+
+
+
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="{Binding CurrentDate}" Order="Primary" Priority="0"/>
+		<ToolbarItem Order="Primary" Priority="2" IconImageSource="replay.png"/>
+	</ContentPage.ToolbarItems>
+
 	<ContentPage.Content>
+
+
+		
 		<controls:StateContainer State="{Binding State}">
 
 			<controls:StateCondition State="Loading">
@@ -22,16 +33,21 @@
 					
 						<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Orientation="Horizontal">
 							<Image Source="replay.png"/>
-							<Label Text="Компания по компаниям других компаний "></Label>
-							<ImageButton HorizontalOptions="End" Source="truck.png"/>
+							<Label Text="Место выгрузки:"></Label>
+							<Label Text="{Binding UnloadingAddress}"></Label>
+							<Label Text=","></Label>
+							<Label Text="{Binding CompanyName}"></Label>
+
+							<ImageButton Command="{Binding OpenNavigatorToUnloadingPlaceCommand}" HorizontalOptions="End" Source="truck.png"/>
 						</StackLayout>
 					
 
 					<customMap:TKCustomMap AbsoluteLayout.LayoutBounds="0,50,1,1"
 					        AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional"  MapType="Street"
 											IsShowingUser="True" Pins="{Binding OrdersPins}"
-					                        CalloutClickedCommand ="{Binding CalloutClickedCommand}" SelectedPin="{Binding SelectedPin}" x:Name="Map"/>
-						<!--Pins="{Binding OrdersPins}" MapRegion="{Binding OrderPosition}"     Height="500" -->
+					                        CalloutClickedCommand ="{Binding CalloutClickedCommand}" SelectedPin="{Binding SelectedPin}"
+											MapRegion="{Binding OrderPosition}"/>
+						<!--Pins="{Binding OrdersPins}"      Height="500" -->
 				</AbsoluteLayout>
 			</controls:StateCondition>
 
