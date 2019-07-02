@@ -30,7 +30,8 @@ namespace MyWasteDriver.Android
             TKGoogleMaps.Init(this, bundle);
             Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, bundle);
 			LoadApplication(new App());
-        }
+		
+		}
     }
 }
 

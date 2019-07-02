@@ -9,7 +9,7 @@
              Title="Binwell University">
 	<ContentPage.Content>
 		<AbsoluteLayout>
-			<StackLayout AbsoluteLayout.LayoutBounds="" Orientation="Horizontal">
+			<StackLayout  Orientation="Horizontal">
 				<Image Source="account.png"/>
 			</StackLayout>
 			<StackLayout>

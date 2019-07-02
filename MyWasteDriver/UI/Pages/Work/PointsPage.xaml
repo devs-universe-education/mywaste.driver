@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls;assembly=MyWasteDriver"
-             xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages;assembly=MyWasteDriver"
-             mc:Ignorable="d"
-             x:Class="MyWasteDriver.UI.Pages.Work.PointsPage">
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls;assembly=MyWasteDriver"
+                xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages;assembly=MyWasteDriver"
+                xmlns:customMap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
+                mc:Ignorable="d"
+                x:Class="MyWasteDriver.UI.Pages.Work.PointsPage">
 
 	<ContentPage.Content>
 		<controls:StateContainer State="{Binding State}">
@@ -19,7 +20,11 @@
 			<controls:StateCondition State="Normal">
 				<StackLayout>
 					<Label Text="PointsPage"/>
-					<Button Text="GoToMainPage" Command="{Binding GoToPointInfoCommand}"/>
+					<customMap:TKCustomMap  AbsoluteLayout.LayoutBounds="0,0.1,AutoSize,AutoSize"
+					                        AbsoluteLayout.LayoutFlags="YProportional" MapType="Street"
+					                        HeightRequest ="500" IsShowingUser="True" Pins="{Binding OrdersPins}"
+					                        CalloutClickedCommand ="{Binding CalloutClickedCommand}" SelectedPin="{Binding SelectedPin}" x:Name="Map"/>
+					<!--Pins="{Binding OrdersPins}" MapRegion="{Binding OrderPosition}"     Height="500" -->
 				</StackLayout>
 			</controls:StateCondition>
 
@@ -37,4 +42,4 @@
 			</controls:StateCondition>
 		</controls:StateContainer>
 	</ContentPage.Content>
-</pages:BasePage> 
+</pages:BasePage>

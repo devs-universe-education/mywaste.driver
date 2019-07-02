@@ -22,18 +22,9 @@
 				</StackLayout>
 			</controls:StateCondition>
 
-			<controls:StateCondition State="NoData">
-				<StackLayout>
-					<Label Text="LoginPage"/>
-				</StackLayout>
-			</controls:StateCondition>
+			
+			
 
-			<controls:StateCondition State="Error">
-				<StackLayout>
-					<Label Text="Ошибка загрузки данных" />
-				</StackLayout>
-
-			</controls:StateCondition>
 		</controls:StateContainer>
 	</ContentPage.Content>
 </pages:BasePage>
