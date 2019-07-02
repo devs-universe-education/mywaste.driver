@@ -85,6 +85,18 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 					_ordersPins.Add(o);
 				}
 
+				var unlPlaceObj = new TKCustomMapPin()
+				{
+                    Position = new Position(PointsObject.UnloadingPlace.Coordinates.Latitude, PointsObject.UnloadingPlace.Coordinates.Longitude),
+                    Title = PointsObject.UnloadingPlace.CompanyName,
+                    ShowCallout = true,
+                    Subtitle = PointsObject.UnloadingPlace.UnloadingAddress,
+                    //IsCalloutClickable = true,
+                    //ID
+                    Image = "flag.png"
+				};
+				_ordersPins.Add(unlPlaceObj);
+
 				State = PageState.Normal;
 			}
 		}
@@ -92,7 +104,6 @@ namespace MyWasteDriver.BL.ViewModels.Work {
         // Временный вариант
 		async Task CheckPermissionsAsync()
 		{
-
 			var storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
 			var locationStaus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
 

@@ -1,7 +1,7 @@
 {
 	"Orders": [
 		{
-			"OrderId": "363tfh-h2fh54-gdg54", 
+			"OrderId": "363tfh-h2fh54-gdg54",
 			"OrganizationName": "1 ТЦ",
 			"OrderAdress": "Московский проспект 4",
 			"Coordinates": {
@@ -31,7 +31,7 @@
 					"PhoneNumber": "+7(900)823-14-24"
 				}
 			],
-			"Image":  [
+			"Image": [
 				"image1",
 				"image2"
 			]
@@ -109,6 +109,17 @@
 				"image2"
 			]
 		}
-		
-	]
+
+	],
+
+	"UnloadingPlace": {
+
+		"UnloadingAddress": "г. Воронеж, Семилуки, ул. Яблочная 43",
+		"CompanyName": "ООО Сортировка",
+		"Coordinates": {
+			"Latitude": 51.690877,
+			"Longitude": 39.268953
+		}
+	} 
+	
 }
