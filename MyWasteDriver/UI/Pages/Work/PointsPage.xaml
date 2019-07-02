@@ -27,7 +27,7 @@
 						</StackLayout>
 
 						<customMap:TKCustomMap
-							AbsoluteLayout.LayoutBounds="0,75,AutoSize,AutoSize" 
+							AbsoluteLayout.LayoutBounds="0,75,AutoSize,0.9" AbsoluteLayout.LayoutFlags="HeightProportional"
 											MapType="Street"
 											IsShowingUser="True" Pins="{Binding OrdersPins}"
 					                        CalloutClickedCommand ="{Binding CalloutClickedCommand}" SelectedPin="{Binding SelectedPin}" x:Name="Map"/>
