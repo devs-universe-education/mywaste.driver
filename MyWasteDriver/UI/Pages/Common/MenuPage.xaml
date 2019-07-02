@@ -58,8 +58,12 @@
 							FontFamily="Arial"
 							StyleClass="Link"
 							AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
-							TextColor="#999999"
-							 />
+							TextColor="#999999">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding PageCall}"/>
+				</Label.GestureRecognizers>
+			</Label>
+							 
 		</AbsoluteLayout>
 	</ContentPage.Content>
 </pages:BasePage>
