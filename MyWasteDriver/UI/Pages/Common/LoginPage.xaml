@@ -43,7 +43,7 @@
 							FontSize="17"
 							AbsoluteLayout.LayoutBounds="0.5,0.75,0.85,0.085"
 							AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional" 
-							Command="{Binding }"
+							Command="{Binding GoToPageStateLogin}"
 							CornerRadius="8"
 				  AutomationId="ButtonVhod"/>
 

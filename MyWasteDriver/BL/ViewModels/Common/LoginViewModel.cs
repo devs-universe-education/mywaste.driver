@@ -15,6 +15,11 @@ namespace MyWasteDriver.BL.ViewModels.Common {
 			NavigateTo(AppPages.PointInfo);
 		}
 
+		public ICommand GoToPageStateLogin => MakeCommand(GoToLogin);
+		private void GoToLogin() {
+			State = PageState.EnterPassword;
+		}
+
 		public override async Task OnPageAppearing()
 		{
 			State = PageState.EnterPhone;
