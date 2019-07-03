@@ -7,12 +7,13 @@
                 xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages;assembly=MyWasteDriver"
                 xmlns:customMap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
                 mc:Ignorable="d"
-                x:Class="MyWasteDriver.UI.Pages.Work.PointsPage">
+                x:Class="MyWasteDriver.UI.Pages.Work.PointsPage"
+				>
 
 
 
 
-	<ContentPage.ToolbarItems>
+	<ContentPage.ToolbarItems >
 
 		<ToolbarItem Text="Заказы на " Order="Primary" Priority="0"/>
 		<ToolbarItem Text="{Binding CurrentDate}" Order="Primary" Priority="1"/>
@@ -31,24 +32,21 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Normal">
-				<AbsoluteLayout>
-					
-						<StackLayout AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Orientation="Horizontal">
-							<Image Source="flag.png"/>
-							<Label VerticalOptions="Center" Text="Место выгрузки:"></Label>
-						<Label VerticalOptions="Center" Text="{Binding UnloadingAddress}"></Label>
-						<Label VerticalOptions="Center" Text=","></Label>
-						<Label  VerticalOptions="Center" Text="{Binding CompanyName}"></Label>
-						<ImageButton Command="{Binding OpenNavigatorToUnloadingPlaceCommand}" HorizontalOptions="End" Source="chevron.png"/>
-						</StackLayout>
-
-						<customMap:TKCustomMap
-							AbsoluteLayout.LayoutBounds="0,75,AutoSize,0.9" AbsoluteLayout.LayoutFlags="HeightProportional"
+				<AbsoluteLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+					<customMap:TKCustomMap
+							AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"
 											MapType="Street"
 											IsShowingUser="True" Pins="{Binding OrdersPins}"
 					                        CalloutClickedCommand ="{Binding CalloutClickedCommand}" SelectedPin="{Binding SelectedPin}"
 											MapRegion="{Binding OrderPosition}"/>
-						<!--Pins="{Binding OrdersPins}"      Height="500" -->
+
+					<StackLayout Spacing="10" Padding="10,0,10,0" BackgroundColor="White" AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Orientation="Horizontal">
+							<Image Source="flag.png"/>
+						<Label VerticalOptions="Center" Text="{Binding TexToTitle}"/>
+						<ImageButton BackgroundColor="White" Command="{Binding OpenNavigatorToUnloadingPlaceCommand}" HorizontalOptions="End" Source="chevron.png"/>
+						</StackLayout>
+
+						
 				</AbsoluteLayout>
 			</controls:StateCondition>
 

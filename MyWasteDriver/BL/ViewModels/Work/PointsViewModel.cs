@@ -24,7 +24,8 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 			set => Set(value);
 		}
 
-
+		public string TexToTitle => _texToTitle;
+		private string _texToTitle;
 		public ICommand CalloutClickedCommand => MakeCommand(GoToPointInfo);
 
 		public ICommand OpenNavigatorToUnloadingPlaceCommand => MakeCommand(OpenNavigatorToUnloadingPlace);
@@ -135,9 +136,8 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 				_navigatorUri = new Uri("yandexnavi://build_route_on_map?lat_to=" + PointsObject.UnloadingPlace.Coordinates.Latitude.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US"))
 				                                                                  + "&lon_to=" + PointsObject.UnloadingPlace.Coordinates.Longitude.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
 
-				_orderPosition = new MapSpan(new Position(51.712468, 39.181733), 1, 1); // исправить
-				_companyName = PointsObject.UnloadingPlace.CompanyName;
-				_unloadingAddress = PointsObject.UnloadingPlace.UnloadingAddress;
+				_orderPosition = new MapSpan(new Position(51.712468, 39.181733), 1, 1); // исправит
+				_texToTitle = "Место выгрузки: " + PointsObject.UnloadingPlace.UnloadingAddress + ", " + PointsObject.UnloadingPlace.CompanyName;
 				State = PageState.Normal;
 			}
 		}
