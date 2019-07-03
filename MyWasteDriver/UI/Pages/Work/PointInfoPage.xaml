@@ -36,18 +36,45 @@
 									TextColor="White"
 									BackgroundColor="#1b9af7"
 									AbsoluteLayout.LayoutBounds="0.5,0,0.8,AutoSize"
-									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"/>
+									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+									Command="{Binding CompleteOrderCommand}"/>
 						</AbsoluteLayout>
-						<Label FontSize="17" FontAttributes="Bold" Text="Рекомендуемый режим посещения "/>
-						<Label Margin="0,0,30,0" FontSize="17" Text="Вторник, с 7 до 10 часов утра &#10;Четверг,с 8 до 11 часов утра"/>
-						<Label FontSize="17" FontAttributes="Bold" Text="Рекомендуемый режим посещения "/>
-						<Label  Margin="0,0,30,0" FontSize="17" Text="Заезда на территорию за шлагбаум. Далее проехать вокруг здания. Контейнер со вторсырьем стоит отдельно и закрыт замком. Необходимо позволить заранее по одному из телефонов для получения того, чтобы контейнеры открыли к вашему приезду. Стоянка на территории БЦ платная, но служба охраны не должна с вас взять денег. В случае проблем звоните в службу охраны или управление бизнес-центра"/>
-						<Label FontAttributes="Bold" FontSize ="17" Text="Телефоны для связи"/>
-						
-						
-					</StackLayout>
+						<ListView ItemsSource="{Binding OrderObject}">
+							<ListView.Header>
+								<ContentView>
+									<Label FontSize="17" FontAttributes="Bold" Text="Рекомендуемый режим посещения " />
+								</ContentView>
+							</ListView.Header>
+							<ListView.ItemTemplate>
+								<DataTemplate>
+									<ViewCell>
+										<StackLayout>
+											<Label Margin="0,0,30,0" FontSize="17" Text="{Binding OrderObject.VisitingMode}" />
+										</StackLayout>
+									</ViewCell>
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</ListView>
+
+						<ListView ItemsSource="{Binding OrderObject.AllOrders}">
+							<ListView.Header>
+								<ContentView BackgroundColor="White">
+									<Label FontSize="17" FontAttributes="Bold" Text="Инструкция по проезду" />
+								</ContentView>
+							</ListView.Header>
+							<ListView.ItemTemplate>
+								<DataTemplate>
+									<StackLayout>
+										<Label Margin="0,0,30,0" FontSize="17" Text="{Binding TravelIntructions}" />
+									</StackLayout>
+								</DataTemplate>
+							</ListView.ItemTemplate>
+						</ListView>
+
+
+						</StackLayout>
 				</ScrollView>
-					<Button Margin="10" FontSize="15" Text="Навигация" BackgroundColor="#1b9af7" TextColor="White" CornerRadius="8" AbsoluteLayout.LayoutBounds="0,1,0.5,0.13" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional"/>
+					<Button Margin="10" FontSize="15" Command="{Binding OpenNavigatorToOrderPlaceCommand}" Text="Навигация" BackgroundColor="#1b9af7" TextColor="White" CornerRadius="8" AbsoluteLayout.LayoutBounds="0,1,0.5,0.13" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional"/>
 					<Button Margin="10" Command="{Binding GoToSelectComplainTypeCommand}" FontSize="12" Text="Сообщить о проблеме или нарушении" BackgroundColor="#999999" TextColor="White" CornerRadius="8"  AbsoluteLayout.LayoutBounds="1,1,0.5,0.13" AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional"/>
 				</AbsoluteLayout>
 			</controls:StateCondition>

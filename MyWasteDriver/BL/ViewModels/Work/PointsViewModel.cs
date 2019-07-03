@@ -19,7 +19,6 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 	{
 		public PointsDataObject PointsObject
 		{
-
 			get => Get<PointsDataObject>();
 			set => Set(value);
 		}
@@ -83,11 +82,7 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 		private string _companyName;
 
 		
-		public MapSpan OrderPosition
-		{
-			get { return _orderPosition; }
-			set { _orderPosition = value; }
-		}
+		public MapSpan OrderPosition => _orderPosition;
 		private MapSpan _orderPosition;
 
 		public DateTime CurrentDate => DateTime.Now; // исправить

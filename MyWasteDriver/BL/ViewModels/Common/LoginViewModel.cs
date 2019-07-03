@@ -12,7 +12,7 @@ namespace MyWasteDriver.BL.ViewModels.Common {
 
 		private void GoToPoints()
 		{
-			NavigateTo(AppPages.PointInfo);
+			//NavigateTo(AppPages.Menu);
 		}
 
 		public ICommand GoToPageStateLogin => MakeCommand(GoToLogin);

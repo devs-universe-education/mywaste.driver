@@ -41,8 +41,8 @@
 			"OrganizationName": "2 ТЦ",
 			"OrderAdress": "Воронеж, Ватутина 15",
 			"Coordinates": {
-				"Latitude": 51.717932,
-				"Longitude": 39.177376
+				"Latitude": 51.759416,
+				"Longitude": 39.181409
 			},
 			"CompletedOrNot": false,
 			"VisitingMode": [
@@ -78,8 +78,8 @@
 			"OrganizationName": "3 ТЦ",
 			"OrderAdress": "Воронеж, Ватутина 15",
 			"Coordinates": {
-				"Latitude": 51.711290,
-				"Longitude": 39.195480
+				"Latitude": 55.703987,
+				"Longitude": 37.649917
 			},
 			"CompletedOrNot": true,
 			"VisitingMode": [
