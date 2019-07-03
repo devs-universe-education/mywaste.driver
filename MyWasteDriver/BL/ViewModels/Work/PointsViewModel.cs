@@ -1,21 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data;
 using System.Globalization;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MyWasteDriver.DAL.DataObjects;
 using MyWasteDriver.DAL.DataServices;
-using MyWasteDriver.UI.Pages;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using TK.CustomMap;
 using Xamarin.Forms;
 
-namespace MyWasteDriver.BL.ViewModels.Work {
-	class PointsViewModel : BaseViewModel
+namespace MyWasteDriver.BL.ViewModels.Work
+{
+	internal class PointsViewModel : BaseViewModel
 	{
 		public PointsDataObject PointsObject
 		{
@@ -30,10 +28,12 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 
 		private void OpenNavigatorToUnloadingPlace()
 		{
-			try {
+			try
+			{
 				Device.OpenUri(_navigatorUri);
 			}
-			catch {
+			catch
+			{
 				Device.OpenUri(new Uri("market://details?id=ru.yandex.yandexnavi"));
 			}
 		}
@@ -44,46 +44,30 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 		{
 			var _dataToLoad = new AllOrders();
 			foreach (var t in PointsObject.Orders)
-			{
-				if (_selectedPin.ID == t.OrderId) _dataToLoad = t;
-			}
-			var Data = new Dictionary<string, object>()
+				if (_selectedPin.ID == t.OrderId)
+					_dataToLoad = t;
+			var Data = new Dictionary<string, object>
 			{
 				{"orderObject", _dataToLoad}
 			};
 			NavigateTo(AppPages.PointInfo, navParams: Data);
 		}
 
-		public ObservableCollection<TKCustomMapPin> OrdersPins
-		{
-			get { return _ordersPins; }
-			set { _ordersPins = value; }
-		}
-		private ObservableCollection<TKCustomMapPin> _ordersPins;
+		public ObservableCollection<TKCustomMapPin> OrdersPins { get; set; }
 
 		public TKCustomMapPin SelectedPin
 		{
-			get { return _selectedPin; }
-			set { _selectedPin = value; }
+			set => _selectedPin = value;
 		}
+
 		private TKCustomMapPin _selectedPin;
 
-		public string UnloadingAddress
-		{
-			get { return _unloadingAddress; }
-			set { _unloadingAddress = value; }
-		}
-		private string _unloadingAddress;
+		public string UnloadingAddress { get; set; }
 
-		public string CompanyName {
-			get { return _companyName; }
-			set { _companyName = value; }
-		}
-		private string _companyName;
+		public string CompanyName { get; set; }
 
-		
-		public MapSpan OrderPosition => _orderPosition;
-		private MapSpan _orderPosition;
+
+		public MapSpan OrderPosition { get; private set; }
 
 		public DateTime CurrentDate => DateTime.Now; // исправить
 
@@ -97,11 +81,11 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 			if (result.IsValid)
 			{
 				PointsObject = result.Data;
-				_ordersPins = new ObservableCollection<TKCustomMapPin>();
+				OrdersPins = new ObservableCollection<TKCustomMapPin>();
 
 				foreach (var t in PointsObject.Orders)
 				{
-					var o = new TKCustomMapPin()
+					var o = new TKCustomMapPin
 					{
 						Position = new Position(t.Coordinates.Latitude, t.Coordinates.Longitude),
 						Title = t.OrganizationName,
@@ -109,49 +93,47 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 						Subtitle = t.OrderAdress,
 						IsCalloutClickable = true,
 						ID = t.OrderId
-
 					};
 					o.DefaultPinColor = t.CompletedOrNot ? Color.Green : Color.SlateGray;
-					_ordersPins.Add(o);
+					OrdersPins.Add(o);
 				}
 
-				var unlPlaceObj = new TKCustomMapPin()
+				var unlPlaceObj = new TKCustomMapPin
 				{
-                    Position = new Position(PointsObject.UnloadingPlace.Coordinates.Latitude, PointsObject.UnloadingPlace.Coordinates.Longitude),
-                    Title = PointsObject.UnloadingPlace.CompanyName,
-                    ShowCallout = true,
-                    Subtitle = PointsObject.UnloadingPlace.UnloadingAddress,
-                    //IsCalloutClickable = true,
-                    //ID
-                    Image = "flag.png" // не работает 
+					Position = new Position(PointsObject.UnloadingPlace.Coordinates.Latitude,
+						PointsObject.UnloadingPlace.Coordinates.Longitude),
+					Title = PointsObject.UnloadingPlace.CompanyName,
+					ShowCallout = true,
+					Subtitle = PointsObject.UnloadingPlace.UnloadingAddress,
+					DefaultPinColor = Color.Red
 				};
-				_ordersPins.Add(unlPlaceObj);
+				OrdersPins.Add(unlPlaceObj);
 
-				_navigatorUri = new Uri("yandexnavi://build_route_on_map?lat_to=" + PointsObject.UnloadingPlace.Coordinates.Latitude.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US"))
-				                                                                  + "&lon_to=" + PointsObject.UnloadingPlace.Coordinates.Longitude.ToString(System.Globalization.CultureInfo.GetCultureInfo("en-US")));
+				_navigatorUri = new Uri(
+					"yandexnavi://build_route_on_map?lat_to=" + PointsObject.UnloadingPlace.Coordinates.Latitude.ToString(
+						                                          CultureInfo.GetCultureInfo("en-US"))
+					                                          + "&lon_to=" +
+					                                          PointsObject.UnloadingPlace.Coordinates.Longitude.ToString(
+						                                          CultureInfo.GetCultureInfo("en-US")));
 
-				_orderPosition = new MapSpan(new Position(51.712468, 39.181733), 1, 1); // исправить
-				_companyName = PointsObject.UnloadingPlace.CompanyName;
-				_unloadingAddress = PointsObject.UnloadingPlace.UnloadingAddress;
+				OrderPosition = new MapSpan(new Position(51.712468, 39.181733), 1, 1); // исправить
+				CompanyName = PointsObject.UnloadingPlace.CompanyName;
+				UnloadingAddress = PointsObject.UnloadingPlace.UnloadingAddress;
 				State = PageState.Normal;
 			}
 		}
 
-        // Временный вариант
-		async Task CheckPermissionsAsync()
+		// Временный вариант
+		private async Task CheckPermissionsAsync()
 		{
 			var storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
 			var locationStaus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
 
 			if (storageStatus == PermissionStatus.Denied || storageStatus == PermissionStatus.Disabled)
-			{
 				storageStatus = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Storage))[Permission.Storage];
-			}
 
 			if (locationStaus == PermissionStatus.Denied || locationStaus == PermissionStatus.Disabled)
-			{
 				locationStaus = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location))[Permission.Location];
-			}
 		}
 	}
 }

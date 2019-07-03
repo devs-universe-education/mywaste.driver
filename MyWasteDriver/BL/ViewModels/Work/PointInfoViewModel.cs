@@ -2,10 +2,8 @@ using System;
 using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Input;
-
 using Geolocation;
 using MyWasteDriver.DAL.DataObjects;
-using MyWasteDriver.UI.Pages;
 using Plugin.Geolocator;
 using TK.CustomMap;
 using Xamarin.Forms;
@@ -20,7 +18,7 @@ namespace MyWasteDriver.BL.ViewModels.Work
 
 		public ICommand CompleteOrderCommand => MakeCommand(CompleteOrder);
 
-		private async void  CompleteOrder()
+		private async void CompleteOrder()
 		{
 			State = PageState.Loading;
 			await UserCoordinateAsync();
@@ -32,13 +30,16 @@ namespace MyWasteDriver.BL.ViewModels.Work
 				var _answer = await ShowQuestion("Внимание!", "Вы действительно хотите завершить заказ?", "Завершить заказ",
 					"Вернуться обратно");
 				if (_answer)
-					//отправить на сервер
+					//отправить на сервер 
 					NavigateTo(AppPages.Points, NavigationMode.Root, newNavigationStack: true);
 				else
 					return;
 			}
 			else
-				ShowAlert("Для завершения заказа вы должны прибыть по указанному адресу.", $"В настоящее время в {distance.ToString("0.000")} км от указанной точки", "OK");
+			{
+				ShowAlert("Для завершения заказа вы должны прибыть по указанному адресу.",
+					$"В настоящее время в {distance.ToString("0.000")} км от указанной точки", "OK");
+			}
 		}
 
 		private Position _userPosition;
@@ -70,7 +71,6 @@ namespace MyWasteDriver.BL.ViewModels.Work
 
 		public override async Task OnPageAppearing()
 		{
-			
 			if (NavigationParams.TryGetValue("orderObject", out var x))
 				OrderObject = (AllOrders) x;
 			else

@@ -4583,26 +4583,26 @@ namespace MyWasteDriver.Android
 			// aapt resource value: 0x7f020056
 			public const int avd_hide_password = 2130837590;
 			
-			// aapt resource value: 0x7f020157
-			public const int avd_hide_password_1 = 2130837847;
-			
 			// aapt resource value: 0x7f020158
-			public const int avd_hide_password_2 = 2130837848;
+			public const int avd_hide_password_1 = 2130837848;
 			
 			// aapt resource value: 0x7f020159
-			public const int avd_hide_password_3 = 2130837849;
+			public const int avd_hide_password_2 = 2130837849;
+			
+			// aapt resource value: 0x7f02015a
+			public const int avd_hide_password_3 = 2130837850;
 			
 			// aapt resource value: 0x7f020057
 			public const int avd_show_password = 2130837591;
 			
-			// aapt resource value: 0x7f02015a
-			public const int avd_show_password_1 = 2130837850;
-			
 			// aapt resource value: 0x7f02015b
-			public const int avd_show_password_2 = 2130837851;
+			public const int avd_show_password_1 = 2130837851;
 			
 			// aapt resource value: 0x7f02015c
-			public const int avd_show_password_3 = 2130837852;
+			public const int avd_show_password_2 = 2130837852;
+			
+			// aapt resource value: 0x7f02015d
+			public const int avd_show_password_3 = 2130837853;
 			
 			// aapt resource value: 0x7f020058
 			public const int check = 2130837592;
@@ -5324,11 +5324,11 @@ namespace MyWasteDriver.Android
 			// aapt resource value: 0x7f020147
 			public const int notification_icon_background = 2130837831;
 			
-			// aapt resource value: 0x7f020155
-			public const int notification_template_icon_bg = 2130837845;
-			
 			// aapt resource value: 0x7f020156
-			public const int notification_template_icon_low_bg = 2130837846;
+			public const int notification_template_icon_bg = 2130837846;
+			
+			// aapt resource value: 0x7f020157
+			public const int notification_template_icon_low_bg = 2130837847;
 			
 			// aapt resource value: 0x7f020148
 			public const int notification_tile_bg = 2130837832;
@@ -5337,37 +5337,40 @@ namespace MyWasteDriver.Android
 			public const int notify_panel_notification_icon_bg = 2130837833;
 			
 			// aapt resource value: 0x7f02014a
-			public const int places_ic_clear = 2130837834;
+			public const int notvisitedplace = 2130837834;
 			
 			// aapt resource value: 0x7f02014b
-			public const int places_ic_search = 2130837835;
+			public const int places_ic_clear = 2130837835;
 			
 			// aapt resource value: 0x7f02014c
-			public const int powered_by_google_dark = 2130837836;
+			public const int places_ic_search = 2130837836;
 			
 			// aapt resource value: 0x7f02014d
-			public const int powered_by_google_light = 2130837837;
+			public const int powered_by_google_dark = 2130837837;
 			
 			// aapt resource value: 0x7f02014e
-			public const int replay = 2130837838;
+			public const int powered_by_google_light = 2130837838;
 			
 			// aapt resource value: 0x7f02014f
-			public const int roundedbg = 2130837839;
+			public const int replay = 2130837839;
 			
 			// aapt resource value: 0x7f020150
-			public const int roundedbgdark = 2130837840;
+			public const int roundedbg = 2130837840;
 			
 			// aapt resource value: 0x7f020151
-			public const int tooltip_frame_dark = 2130837841;
+			public const int roundedbgdark = 2130837841;
 			
 			// aapt resource value: 0x7f020152
-			public const int tooltip_frame_light = 2130837842;
+			public const int tooltip_frame_dark = 2130837842;
 			
 			// aapt resource value: 0x7f020153
-			public const int truck = 2130837843;
+			public const int tooltip_frame_light = 2130837843;
 			
 			// aapt resource value: 0x7f020154
-			public const int wasterecycling = 2130837844;
+			public const int truck = 2130837844;
+			
+			// aapt resource value: 0x7f020155
+			public const int wasterecycling = 2130837845;
 			
 			static Drawable()
 			{
