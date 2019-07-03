@@ -17,19 +17,19 @@
 
 			<controls:StateCondition State="Normal">
 				<AbsoluteLayout>
-					<ScrollView AbsoluteLayout.LayoutBounds="0,0,1,0.9" AbsoluteLayout.LayoutFlags="SizeProportional">
+					<ScrollView AbsoluteLayout.LayoutBounds="0,0,1,0.875" AbsoluteLayout.LayoutFlags="SizeProportional">
 						<StackLayout Margin="10" Spacing="10">
-						<AbsoluteLayout BackgroundColor="Accent">
+						<AbsoluteLayout >
 							<Image AbsoluteLayout.LayoutBounds="1,1,1,1"
 								   AbsoluteLayout.LayoutFlags="All"
 								   Source="https://s00.yaplakal.com/pics/pics_original/0/3/8/537830.jpg"/>
 						</AbsoluteLayout>
-						<Label HorizontalOptions="Center" FontSize="24" Text="БЦ Московский г. Воронеж, Московский пр-кт,д. 4"/>
-						<StackLayout Spacing="20" Orientation="Horizontal">
+						<Label Margin="0,0,20,0" HorizontalOptions="Center" FontSize="24" Text="БЦ Московский г. Воронеж, Московский пр-кт,д. 4"/>
+						<StackLayout Spacing="10" Orientation="Horizontal">
 							<Image Source="check.png"/>
 							<Label VerticalOptions="Center" Text="Ожидает выполения " FontSize="22"></Label>
 						</StackLayout>
-						<AbsoluteLayout>
+						<AbsoluteLayout Margin="0,0,20,0">
 							<Button CornerRadius="8"
 									Text="Завершить заказ"
 									FontSize="18"
@@ -47,8 +47,8 @@
 						
 					</StackLayout>
 				</ScrollView>
-					<Button Text="Rysy" AbsoluteLayout.LayoutBounds="0,1,0.4,AutoSize" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"/>
-					<Button Text="Boba" AbsoluteLayout.LayoutBounds="0.5,1,0.4,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional,WidthProportional"/>
+					<Button Margin="10" FontSize="15" Text="Навигация" BackgroundColor="#1b9af7" TextColor="White" CornerRadius="8" AbsoluteLayout.LayoutBounds="0,1,0.5,0.13" AbsoluteLayout.LayoutFlags="YProportional,SizeProportional"/>
+					<Button Margin="10" Command="{Binding GoToSelectComplainTypeCommand}" FontSize="12" Text="Сообщить о проблеме или нарушении" BackgroundColor="#999999" TextColor="White" CornerRadius="8"  AbsoluteLayout.LayoutBounds="1,1,0.5,0.13" AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional"/>
 				</AbsoluteLayout>
 			</controls:StateCondition>
 

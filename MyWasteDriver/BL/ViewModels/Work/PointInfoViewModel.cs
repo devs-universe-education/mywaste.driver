@@ -15,6 +15,7 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 		public Dictionary<string, object> _dataToLoad;
 
 		public ICommand GoToSelectComplainTypeCommand => GetNavigateToCommand(AppPages.SelectComplainType);
+		public ICommand GoToReport => GetNavigateToCommand(AppPages.ReportComplain);
 		public override async Task OnPageAppearing()
 		{
 
