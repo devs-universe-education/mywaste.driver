@@ -12,17 +12,29 @@ namespace MyWasteDriver.BL.ViewModels.Work {
 	class PointInfoViewModel: BaseViewModel
 	{
 
-		public Dictionary<string, object> _dataToLoad;
 
 		public ICommand GoToSelectComplainTypeCommand => GetNavigateToCommand(AppPages.SelectComplainType);
-		public ICommand GoToReport => GetNavigateToCommand(AppPages.ReportComplain);
+
+		AllOrders OrderObject
+		{
+			get { return _orderObject; }
+			set { _orderObject = value; }
+		}
+
+		private AllOrders _orderObject;
+
+
 		public override async Task OnPageAppearing()
 		{
 
 			if (NavigationParams.TryGetValue("orderObject", out var x))
 			{
-				var v = x;
+				var t = typeof(AppPages);
+			//	_orderObject = Convert.ChangeType(x, t);
 			}
+
+			_orderObject = ((AllOrders) x);
+
 			State = PageState.Normal;
 
 		}
