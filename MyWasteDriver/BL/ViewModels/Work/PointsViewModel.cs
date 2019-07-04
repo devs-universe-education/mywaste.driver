@@ -117,7 +117,7 @@ namespace MyWasteDriver.BL.ViewModels.Work
 					                                          PointsObject.UnloadingPlace.Coordinates.Longitude.ToString(
 						                                          CultureInfo.GetCultureInfo("en-US")));
 
-				_orderPosition = new MapSpan(new Position(51.712468, 39.181733), 1, 1); // исправит
+				OrderPosition = new MapSpan(new Position(51.712468, 39.181733), 1, 1); // исправит
 				_texToTitle = "Место выгрузки: " + PointsObject.UnloadingPlace.UnloadingAddress + ", " + PointsObject.UnloadingPlace.CompanyName;
 				State = PageState.Normal;
 			}
