@@ -48,6 +48,30 @@
 				</AbsoluteLayout>
 			</controls:StateCondition>
 
+			<controls:StateCondition State="Entry">
+				<AbsoluteLayout>
+
+					<StackLayout Spacing="20" AbsoluteLayout.LayoutBounds="0.5,0.4,AutoSize,AutoSize"  AbsoluteLayout.LayoutFlags="YProportional,XProportional">
+						<Image  Source="sun.png"/>
+
+						<Label  HorizontalOptions="Center"
+						    Text=" На сегодня заказов нет "
+							FontSize="17"
+							TextColor="Black"/>
+
+					</StackLayout>
+
+					<Label  Text="			Возникли &#10;		проблемы ? &#10;	Позвоните на &#10;8(800)012-22-33"
+							FontSize="14"
+							FontFamily="Arial"
+							StyleClass="Link"
+							AbsoluteLayout.LayoutBounds="0.5,0.9,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
+							TextColor="#999999"/>
+
+				</AbsoluteLayout>
+
+			</controls:StateCondition>
+
 			<controls:StateCondition State="NoData">
 				<StackLayout>
 					<Label Text="LoginPage" />
@@ -55,11 +79,44 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Error">
-				<StackLayout>
-					<Label Text="Ошибка загрузки данных" />
-				</StackLayout>
+				<AbsoluteLayout>
 
+					<StackLayout Spacing="20" AbsoluteLayout.LayoutBounds="0.5,0.3,AutoSize,AutoSize"  AbsoluteLayout.LayoutFlags="YProportional,XProportional">
+						<Image  Source="error.png"/>
+
+						<Label
+							HorizontalTextAlignment="Center"
+							HorizontalOptions="Center"
+						    Text=" К сожалению, приложение не может получить список заказов. Проверьте наличие интернет-соединения и повторите попытку &#10; (код ошибки: 0001) "
+							FontSize="17"
+							TextColor="Black"
+							AbsoluteLayout.LayoutBounds="0.5,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"/>
+
+						<Button
+							HorizontalOptions="Center"
+							BackgroundColor= "#1b9af7"
+							BorderRadius="8"
+							Text="Повторить"
+							TextColor="White"
+							FontFamily="Helvetica Neue"
+							StyleClass="Light"
+							FontSize="17"
+							AbsoluteLayout.LayoutBounds="0.5,0.7,0.85,0.085"
+							AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional"/>
+					</StackLayout>
+
+
+					<Label  Text="			Возникли &#10;		проблемы ? &#10;	Позвоните на &#10;8(800)012-22-33"
+							FontSize="14"
+							FontFamily="Arial"
+							StyleClass="Link"
+							AbsoluteLayout.LayoutBounds="0.5,0.9,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
+							TextColor="#999999"/>
+
+				</AbsoluteLayout>
+				
 			</controls:StateCondition>
+			
 		</controls:StateContainer>
 	</ContentPage.Content>
 </pages:BasePage>

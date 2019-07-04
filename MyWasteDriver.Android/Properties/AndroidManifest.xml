@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.binwell.university.MyWasteDriver" android:installLocation="preferExternal" android:versionCode="1" android:versionName="1.0">
-	<uses-sdk android:targetSdkVersion="27" android:minSdkVersion="19" />
+	<uses-sdk android:targetSdkVersion="28" android:minSdkVersion="19" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -9,13 +9,8 @@
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<application android:label="MyWasteDriver" android:icon="@drawable/icon">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDJ5OvKyLiF59CsnfI229J8l9mAGr13w8w" />
-		<provider android:name="android.support.v4.content.FileProvider"
-		          android:authorities="${applicationId}.fileprovider"
-		          android:exported="false"
-		          android:grantUriPermissions="true">
-
-			<meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-			           android:resource="@xml/file_paths"></meta-data>
+		<provider android:name="android.support.v4.content.FileProvider" android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true">
+			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
 		</provider>
 	</application>
 </manifest>
