@@ -7,6 +7,11 @@
              xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages;assembly=MyWasteDriver"
              mc:Ignorable="d"
              x:Class="MyWasteDriver.UI.Pages.Work.PointInfoPage">
+
+	<ContentPage.ToolbarItems>
+		<ToolbarItem  Text="Информация о заказе" Order="Primary" Priority="1" />
+	</ContentPage.ToolbarItems>
+	
 	<ContentPage.Content>
 		<controls:StateContainer State="{Binding State}">
 
@@ -19,18 +24,50 @@
 				<AbsoluteLayout>
 					<ScrollView AbsoluteLayout.LayoutBounds="0,0,1,0.875" AbsoluteLayout.LayoutFlags="SizeProportional">
 						<StackLayout Margin="10" Spacing="10">
-						<AbsoluteLayout >
-							<Image AbsoluteLayout.LayoutBounds="1,1,1,1"
-								   AbsoluteLayout.LayoutFlags="All"
-								   Source="https://s00.yaplakal.com/pics/pics_original/0/3/8/537830.jpg"/>
-						</AbsoluteLayout>
-						<Label Margin="0,0,20,0" HorizontalOptions="Center" FontSize="24" Text="БЦ Московский г. Воронеж, Московский пр-кт,д. 4"/>
+						<AbsoluteLayout>
+								<RelativeLayout AbsoluteLayout.LayoutBounds="0,0,1,0.42" AbsoluteLayout.LayoutFlags="SizeProportional">
+									<ListView
+			ItemsSource="{Binding OrderObject.AllImageUrl}"
+			SeparatorVisibility="None"
+			AnchorX="0"
+			AnchorY="0"
+			RowHeight="350"
+			RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=0}"
+			RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=1}"
+			RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,Factor=1}"
+			RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
+			Rotation="270"
+			HorizontalOptions="Center"
+			VerticalOptions="StartAndExpand">
+										<ListView.ItemTemplate>
+											<DataTemplate>
+												<ViewCell IsEnabled="False">
+													<ContentView
+													Padding="5,15,5,5"
+													Rotation="90"
+													HorizontalOptions="CenterAndExpand"
+													VerticalOptions="CenterAndExpand">
+
+														<Image
+														HorizontalOptions="CenterAndExpand"
+														VerticalOptions="CenterAndExpand"
+														Aspect="AspectFill" 
+													   Source="{Binding Url}"/>
+													</ContentView>
+												</ViewCell>
+											</DataTemplate>
+										</ListView.ItemTemplate>
+									</ListView>
+								</RelativeLayout>
+							</AbsoluteLayout>
+							<Label FontSize="28" Text="{Binding toolOrganization}"/>
+							<Label Margin="0,0,20,0" HorizontalOptions="Center" FontSize="24" Text="{Binding addres}"/>
 						<StackLayout Spacing="10" Orientation="Horizontal">
 							<Image Source="check.png"/>
 							<Label VerticalOptions="Center" Text="Ожидает выполения " FontSize="22"></Label>
 						</StackLayout>
 						<AbsoluteLayout Margin="0,0,20,0">
-							<Button CornerRadius="8"
+								<Button CornerRadius="8"
 									Text="Завершить заказ"
 									FontSize="18"
 									TextColor="White"
@@ -38,38 +75,11 @@
 									AbsoluteLayout.LayoutBounds="0.5,0,0.8,AutoSize"
 									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
 									Command="{Binding CompleteOrderCommand}"/>
-						</AbsoluteLayout>
-						<ListView ItemsSource="{Binding OrderObject}">
-							<ListView.Header>
-								<ContentView>
-									<Label FontSize="17" FontAttributes="Bold" Text="Рекомендуемый режим посещения " />
-								</ContentView>
-							</ListView.Header>
-							<ListView.ItemTemplate>
-								<DataTemplate>
-									<ViewCell>
-										<StackLayout>
-											<Label Margin="0,0,30,0" FontSize="17" Text="{Binding OrderObject.VisitingMode}" />
-										</StackLayout>
-									</ViewCell>
-								</DataTemplate>
-							</ListView.ItemTemplate>
-						</ListView>
-
-						<ListView ItemsSource="{Binding OrderObject.AllOrders}">
-							<ListView.Header>
-								<ContentView BackgroundColor="White">
-									<Label FontSize="17" FontAttributes="Bold" Text="Инструкция по проезду" />
-								</ContentView>
-							</ListView.Header>
-							<ListView.ItemTemplate>
-								<DataTemplate>
-									<StackLayout>
-										<Label Margin="0,0,30,0" FontSize="17" Text="{Binding TravelIntructions}" />
-									</StackLayout>
-								</DataTemplate>
-							</ListView.ItemTemplate>
-						</ListView>
+							</AbsoluteLayout>
+							<Label FontAttributes="Bold" FontSize="17" Text="Рекомендуемый режим посещения " Margin="0,50,0,0"/>
+							<Label FontSize="17" Text="{Binding timerecom}"/>
+							<Label FontAttributes="Bold" FontSize="17" Text="Инструкция по проезду" Margin="0,50,0,0"/>
+							<Label  Text="{Binding  tutorial}"/>
 
 
 						</StackLayout>

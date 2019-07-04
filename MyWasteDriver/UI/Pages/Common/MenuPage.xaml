@@ -8,8 +8,9 @@
              x:Class="MyWasteDriver.UI.Pages.Common.MenuPage"
              Title="Binwell University">
 	<ContentPage.Content>
-		<AbsoluteLayout Margin="10" >
-			<StackLayout Spacing="20"  AbsoluteLayout.LayoutBounds="0,0,1,AutoSize" AbsoluteLayout.LayoutFlags="WidthProportional" Orientation="Horizontal">
+		<AbsoluteLayout BackgroundColor="AntiqueWhite" Margin="10" AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
+			<StackLayout>
+				<StackLayout Spacing="20"  Orientation="Horizontal">
 				<Image Source="account.png"/>
 				<StackLayout>
 					<Label 
@@ -21,25 +22,30 @@
 					</StackLayout>
 				</StackLayout>
 
-			<StackLayout Spacing="20"   AbsoluteLayout.LayoutBounds="0,0.12,1,AutoSize"  AbsoluteLayout.LayoutFlags="YProportional,WidthProportional" Orientation="Horizontal">
+			<StackLayout Spacing="20" Orientation="Horizontal">
 				<Image Source="truck.png"/>
 				<Label
 					FontSize="17"
 					Text="ГАЗ-3302, А777АА 36 RUS ">
 				</Label>
 			</StackLayout>
-			<StackLayout Spacing="20"  AbsoluteLayout.LayoutBounds="0,0.2,1,AutoSize" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional" Orientation="Horizontal">
+			<StackLayout Spacing="20"  Orientation="Horizontal">
 				<Image Source="home.png"/>
 				<StackLayout Orientation="Vertical">
-					<Label FontSize="17" Text="ООО Грузоперевозки,г. Воронеж, ул. Димитрова, д. 107, оф. 41, +7 (473) 234-89-09 "/>
-				</StackLayout>
+						<AbsoluteLayout>
+							<Label AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize" FontSize="17" Text="ООО Грузоперевозки,г. Воронеж, ул. Димитрова, д. 107, оф. 41, +7 (473) 234-89-09 "/>
+						</AbsoluteLayout>
+					</StackLayout>
 			</StackLayout>
-			
-			<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.3,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"/>
-
-			<Button TextColor="White"
+					
+						<AbsoluteLayout>
+							<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="WidthProportional"/>
+							</AbsoluteLayout>
+						</StackLayout>
+							
+							<Button TextColor="White"
 					CornerRadius="8"
-					AbsoluteLayout.LayoutBounds="0.5,.4,0.6,0.085"
+					AbsoluteLayout.LayoutBounds="0.5,.5,0.6,0.085"
 					AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional"
 					BackgroundColor="#1b9af7"
 					FontSize="18"

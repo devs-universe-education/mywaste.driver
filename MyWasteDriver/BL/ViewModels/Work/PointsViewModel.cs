@@ -41,7 +41,7 @@ namespace MyWasteDriver.BL.ViewModels.Work
 
 		private Uri _navigatorUri;
 
-		private void GoToPointInfo()
+		public void GoToPointInfo()
 		{
 			var _dataToLoad = new AllOrders();
 			foreach (var t in PointsObject.Orders)

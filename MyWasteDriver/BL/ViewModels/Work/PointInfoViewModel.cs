@@ -65,9 +65,17 @@ namespace MyWasteDriver.BL.ViewModels.Work
 		}
 
 		private Uri _navigatorUri;
-
+		public string toolOrganization => _toolOrganization;
+		string _toolOrganization;
+		public string tutorial => _tutorial;
+		string _tutorial;
+		public string timerecom => _timerecom;
+		string _timerecom;
+		public string addres => _addres;
+		string _addres;
+		
 		private AllOrders OrderObject { get; set; }
-
+		
 
 		public override async Task OnPageAppearing()
 		{
@@ -81,7 +89,10 @@ namespace MyWasteDriver.BL.ViewModels.Work
 				                                          + "&lon_to=" +
 				                                          OrderObject.Coordinates.Longitude.ToString(CultureInfo.GetCultureInfo("en-US")));
 
-
+			_toolOrganization =  OrderObject.OrganizationName ;
+			_tutorial = OrderObject.TravelIntructions;
+			_timerecom = OrderObject.VisitingMode;
+			_addres = OrderObject.OrderAdress;
 			State = PageState.Normal;
 		}
 	}
