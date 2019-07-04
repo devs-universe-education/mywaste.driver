@@ -45,11 +45,11 @@
 									/>
 						</AbsoluteLayout>
 						<Image Source="photo.png" Margin="10,5,10,10"/>
-						<Label TextColor="Black" FontSize="17" Text="Комментарий"/>
+						<Label Margin="10,5,10,10" TextColor="Black" FontSize="17" Text="Комментарий"/>
 
-						<Editor HeightRequest="200"></Editor>
+						<Editor Margin="10,5,10,0" HeightRequest="100"></Editor>
 
-						<AbsoluteLayout Margin="10,10,10,0">
+						<AbsoluteLayout Margin="10,10,10,10">
 							<Button CornerRadius="8"
 									Text="Отправить"
 									FontSize="18"
