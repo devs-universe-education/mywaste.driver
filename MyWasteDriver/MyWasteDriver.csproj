@@ -66,4 +66,28 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="UI\Pages\Common\LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="UI\Pages\Common\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="UI\Pages\Common\MenuPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="UI\Pages\Complain\ReportComplainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="UI\Pages\Complain\SelectComplainTypePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="UI\Pages\Work\PointInfoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="UI\Pages\Work\PointsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
 </Project>
