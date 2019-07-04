@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls;assembly=MyWasteDriver"
              xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages;assembly=MyWasteDriver"
-			xmlns:customMap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
+			 xmlns:customMap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
              mc:Ignorable="d"
              x:Class="MyWasteDriver.UI.Pages.Complain.SelectComplainTypePage">
 

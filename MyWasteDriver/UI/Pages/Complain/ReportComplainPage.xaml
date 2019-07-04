@@ -5,8 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages;assembly=MyWasteDriver"
              xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls;assembly=MyWasteDriver"
+			 xmlns:customMap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
              mc:Ignorable="d"
              x:Class="MyWasteDriver.UI.Pages.Complain.ReportComplainPage">
+
+	<ContentPage.ToolbarItems>
+
+		<ToolbarItem Text="Сообщить о проблеме/нарушении" Order="Primary" Priority="0"/>
+
+	</ContentPage.ToolbarItems>
 	<ContentPage.Content>
 		<controls:StateContainer State="{Binding State}">
 
@@ -16,10 +23,45 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Normal">
-				<StackLayout>
-					<Label Text="ReportComplainPage"/>
-					
-				</StackLayout>
+				<ScrollView>
+					<StackLayout>
+					<AbsoluteLayout>
+						<customMap:TKCustomMap AbsoluteLayout.LayoutBounds="0,0,AutoSize,200"
+											MapType="Street"
+											IsShowingUser="True"/>
+					</AbsoluteLayout>
+					<Label Margin="10,5,10,10" TextColor="Black" FontSize="24" Text="БЦ Московский г. Воронеж, Московский пр-кт,д. 4"/>
+					<StackLayout Margin="10,0,10,0" Orientation="Horizontal">
+						<Image Source="replay.png" WidthRequest="100"></Image>
+						<Label FontAttributes="Bold" TextColor="Black" FontSize="30" Text="Нет вторсырья"/>
+					</StackLayout>
+					<AbsoluteLayout Margin="10,10,10,0">
+						<Button CornerRadius="8"
+									Text="Добавить фотографию"
+									FontSize="18"
+									TextColor="White"
+									BackgroundColor="#1b9af7"
+									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
+									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+									/>
+					</AbsoluteLayout>
+					<Image Source="photo.png" Margin="10,5,10,10"/>
+					<Label TextColor="Black" FontSize="17" Text="Комментарий"/>
+						
+							<Editor HeightRequest="200"></Editor>
+						
+						<AbsoluteLayout Margin="10,10,10,0">
+							<Button CornerRadius="8"
+									Text="Отправить"
+									FontSize="18"
+									TextColor="White"
+									BackgroundColor="#1b9af7"
+									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
+									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+									/>
+						</AbsoluteLayout>
+					</StackLayout>
+				</ScrollView>
 			</controls:StateCondition>
 
 			<controls:StateCondition State="NoData">
