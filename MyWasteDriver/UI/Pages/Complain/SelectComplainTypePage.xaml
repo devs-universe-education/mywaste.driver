@@ -6,7 +6,13 @@
              xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls;assembly=MyWasteDriver"
              xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages;assembly=MyWasteDriver"
              mc:Ignorable="d"
+			xmlns:customMap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
              x:Class="MyWasteDriver.UI.Pages.Complain.SelectComplainTypePage">
+	<ContentPage.ToolbarItems>
+
+		<ToolbarItem Text="Сообщить о проблеме/нарушении" Order="Primary" Priority="0"/>
+
+	</ContentPage.ToolbarItems>
 	<ContentPage.Content>
 		<controls:StateContainer State="{Binding State}">
 
@@ -16,10 +22,79 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Normal">
-				<StackLayout>
-					<Label Text="SelectComplainTypePage"/>
-					<Button Text="GoToReportComplainPage" Command="{Binding GoToReportComplainCommand}"/>
+				<AbsoluteLayout Margin="20,0,20,0">
+					<StackLayout>
+						<AbsoluteLayout>
+					<customMap:TKCustomMap AbsoluteLayout.LayoutBounds="0,0,AutoSize,200"
+											MapType="Street"
+											IsShowingUser="True"
+
+											/>
+				</AbsoluteLayout>
+				<Label  TextColor="Black" FontSize="24" Text="БЦ Московский г. Воронеж, Московский пр-кт,д. 4"/>
+
+				<AbsoluteLayout>
+					<Button CornerRadius="8"
+									Text="Не могу проехать на территорию"
+									FontSize="18"
+									TextColor="White"
+									BackgroundColor="#1b9af7"
+									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
+									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+									Command="{Binding GoToReportComplainCommand}"/>
+				</AbsoluteLayout>
+				<AbsoluteLayout >
+					<Button CornerRadius="8"
+									Text="Нет доступа к вторсырью"
+									FontSize="18"
+									TextColor="White"
+									BackgroundColor="#1b9af7"
+									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
+									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+									Command="{Binding GoToReportComplainCommand}"/>
+				</AbsoluteLayout>
+				<AbsoluteLayout >
+					<Button CornerRadius="8"
+									Text="Нет вторсырья"
+									FontSize="18"
+									TextColor="White"
+									BackgroundColor="#1b9af7"
+									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
+									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+									Command="{Binding GoToReportComplainCommand}"/>
+				</AbsoluteLayout>
+				<AbsoluteLayout>
+					<Button CornerRadius="8"
+									Text="Ошибка в информации об объекте"
+									FontSize="18"
+									TextColor="White"
+									BackgroundColor="#1b9af7"
+									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
+									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+									Command="{Binding GoToReportComplainCommand}"/>
+				</AbsoluteLayout>
+				<AbsoluteLayout >
+					<Button CornerRadius="8"
+									Text="Другое"
+									FontSize="18"
+									TextColor="White"
+									BackgroundColor="#1b9af7"
+									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
+									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+									Command="{Binding GoToReportComplainCommand}"/>
+				</AbsoluteLayout>
 				</StackLayout>
+
+				<Label Text="В случае форсмажора &#10;	позвоните на &#10;8(800)012-22-33"
+						   HorizontalOptions="Center"
+							FontSize="14"
+							FontFamily="Arial"
+							StyleClass="Link"
+							AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
+							TextColor="#999999"/>
+
+
+				</AbsoluteLayout>
 			</controls:StateCondition>
 
 			<controls:StateCondition State="NoData">
