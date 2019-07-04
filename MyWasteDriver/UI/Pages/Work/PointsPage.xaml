@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
+
+<pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -11,24 +12,21 @@
 				>
 
 
+	<ContentPage.ToolbarItems>
 
-
-	<ContentPage.ToolbarItems >
-
-		<ToolbarItem Text="Заказы на " Order="Primary" Priority="0"/>
-		<ToolbarItem Text="{Binding CurrentDate}" Order="Primary" Priority="1"/>
-		<ToolbarItem Order="Primary" Priority="2" IconImageSource="replay.png"/>
+		<ToolbarItem Text="Заказы на " Order="Primary" Priority="0" />
+		<ToolbarItem Text="{Binding CurrentDate}" Order="Primary" Priority="1" />
+		<ToolbarItem Order="Primary" Priority="2" IconImageSource="replay.png" />
 	</ContentPage.ToolbarItems>
 
 	<ContentPage.Content>
 
 
-		
 		<controls:StateContainer State="{Binding State}">
 
 			<controls:StateCondition State="Loading">
 				<ActivityIndicator IsRunning="True" WidthRequest="40"
-				                   HorizontalOptions="Center" VerticalOptions="Center"/>
+				                   HorizontalOptions="Center" VerticalOptions="Center" />
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Normal">
@@ -52,7 +50,7 @@
 
 			<controls:StateCondition State="NoData">
 				<StackLayout>
-					<Label Text="LoginPage"/>
+					<Label Text="LoginPage" />
 				</StackLayout>
 			</controls:StateCondition>
 
