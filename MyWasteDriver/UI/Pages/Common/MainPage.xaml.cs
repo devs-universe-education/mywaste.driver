@@ -12,6 +12,8 @@ namespace MyWasteDriver.UI.Pages.Common {
 	public partial class MainPage : BasePage {
 		public MainPage() {
 			InitializeComponent();
+			
+
 		}
 	}
 }

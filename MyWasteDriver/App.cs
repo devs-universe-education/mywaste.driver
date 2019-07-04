@@ -17,7 +17,7 @@ namespace MyWasteDriver
 
 		protected override void OnStart ()
 		{
-			//NavigationService.Instance.SetMainPage(AppPages.Login);
+			//NavigationService.Instance.SetMainPage(AppPages.Menu);
 			NavigationService.Instance.SetMainMasterDetailPage(AppPages.Menu, AppPages.Points);
 		}
 	}

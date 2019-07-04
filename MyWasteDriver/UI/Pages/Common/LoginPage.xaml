@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
+
+<pages:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages;assembly=MyWasteDriver"
                 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-                xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls" 
+                xmlns:controls="clr-namespace:MyWasteDriver.UI.Controls"
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-				xmlns:behavior="clr-namespace:MyWasteDriver.BL.ViewModels.Common"
+                xmlns:behavior="clr-namespace:MyWasteDriver.BL.ViewModels.Common"
                 mc:Ignorable="d"
                 x:Class="MyWasteDriver.UI.Pages.Common.LoginPage">
 	<ContentPage.Content>
@@ -13,98 +14,97 @@
 
 			<controls:StateCondition State="Loading">
 				<ActivityIndicator IsRunning="True" WidthRequest="40"
-				                   HorizontalOptions="Center" VerticalOptions="Center"/>
+				                   HorizontalOptions="Center" VerticalOptions="Center" />
 			</controls:StateCondition>
 
 			<controls:StateCondition State="EnterPhone">
-				<AbsoluteLayout  Padding="50,10,50,10">
+				<AbsoluteLayout Padding="50,10,50,10">
 					<StackLayout Spacing="0" AbsoluteLayout.LayoutBounds="0.5,0,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional">
-						<Image HorizontalOptions="Center" Source="wasterecycling.png"/>
+						<Image HorizontalOptions="Center" Source="wasterecycling.png" />
 						<Label HorizontalOptions="Center" Text="Я разделяю.&#10; Таксометр"
-						   FontSize="24"/>
+						       FontSize="24" />
 					</StackLayout>
 					<Entry Keyboard="Numeric" AbsoluteLayout.LayoutBounds="0,0.55,1,AutoSize"
-							Text="{Binding UserLogin}"
-							AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
-							PlaceholderColor="#a6a6a6"
-							Placeholder="Телефон"
-							FontSize="18"
-				  AutomationId="EntryLog">
+					       Text="{Binding UserLogin}"
+					       AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
+					       PlaceholderColor="#a6a6a6"
+					       Placeholder="Телефон"
+					       FontSize="18"
+					       AutomationId="EntryLog">
 						<Entry.Behaviors>
-							<behavior:MaskedBehavior Mask="+7 (XXX) XXX-XX-XX"/>
+							<behavior:MaskedBehavior Mask="+7 (XXX) XXX-XX-XX" />
 						</Entry.Behaviors>
 
 					</Entry>
 
 
 					<Button Text="Получить пароль по SMS"
-							BackgroundColor="#707070"
-							TextColor="White"
-							FontSize="17"
-							AbsoluteLayout.LayoutBounds="0.5,0.75,0.85,0.085"
-							AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional" 
-							Command="{Binding GoToPageStateLogin}"
-							CornerRadius="8"
-				  AutomationId="ButtonVhod"/>
+					        BackgroundColor="#707070"
+					        TextColor="White"
+					        FontSize="17"
+					        AbsoluteLayout.LayoutBounds="0.5,0.75,0.85,0.085"
+					        AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional"
+					        Command="{Binding GoToPageStateLogin}"
+					        CornerRadius="8"
+					        AutomationId="ButtonVhod" />
 
 					<Label Text="			Возникли &#10;		проблемы ? &#10;	Позвоните на &#10;8(800)012-22-33"
-							FontSize="14"
-							FontFamily="Arial"
-							StyleClass="Link"
-							AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
-							TextColor="#999999">
+					       FontSize="14"
+					       FontFamily="Arial"
+					       StyleClass="Link"
+					       AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+					       TextColor="#999999">
 						<Label.GestureRecognizers>
-							<TapGestureRecognizer Command="{Binding PageCall}"/>
+							<TapGestureRecognizer Command="{Binding PageCall}" />
 						</Label.GestureRecognizers>
 					</Label>
 				</AbsoluteLayout>
 			</controls:StateCondition>
 
 			<controls:StateCondition State="EnterPassword">
-				<AbsoluteLayout  Padding="50,10,50,10">
+				<AbsoluteLayout Padding="50,10,50,10">
 					<StackLayout Spacing="0" AbsoluteLayout.LayoutBounds="0.5,0,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional">
-						<Image HorizontalOptions="Center" Source="wasterecycling.png"/>
+						<Image HorizontalOptions="Center" Source="wasterecycling.png" />
 						<Label HorizontalOptions="Center" Text="Я разделяю.&#10; Таксометр"
-						   FontSize="24"/>
+						       FontSize="24" />
 					</StackLayout>
 					<Entry Keyboard="Numeric" AbsoluteLayout.LayoutBounds="0,0.55,1,AutoSize"
-							Text="{Binding UserLogin}"
-							AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
-							PlaceholderColor="#a6a6a6"
-							Placeholder="Телефон"
-							FontSize="18"
-				  AutomationId="EntryLog">
+					       Text="{Binding UserLogin}"
+					       AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
+					       PlaceholderColor="#a6a6a6"
+					       Placeholder="Телефон"
+					       FontSize="18"
+					       AutomationId="EntryLog">
 						<Entry.Behaviors>
-							<behavior:MaskedBehavior Mask="+7 (XXX) XXX-XX-XX"/>
+							<behavior:MaskedBehavior Mask="+7 (XXX) XXX-XX-XX" />
 						</Entry.Behaviors>
 					</Entry>
 					<Entry IsPassword="True"
-						   Text="{Binding UserPassword}"
-						   AbsoluteLayout.LayoutBounds="0,0.65,1,AutoSize"
-						   AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
-						   	PlaceholderColor="#a6a6a6"
-						   Placeholder="Пароль"
-						   FontSize="18"
-				 AutomationId="EntryPassword"/>
+					       Text="{Binding UserPassword}"
+					       AbsoluteLayout.LayoutBounds="0,0.65,1,AutoSize"
+					       AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
+					       PlaceholderColor="#a6a6a6"
+					       Placeholder="Пароль"
+					       FontSize="18"
+					       AutomationId="EntryPassword" />
 
 
 					<Button Text="Вход"
-							BackgroundColor="#707070"
-							TextColor="White"
-							FontSize="17"
-							AbsoluteLayout.LayoutBounds="0.5,0.75,0.85,0.085"
-							AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional" 
-							Command="{Binding GoToOrdersCommand}"
-							CornerRadius="8"
-				  AutomationId="ButtonVhod"/>
+					        BackgroundColor="#707070"
+					        TextColor="White"
+					        FontSize="17"
+					        AbsoluteLayout.LayoutBounds="0.5,0.75,0.85,0.085"
+					        AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional"
+					        Command="{Binding GoToOrdersCommand}"
+					        CornerRadius="8"
+					        AutomationId="ButtonVhod" />
 
 					<Label Text="			Возникли &#10;		проблемы ? &#10;	Позвоните на &#10;8(800)012-22-33"
-							FontSize="14"
-							FontFamily="Arial"
-							StyleClass="Link"
-							AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
-							TextColor="#999999"
-							 />
+					       FontSize="14"
+					       FontFamily="Arial"
+					       StyleClass="Link"
+					       AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+					       TextColor="#999999" />
 				</AbsoluteLayout>
 			</controls:StateCondition>
 
