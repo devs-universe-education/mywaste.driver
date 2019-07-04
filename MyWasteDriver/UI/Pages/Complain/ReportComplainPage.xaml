@@ -31,19 +31,21 @@
 						</AbsoluteLayout>
 						<Label Margin="10,5,10,10" TextColor="Black" FontSize="24" Text="БЦ Московский г. Воронеж, Московский пр-кт,д. 4"/>
 						<StackLayout Margin="10,0,10,0" Orientation="Horizontal">
-							<Image Source="replay.png" WidthRequest="100"></Image>
+							<Image Source="error.png" WidthRequest="100"></Image>
 							<Label FontAttributes="Bold" TextColor="Black" FontSize="30" Text="Нет вторсырья"/>
 						</StackLayout>
 						<AbsoluteLayout Margin="10,10,10,0">
+							
 							<Button CornerRadius="8"
 									Text="Добавить фотографию"
 									FontSize="18"
 									TextColor="White"
 									BackgroundColor="#1b9af7"
 									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
-									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
-									/>
+									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"/>
+							
 						</AbsoluteLayout>
+						
 						<Image Source="photo.png" Margin="10,5,10,10"/>
 						<Label Margin="10,5,10,10" TextColor="Black" FontSize="17" Text="Комментарий"/>
 
