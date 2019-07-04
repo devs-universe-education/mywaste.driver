@@ -32,7 +32,6 @@
 				<Image Source="home.png"/>
 				<StackLayout Orientation="Vertical">
 					<Label FontSize="17" Text="ООО Грузоперевозки,г. Воронеж, ул. Димитрова, д. 107, оф. 41, +7 (473) 234-89-09 "/>
-
 				</StackLayout>
 			</StackLayout>
 			

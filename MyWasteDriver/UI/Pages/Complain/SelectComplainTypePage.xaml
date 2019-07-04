@@ -22,15 +22,15 @@
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Normal">
-				<AbsoluteLayout Margin="20,0,20,0">
-					<StackLayout>
+				<ScrollView>
+						<StackLayout Spacing="10" Margin="10" AbsoluteLayout.LayoutBounds="0,0,1,0" AbsoluteLayout.LayoutFlags="WidthProportional">
 						<AbsoluteLayout>
 					<customMap:TKCustomMap AbsoluteLayout.LayoutBounds="0,0,AutoSize,200"
 											MapType="Street"
 											IsShowingUser="True"
 
 											/>
-				</AbsoluteLayout>
+							</AbsoluteLayout>
 				<Label  TextColor="Black" FontSize="24" Text="БЦ Московский г. Воронеж, Московский пр-кт,д. 4"/>
 
 				<AbsoluteLayout>
@@ -39,7 +39,7 @@
 									FontSize="18"
 									TextColor="White"
 									BackgroundColor="#1b9af7"
-									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
+									AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
 									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
 									Command="{Binding GoToReportComplainCommand}"/>
 				</AbsoluteLayout>
@@ -49,7 +49,7 @@
 									FontSize="18"
 									TextColor="White"
 									BackgroundColor="#1b9af7"
-									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
+									AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
 									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
 									Command="{Binding GoToReportComplainCommand}"/>
 				</AbsoluteLayout>
@@ -59,7 +59,7 @@
 									FontSize="18"
 									TextColor="White"
 									BackgroundColor="#1b9af7"
-									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
+									AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
 									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
 									Command="{Binding GoToReportComplainCommand}"/>
 				</AbsoluteLayout>
@@ -69,32 +69,35 @@
 									FontSize="18"
 									TextColor="White"
 									BackgroundColor="#1b9af7"
-									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
+									AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
 									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
 									Command="{Binding GoToReportComplainCommand}"/>
 				</AbsoluteLayout>
-				<AbsoluteLayout >
-					<Button CornerRadius="8"
+							<AbsoluteLayout >
+								<Button CornerRadius="8"
 									Text="Другое"
 									FontSize="18"
 									TextColor="White"
 									BackgroundColor="#1b9af7"
-									AbsoluteLayout.LayoutBounds="0.5,0,1,AutoSize"
+									AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
 									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
 									Command="{Binding GoToReportComplainCommand}"/>
-				</AbsoluteLayout>
-				</StackLayout>
-
-				<Label Text="В случае форсмажора &#10;	позвоните на &#10;8(800)012-22-33"
-						   HorizontalOptions="Center"
-							FontSize="14"
-							FontFamily="Arial"
-							StyleClass="Link"
-							AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
-							TextColor="#999999"/>
-
-
-				</AbsoluteLayout>
+							</AbsoluteLayout>
+						<AbsoluteLayout Margin="0,40,0,0" AbsoluteLayout.LayoutBounds="0,0.5,AutoSize,AutoSize">
+							<Label  Text="			Возникли &#10;		проблемы ? &#10;	Позвоните на &#10;8(800)012-22-33"
+					       FontSize="14"
+					       FontFamily="Arial"
+					       StyleClass="Link"
+					       AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+					       TextColor="#999999">
+								<Label.GestureRecognizers>
+									<TapGestureRecognizer Command="{Binding PageCall}" />
+								</Label.GestureRecognizers>
+							</Label>
+						</AbsoluteLayout>
+					</StackLayout>
+					</ScrollView>
+					
 			</controls:StateCondition>
 
 			<controls:StateCondition State="NoData">
