@@ -28,6 +28,7 @@
 					<customMap:TKCustomMap AbsoluteLayout.LayoutBounds="0,0,AutoSize,200"
 											MapType="Street"
 											IsShowingUser="True"
+										    MapRegion="{Binding Position}"
 
 											/>
 							</AbsoluteLayout>

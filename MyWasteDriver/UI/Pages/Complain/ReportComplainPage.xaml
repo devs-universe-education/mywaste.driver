@@ -27,7 +27,8 @@
 						<AbsoluteLayout>
 							<customMap:TKCustomMap AbsoluteLayout.LayoutBounds="0,0,AutoSize,200"
 											MapType="Street"
-											IsShowingUser="True"/>
+											IsShowingUser="True"
+											MapRegion="{Binding Position}"/>
 						</AbsoluteLayout>
 						<Label Margin="10,5,10,10" TextColor="Black" FontSize="24" Text="БЦ Московский г. Воронеж, Московский пр-кт,д. 4"/>
 						<StackLayout Margin="10,0,10,0" Orientation="Horizontal">
