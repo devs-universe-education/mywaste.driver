@@ -92,6 +92,9 @@ namespace MyWasteDriver.BL.ViewModels.Work
 			_toolOrganization =  OrderObject.OrganizationName ;
 			_tutorial = OrderObject.TravelIntructions;
 			//_timerecom = OrderObject.VisitingMode;
+			foreach (var texttimerec in OrderObject.VisitingMode) {
+				_timerecom += texttimerec+"\n";
+			}
 			_addres = OrderObject.OrderAdress;
 			State = PageState.Normal;
 		}

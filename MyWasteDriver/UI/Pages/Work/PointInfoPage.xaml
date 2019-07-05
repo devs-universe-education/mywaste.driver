@@ -24,8 +24,13 @@
 				<AbsoluteLayout>
 					<ScrollView AbsoluteLayout.LayoutBounds="0,0,1,0.875" AbsoluteLayout.LayoutFlags="SizeProportional">
 						<StackLayout Margin="10" Spacing="10">
-							<Image Source="http://dv-gazeta.info/wp-content/uploads/2018/05/konreyner-Kiev.jpg"/>
-							<AbsoluteLayout>
+							<ScrollView MinimumHeightRequest="100" MinimumWidthRequest="100"  Orientation="Horizontal">
+								<StackLayout Orientation="Horizontal">
+									<Image Source="https://img1.liveinternet.ru/images/attach/c/3/76/475/76475733_2045074_DSC00007.JPG"/>
+									<Image Source="http://dv-gazeta.info/wp-content/uploads/2018/05/konreyner-Kiev.jpg"/>
+								</StackLayout>
+							</ScrollView>
+									<!--<AbsoluteLayout>
 								<RelativeLayout AbsoluteLayout.LayoutBounds="0,0,1,0.42" AbsoluteLayout.LayoutFlags="SizeProportional">
 									<ListView
 			ItemsSource="{Binding OrderObject}"
@@ -60,8 +65,8 @@
 										</ListView.ItemTemplate>
 									</ListView>
 								</RelativeLayout>
-							</AbsoluteLayout>
-							<Label FontSize="28" Text="{Binding toolOrganization}"/>
+							</AbsoluteLayout>-->
+							<Label HorizontalOptions="Center" FontSize="28" Text="{Binding toolOrganization}"/>
 							<Label Margin="0,0,20,0" HorizontalOptions="Center" FontSize="24" Text="{Binding addres}"/>
 						<StackLayout Spacing="10" Orientation="Horizontal">
 							<Image Source="check.png"/>
@@ -80,7 +85,7 @@
 							<Label FontAttributes="Bold" FontSize="17" Text="Рекомендуемый режим посещения " Margin="0,50,0,0"/>
 							<Label FontSize="17" Text="{Binding timerecom}"/>
 							<Label FontAttributes="Bold" FontSize="17" Text="Инструкция по проезду" Margin="0,50,0,0"/>
-							<Label  Text="{Binding  tutorial}"/>
+							<Label FontSize="17"  Text="{Binding  tutorial}"/>
 
 
 						</StackLayout>
