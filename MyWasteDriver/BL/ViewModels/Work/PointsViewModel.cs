@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Akavache;
 using MyWasteDriver.DAL.DataObjects;
 using MyWasteDriver.DAL.DataServices;
 using Plugin.Permissions;
@@ -21,11 +23,31 @@ namespace MyWasteDriver.BL.ViewModels.Work
 			set => Set(value);
 		}
 
-		public string TexToTitle => _texToTitle;
-		private string _texToTitle;
+		public string TexToTitle { get; private set; }
+
 		public ICommand CalloutClickedCommand => MakeCommand(GoToPointInfo);
 
 		public ICommand OpenNavigatorToUnloadingPlaceCommand => MakeCommand(OpenNavigatorToUnloadingPlace);
+
+		public ICommand UpdateDataCommand => MakeCommand(UpdateDataAsync);
+
+		private async void UpdateDataAsync()
+		{
+			//State = PageState.Loading;
+			var result = await DataServices.Work.GetPointsDataObject(CancellationToken);
+			if (result.IsValid)
+			{
+				CurrentDate = DateTime.Now;
+				PointsObject = result.Data;
+				await BlobCache.LocalMachine.InsertObject("orderObject", PointsObject.Orders);
+				SetPins();
+				State = PointsObject.Orders.Count == 0 ? PageState.Entry : PageState.Normal;
+			}
+			else
+			{
+				State = PageState.Error;
+			}
+		}
 
 		private void OpenNavigatorToUnloadingPlace()
 		{
@@ -41,7 +63,7 @@ namespace MyWasteDriver.BL.ViewModels.Work
 
 		private Uri _navigatorUri;
 
-		public void GoToPointInfo()
+		private void GoToPointInfo()
 		{
 			var _dataToLoad = new AllOrders();
 			foreach (var t in PointsObject.Orders)
@@ -54,7 +76,12 @@ namespace MyWasteDriver.BL.ViewModels.Work
 			NavigateTo(AppPages.PointInfo, navParams: Data);
 		}
 
-		public ObservableCollection<TKCustomMapPin> OrdersPins { get; set; }
+		public ObservableCollection<TKCustomMapPin> OrdersPins
+		{
+			get => Get<ObservableCollection<TKCustomMapPin>>();
+			set => Set(value);
+		}
+
 
 		public TKCustomMapPin SelectedPin
 		{
@@ -63,64 +90,88 @@ namespace MyWasteDriver.BL.ViewModels.Work
 
 		private TKCustomMapPin _selectedPin;
 
-		public string UnloadingAddress { get; set; }
+		public MapSpan OrderPosition { get; private set; } //
 
-		public string CompanyName { get; set; }
-
-
-		public MapSpan OrderPosition { get; private set; }
-
-		public DateTime CurrentDate => DateTime.Now; // исправить
+		public DateTime CurrentDate
+		{
+			get => Get(DateTime.Now);
+			set => Set(value);
+		}
 
 
 		public override async Task OnPageAppearing()
 		{
-			State = PageState.Loading;
+			//State = PageState.Loading;
 			await CheckPermissionsAsync();
+
 			var result = await DataServices.Work.GetPointsDataObject(CancellationToken);
 
 			if (result.IsValid)
 			{
 				PointsObject = result.Data;
-				OrdersPins = new ObservableCollection<TKCustomMapPin>();
+				SetPins();
+				await BlobCache.LocalMachine.InsertObject("orderObject", PointsObject.Orders);
 
-				foreach (var t in PointsObject.Orders)
+				if (PointsObject.Orders.Count == 0)
 				{
-					var o = new TKCustomMapPin
-					{
-						Position = new Position(t.Coordinates.Latitude, t.Coordinates.Longitude),
-						Title = t.OrganizationName,
-						ShowCallout = true,
-						Subtitle = t.OrderAdress,
-						IsCalloutClickable = true,
-						ID = t.OrderId
-					};
-					o.DefaultPinColor = t.CompletedOrNot ? Color.Green : Color.SlateGray;
-					OrdersPins.Add(o);
+					State = PageState.Entry;
+					return;
 				}
-
-				var unlPlaceObj = new TKCustomMapPin
-				{
-					Position = new Position(PointsObject.UnloadingPlace.Coordinates.Latitude,
-						PointsObject.UnloadingPlace.Coordinates.Longitude),
-					Title = PointsObject.UnloadingPlace.CompanyName,
-					ShowCallout = true,
-					Subtitle = PointsObject.UnloadingPlace.UnloadingAddress,
-					DefaultPinColor = Color.Red
-				};
-				OrdersPins.Add(unlPlaceObj);
-
-				_navigatorUri = new Uri(
-					"yandexnavi://build_route_on_map?lat_to=" + PointsObject.UnloadingPlace.Coordinates.Latitude.ToString(
-						                                          CultureInfo.GetCultureInfo("en-US"))
-					                                          + "&lon_to=" +
-					                                          PointsObject.UnloadingPlace.Coordinates.Longitude.ToString(
-						                                          CultureInfo.GetCultureInfo("en-US")));
-
-				OrderPosition = new MapSpan(new Position(51.712468, 39.181733), 1, 1); // исправит
-				_texToTitle = "Место выгрузки: " + PointsObject.UnloadingPlace.UnloadingAddress + ", " + PointsObject.UnloadingPlace.CompanyName;
-				State = PageState.Normal;
 			}
+			else
+			{
+				State = PageState.Error;
+				return;
+			}
+
+			CurrentDate = DateTime.Now;
+
+
+			_navigatorUri = new Uri(
+				"yandexnavi://build_route_on_map?lat_to=" + PointsObject.UnloadingPlace.Coordinates.Latitude.ToString(
+					                                          CultureInfo.GetCultureInfo("en-US"))
+				                                          + "&lon_to=" +
+				                                          PointsObject.UnloadingPlace.Coordinates.Longitude.ToString(
+					                                          CultureInfo.GetCultureInfo("en-US")));
+
+			OrderPosition = new MapSpan(new Position(51.712468, 39.181733), 1, 1); // исправит
+			TexToTitle = "Место выгрузки: " + PointsObject.UnloadingPlace.UnloadingAddress + ", " +
+			             PointsObject.UnloadingPlace.CompanyName;
+
+
+			State = PageState.Normal;
+		}
+
+
+		private void SetPins()
+		{
+			OrdersPins = new ObservableCollection<TKCustomMapPin>();
+
+			foreach (var t in PointsObject.Orders)
+			{
+				var o = new TKCustomMapPin
+				{
+					Position = new Position(t.Coordinates.Latitude, t.Coordinates.Longitude),
+					Title = t.OrganizationName,
+					ShowCallout = true,
+					Subtitle = t.OrderAdress,
+					IsCalloutClickable = true,
+					ID = t.OrderId
+				};
+				o.DefaultPinColor = t.CompletedOrNot ? Color.Green : Color.SlateGray;
+				OrdersPins.Add(o);
+			}
+
+			var unlPlaceObj = new TKCustomMapPin
+			{
+				Position = new Position(PointsObject.UnloadingPlace.Coordinates.Latitude,
+					PointsObject.UnloadingPlace.Coordinates.Longitude),
+				Title = PointsObject.UnloadingPlace.CompanyName,
+				ShowCallout = true,
+				Subtitle = PointsObject.UnloadingPlace.UnloadingAddress,
+				DefaultPinColor = Color.Red
+			};
+			OrdersPins.Add(unlPlaceObj);
 		}
 
 		// Временный вариант

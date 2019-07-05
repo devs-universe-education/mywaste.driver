@@ -8,15 +8,14 @@
                 xmlns:pages="clr-namespace:MyWasteDriver.UI.Pages;assembly=MyWasteDriver"
                 xmlns:customMap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
                 mc:Ignorable="d"
-                x:Class="MyWasteDriver.UI.Pages.Work.PointsPage"
-				>
+                x:Class="MyWasteDriver.UI.Pages.Work.PointsPage">
 
 
 	<ContentPage.ToolbarItems>
 
 		<ToolbarItem Text="Заказы на " Order="Primary" Priority="0" />
 		<ToolbarItem Text="{Binding CurrentDate}" Order="Primary" Priority="1" />
-		<ToolbarItem Order="Primary" Priority="2" IconImageSource="replay.png" />
+		<ToolbarItem Order="Primary" Priority="2" IconImageSource="replay.png" Command="{Binding UpdateDataCommand}" />
 	</ContentPage.ToolbarItems>
 
 	<ContentPage.Content>
@@ -32,41 +31,44 @@
 			<controls:StateCondition State="Normal">
 				<AbsoluteLayout AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All">
 					<customMap:TKCustomMap
-							AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"
-											MapType="Street"
-											IsShowingUser="True" Pins="{Binding OrdersPins}"
-					                        CalloutClickedCommand ="{Binding CalloutClickedCommand}" SelectedPin="{Binding SelectedPin}"
-											MapRegion="{Binding OrderPosition}"/>
+						AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"
+						MapType="Street"
+						IsShowingUser="True" Pins="{Binding OrdersPins}"
+						CalloutClickedCommand="{Binding CalloutClickedCommand}" SelectedPin="{Binding SelectedPin}"
+						MapRegion="{Binding OrderPosition}" />
 
-					<StackLayout Spacing="10" Padding="10,0,10,0" BackgroundColor="White" AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Orientation="Horizontal">
-							<Image Source="flag.png"/>
-						<Label VerticalOptions="Center" Text="{Binding TexToTitle}"/>
-						<ImageButton BackgroundColor="White" Command="{Binding OpenNavigatorToUnloadingPlaceCommand}" HorizontalOptions="End" Source="chevron.png"/>
-						</StackLayout>
+					<StackLayout Spacing="10" Padding="10,0,10,0" BackgroundColor="White" AbsoluteLayout.LayoutBounds="0,0,1,0.1"
+					             AbsoluteLayout.LayoutFlags="WidthProportional,HeightProportional" Orientation="Horizontal">
+						<Image Source="flag.png" />
+						<Label VerticalOptions="Center" Text="{Binding TexToTitle}" />
+						<ImageButton BackgroundColor="White" Command="{Binding OpenNavigatorToUnloadingPlaceCommand}" HorizontalOptions="End"
+						             Source="chevron.png" />
+					</StackLayout>
 
-						
+
 				</AbsoluteLayout>
 			</controls:StateCondition>
 
 			<controls:StateCondition State="Entry">
 				<AbsoluteLayout>
 
-					<StackLayout Spacing="20" AbsoluteLayout.LayoutBounds="0.5,0.4,AutoSize,AutoSize"  AbsoluteLayout.LayoutFlags="YProportional,XProportional">
-						<Image  Source="sun.png"/>
+					<StackLayout Spacing="20" AbsoluteLayout.LayoutBounds="0.5,0.4,AutoSize,AutoSize"
+					             AbsoluteLayout.LayoutFlags="YProportional,XProportional">
+						<Image Source="sun.png" />
 
-						<Label  HorizontalOptions="Center"
-						    Text=" На сегодня заказов нет "
-							FontSize="17"
-							TextColor="Black"/>
+						<Label HorizontalOptions="Center"
+						       Text=" На сегодня заказов нет "
+						       FontSize="17"
+						       TextColor="Black" />
 
 					</StackLayout>
 
-					<Label  Text="			Возникли &#10;		проблемы ? &#10;	Позвоните на &#10;8(800)012-22-33"
-							FontSize="14"
-							FontFamily="Arial"
-							StyleClass="Link"
-							AbsoluteLayout.LayoutBounds="0.5,0.9,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
-							TextColor="#999999"/>
+					<Label Text="			Возникли &#10;		проблемы ? &#10;	Позвоните на &#10;8(800)012-22-33"
+					       FontSize="14"
+					       FontFamily="Arial"
+					       StyleClass="Link"
+					       AbsoluteLayout.LayoutBounds="0.5,0.9,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+					       TextColor="#999999" />
 
 				</AbsoluteLayout>
 
@@ -81,20 +83,21 @@
 			<controls:StateCondition State="Error">
 				<AbsoluteLayout>
 
-					<StackLayout Spacing="20" AbsoluteLayout.LayoutBounds="0.5,0.3,AutoSize,AutoSize"  AbsoluteLayout.LayoutFlags="YProportional,XProportional">
-						<Image  Source="error.png"/>
+					<StackLayout Spacing="20" AbsoluteLayout.LayoutBounds="0.5,0.3,AutoSize,AutoSize"
+					             AbsoluteLayout.LayoutFlags="YProportional,XProportional">
+						<Image Source="error.png" />
 
 						<Label
 							HorizontalTextAlignment="Center"
 							HorizontalOptions="Center"
-						    Text=" К сожалению, приложение не может получить список заказов. Проверьте наличие интернет-соединения и повторите попытку &#10; (код ошибки: 0001) "
+							Text=" К сожалению, приложение не может получить список заказов. Проверьте наличие интернет-соединения и повторите попытку &#10; (код ошибки: 0001) "
 							FontSize="17"
 							TextColor="Black"
-							AbsoluteLayout.LayoutBounds="0.5,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"/>
+							AbsoluteLayout.LayoutBounds="0.5,0.5,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" />
 
 						<Button
 							HorizontalOptions="Center"
-							BackgroundColor= "#1b9af7"
+							BackgroundColor="#1b9af7"
 							BorderRadius="8"
 							Text="Повторить"
 							TextColor="White"
@@ -102,21 +105,21 @@
 							StyleClass="Light"
 							FontSize="17"
 							AbsoluteLayout.LayoutBounds="0.5,0.7,0.85,0.085"
-							AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional"/>
+							AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional" />
 					</StackLayout>
 
 
-					<Label  Text="			Возникли &#10;		проблемы ? &#10;	Позвоните на &#10;8(800)012-22-33"
-							FontSize="14"
-							FontFamily="Arial"
-							StyleClass="Link"
-							AbsoluteLayout.LayoutBounds="0.5,0.9,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional" 
-							TextColor="#999999"/>
+					<Label Text="			Возникли &#10;		проблемы ? &#10;	Позвоните на &#10;8(800)012-22-33"
+					       FontSize="14"
+					       FontFamily="Arial"
+					       StyleClass="Link"
+					       AbsoluteLayout.LayoutBounds="0.5,0.9,AutoSize,AutoSize" AbsoluteLayout.LayoutFlags="XProportional,YProportional"
+					       TextColor="#999999" />
 
 				</AbsoluteLayout>
-				
+
 			</controls:StateCondition>
-			
+
 		</controls:StateContainer>
 	</ContentPage.Content>
 </pages:BasePage>

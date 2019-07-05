@@ -25,7 +25,8 @@ namespace MyWasteDriver
 		Error,
 		NoInternet,
 		EnterPhone,
-		EnterPassword
+		EnterPassword,
+		Entry
 
 	}
 }

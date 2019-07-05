@@ -1,23 +1,30 @@
 using System;
 using System.Collections.Generic;
+using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Akavache;
+using MyWasteDriver.DAL.DataObjects;
+using MyWasteDriver.DAL.DataObjects.Login;
 using Xamarin.Forms;
 
 namespace MyWasteDriver.BL.ViewModels.Common {
-	class MenuViewModel : BaseViewModel
-	{
+	class MenuViewModel : BaseViewModel {
 		public ICommand ExitCommand => MakeCommand(Exit);
 
-		public override async Task OnPageAppearing()
-		{
-			
+		public UserInfoObject UserInfo {
+			get => Get<UserInfoObject>();
+			set => Set(value);
 		}
 
-		private void Exit()
-		{
-			NavigateTo(AppPages.Login);
+		public override async Task OnPageAppearing() {
+			UserInfo = await BlobCache.UserAccount.GetObject<UserInfoObject>("user");
+		}
+
+		private async void Exit() {
+			await BlobCache.UserAccount.Invalidate("user");
+			NavigateTo(AppPages.Login, NavigationMode.Root, newNavigationStack: true);
 		}
 	}
 }

@@ -5,10 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Common\RequestPassword.json" />
+    <None Remove="Resources\Common\UserInfoObject.json" />
     <None Remove="Resources\Mock\Work\PointsDataObject.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Common\RequestPassword.json" />
+    <EmbeddedResource Include="Resources\Common\UserInfoObject.json" />
     <EmbeddedResource Include="Resources\Mock\Work\PointsDataObject.json" />
   </ItemGroup>
 

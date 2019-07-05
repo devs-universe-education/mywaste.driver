@@ -14,12 +14,11 @@ namespace MyWasteDriver.DAL.DataObjects {
 		public string OrderAdress { get; set; }
 		public PositionObject Coordinates { get; set; }
 		public bool CompletedOrNot { get; set; }
-		public string VisitingMode { get; set; }
+		public List<string> VisitingMode { get; set; }
 		public string TravelIntructions { get; set; }
 		public List<ContactInformation> CommunicationPhones { get; set; }
-		public List<ImageUrl> AllImageUrl { get; set; }
+		public List<string> Image { get; set; }
 	}
-	public class ImageUrl { public string Url { get; set; } };
 
 	public class ContactInformation {
 		public string JobTitle { get; set; }
@@ -27,12 +26,10 @@ namespace MyWasteDriver.DAL.DataObjects {
 		public string PhoneNumber { get; set; }
 	}
 
-	public class UnloadingPlaceObject
-	{
+	public class UnloadingPlaceObject {
 		public string UnloadingAddress { get; set; }
 		public string CompanyName { get; set; }
 		public PositionObject Coordinates { get; set; }
 
 	}
 }
-
