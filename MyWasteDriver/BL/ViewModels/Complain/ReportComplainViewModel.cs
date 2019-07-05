@@ -43,9 +43,16 @@ namespace MyWasteDriver.BL.ViewModels.Complain {
 		}
 
 
-
+		public string ErrorType
+		{
+			get => Get<string>();
+			set => Set(value);
+		}
 		public override async Task OnPageAppearing()
 		{
+			if (NavigationParams.TryGetValue("errorType", out var x))
+				ErrorType = x.ToString();
+
 			PhotoB = "photo.jpg";
 			State = PageState.Normal;
 			Position = new MapSpan(new Position(51.712468, 39.181733), 0.2, 0.2);

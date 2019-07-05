@@ -42,7 +42,7 @@
 									BackgroundColor="#1b9af7"
 									AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
 									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
-									Command="{Binding GoToReportComplainCommand}"/>
+									Command="{Binding GoToReportComplainCantDriveCommand}"/>
 				</AbsoluteLayout>
 				<AbsoluteLayout >
 					<Button CornerRadius="8"
@@ -52,7 +52,7 @@
 									BackgroundColor="#1b9af7"
 									AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
 									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
-									Command="{Binding GoToReportComplainCommand}"/>
+									Command="{Binding GoToReportComplainNoAccessCommand}"/>
 				</AbsoluteLayout>
 				<AbsoluteLayout >
 					<Button CornerRadius="8"
@@ -62,7 +62,7 @@
 									BackgroundColor="#1b9af7"
 									AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
 									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
-									Command="{Binding GoToReportComplainCommand}"/>
+									Command="{Binding GoToReportComplainNoRecyclablesCommand}"/>
 				</AbsoluteLayout>
 				<AbsoluteLayout>
 					<Button CornerRadius="8"
@@ -72,7 +72,7 @@
 									BackgroundColor="#1b9af7"
 									AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
 									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
-									Command="{Binding GoToReportComplainCommand}"/>
+									Command="{Binding GoToReportComplainDataErrorCommand}"/>
 				</AbsoluteLayout>
 							<AbsoluteLayout >
 								<Button CornerRadius="8"
@@ -82,7 +82,7 @@
 									BackgroundColor="#1b9af7"
 									AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
 									AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
-									Command="{Binding GoToReportComplainCommand}"/>
+									Command="{Binding GoToReportComplainDataErrorEtcCommand}"/>
 							</AbsoluteLayout>
 						<AbsoluteLayout Margin="0,40,0,0" AbsoluteLayout.LayoutBounds="0,0.5,AutoSize,AutoSize">
 							<Label  Text="			Возникли &#10;		проблемы ? &#10;	Позвоните на &#10;8(800)012-22-33"
