@@ -13,11 +13,13 @@
 			<StackLayout Spacing="20" AbsoluteLayout.LayoutBounds="0,0,1,AutoSize" AbsoluteLayout.LayoutFlags="WidthProportional"
 			             Orientation="Horizontal">
 				<Image Source="account.png" />
-				<StackLayout>
+				<StackLayout Spacing="0">
 					<Label
+						TextColor="Black"
 						FontSize="17"
 						Text="{Binding UserInfo.UserFullName}" />
 					<Label
+						TextColor="Black"
 						FontSize="17"
 						Text="{Binding UserInfo.UserPhoneNumber}" />
 				</StackLayout>
@@ -27,25 +29,34 @@
 			             Orientation="Horizontal">
 				<Image Source="truck.png" />
 				<Label
+					TextColor="Black"
 					FontSize="17"
 					Text="{Binding UserInfo.MachineModel}" />
-				<Label FontSize="17" Text="{Binding UserInfo.StateMachineNumber}" />
+				<Label TextColor="Black" FontSize="17" Text="{Binding UserInfo.StateMachineNumber}" />
 			</StackLayout>
-			<StackLayout Spacing="20" AbsoluteLayout.LayoutBounds="0,0.2,1,AutoSize" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional"
-			             Orientation="Horizontal">
-				<Image Source="home.png" />
-				<StackLayout Orientation="Vertical">
-					<Label FontSize="17" Text="{Binding UserInfo.CompanyName}" />
-					<Label FontSize="17" Text="{Binding UserInfo.CompanyAddress}" />
-					<Label FontSize="17" Text="{Binding UserInfo.CompanyPhoneNumber}" />
+			
+			<StackLayout Spacing="20" AbsoluteLayout.LayoutBounds="0,0.23,1,AutoSize" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional">
+				<StackLayout Spacing="20"  Orientation="Horizontal">
+					<Image Source="home.png" />
+					<StackLayout Spacing="0" >
+						<Label TextColor="Black" FontSize="17" Text="{Binding UserInfo.CompanyName}" />
+
+						<Label TextColor="Black" FontSize="17" Text="{Binding UserInfo.CompanyAddress}" />
+
+						<Label TextColor="Black" FontSize="17" Text="{Binding UserInfo.CompanyPhoneNumber}" />
+
+					</StackLayout>
 				</StackLayout>
+				<AbsoluteLayout>
+					<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional" />
+				</AbsoluteLayout>
 			</StackLayout>
 
-			<BoxView Color="#a6a6a6" AbsoluteLayout.LayoutBounds="0,0.3,1,1" AbsoluteLayout.LayoutFlags="YProportional,WidthProportional" />
+
 
 			<Button TextColor="White"
 			        CornerRadius="8"
-			        AbsoluteLayout.LayoutBounds="0.5,.4,0.6,0.085"
+			        AbsoluteLayout.LayoutBounds="0.5,.5,0.6,0.085"
 			        AbsoluteLayout.LayoutFlags="XProportional,YProportional,SizeProportional"
 			        BackgroundColor="#1b9af7"
 			        FontSize="18"

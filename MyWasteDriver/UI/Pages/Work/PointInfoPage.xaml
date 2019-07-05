@@ -24,10 +24,11 @@
 				<AbsoluteLayout>
 					<ScrollView AbsoluteLayout.LayoutBounds="0,0,1,0.875" AbsoluteLayout.LayoutFlags="SizeProportional">
 						<StackLayout Margin="10" Spacing="10">
-						<AbsoluteLayout>
+							<Image Source="http://dv-gazeta.info/wp-content/uploads/2018/05/konreyner-Kiev.jpg"/>
+							<AbsoluteLayout>
 								<RelativeLayout AbsoluteLayout.LayoutBounds="0,0,1,0.42" AbsoluteLayout.LayoutFlags="SizeProportional">
 									<ListView
-			ItemsSource="{Binding OrderObject.AllImageUrl}"
+			ItemsSource="{Binding OrderObject}"
 			SeparatorVisibility="None"
 			AnchorX="0"
 			AnchorY="0"
@@ -52,7 +53,7 @@
 														HorizontalOptions="CenterAndExpand"
 														VerticalOptions="CenterAndExpand"
 														Aspect="AspectFill" 
-													   Source="{Binding Url}"/>
+													   Source="{Binding Image}"/>
 													</ContentView>
 												</ViewCell>
 											</DataTemplate>

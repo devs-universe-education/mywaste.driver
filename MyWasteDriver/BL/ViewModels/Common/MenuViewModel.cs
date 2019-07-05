@@ -17,9 +17,12 @@ namespace MyWasteDriver.BL.ViewModels.Common {
 			get => Get<UserInfoObject>();
 			set => Set(value);
 		}
+		public string addres => _addres;
+		string _addres;
 
 		public override async Task OnPageAppearing() {
 			UserInfo = await BlobCache.UserAccount.GetObject<UserInfoObject>("user");
+			_addres = UserInfo.CompanyName + UserInfo.CompanyAddress + UserInfo.CompanyPhoneNumber;
 		}
 
 		private async void Exit() {
