@@ -177,14 +177,27 @@ namespace MyWasteDriver.BL.ViewModels.Work
 		// Временный вариант
 		private async Task CheckPermissionsAsync()
 		{
+			var cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
+			var photoStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Photos);
 			var storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
 			var locationStaus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
 
-			if (storageStatus == PermissionStatus.Denied || storageStatus == PermissionStatus.Disabled)
-				storageStatus = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Storage))[Permission.Storage];
 
-			if (locationStaus == PermissionStatus.Denied || locationStaus == PermissionStatus.Disabled)
+			if (cameraStatus == PermissionStatus.Denied || cameraStatus == PermissionStatus.Disabled) {
+				cameraStatus = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Camera))[Permission.Camera];
+			}
+
+			if (photoStatus == PermissionStatus.Denied || photoStatus == PermissionStatus.Disabled) {
+				photoStatus = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Photos))[Permission.Photos];
+			}
+
+			if (storageStatus == PermissionStatus.Denied || storageStatus == PermissionStatus.Disabled) {
+				storageStatus = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Storage))[Permission.Storage];
+			}
+
+			if (locationStaus == PermissionStatus.Denied || locationStaus == PermissionStatus.Disabled) {
 				locationStaus = (await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location))[Permission.Location];
+			}
 		}
 	}
 }
